@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <!-- hr payroll group -->
+		<record model="ir.rule" id="ir_rule_payroll_group">
+            <field name="name">Ir Rule Payroll Group</field>
+            <field name="model_id" ref="model_hr_payroll_group"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payroll payitem -->
+		<record model="ir.rule" id="ir_rule_payroll_payitem">
+            <field name="name">Ir Rule Payroll Payitem</field>
+            <field name="model_id" ref="model_hr_payroll_payitem"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payroll payitem category -->
+		<record model="ir.rule" id="ir_rule_payroll_payitem_category">
+            <field name="name">Ir Rule Payroll Payitem Category</field>
+            <field name="model_id" ref="model_hr_payroll_payitem_category"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payroll function -->
+		<record model="ir.rule" id="ir_rule_payroll_function">
+            <field name="name">Ir Rule Payroll Function</field>
+            <field name="model_id" ref="model_hr_payroll_function"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payroll parameter -->
+		<record model="ir.rule" id="ir_rule_payroll_parameter">
+            <field name="name">Ir Rule Payroll Parameter</field>
+            <field name="model_id" ref="model_hr_payroll_parameter"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payroll tax -->
+		<record model="ir.rule" id="ir_rule_payroll_tax">
+            <field name="name">Ir Rule Payroll Tax</field>
+            <field name="model_id" ref="model_hr_payroll_tax"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- referencable model -->
+		<record model="ir.rule" id="ir_rule_referencable_model">
+            <field name="name">Ir Rule Referencable Model</field>
+            <field name="model_id" ref="model_referencable_model"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- reference payitem -->
+		<record model="ir.rule" id="ir_rule_reference_payitem">
+            <field name="name">Ir Rule Reference Payitem</field>
+            <field name="model_id" ref="model_reference_payitem"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+    </data>
+</openerp>

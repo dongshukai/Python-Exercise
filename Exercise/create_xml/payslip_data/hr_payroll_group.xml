@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="category_formal_employee" model="hr.employee.category">
+            <field name="name">正式员工</field>
+        </record>
+
+        <record id="group_Normal" model="hr.payroll.group">
+            <field name="code">Normal</field>
+            <field name="name">标准工资组</field>
+            <!--<field eval="[(6, 0, [ref('rule_payitem_A001'), ref('rule_F003'), ref('rule_LVD001'), ref('rule_LVD002'), ref('rule_LVD003'), ref('rule_OT001'), ref('rule_OT002'), ref('rule_OT003'), ref('rule_GrossSalary'), ref('rule_SalaryTaxEE'), ref('rule_NETPAY')] )]" name="rule_ids"/>-->
+            <field name="company_id" ref="base.main_company"/>
+            <field name="employee_category_ids" eval="[(6, 0, [ref('category_formal_employee')])]" />
+        </record>
+
+        <record id="group_NewHire" model="hr.payroll.group">
+            <field name="code">NewHire</field>
+            <field name="name">入离职工资组</field>
+            <!--<field eval="[(6, 0, [ref('rule_payitem_A001'), ref('rule_F003'), ref('rule_LVD001'), ref('rule_LVD002'), ref('rule_LVD003'), ref('rule_OT001'), ref('rule_OT002'), ref('rule_OT003'), ref('rule_GrossSalary'), ref('rule_SalaryTaxEE'), ref('rule_NETPAY')] )]" name="rule_ids"/>-->
+            <field name="company_id" ref="base.main_company"/>
+            <field name="employee_category_ids" eval="[(6, 0, [ref('category_formal_employee')])]" />
+        </record>
+
+
+    </data>
+</openerp>

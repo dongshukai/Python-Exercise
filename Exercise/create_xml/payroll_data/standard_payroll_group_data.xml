@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="standard_payroll_group_data_id" model="hr.payroll.group">
+            <field name="name">标准薪资结构</field>
+            <field name="english_name">Standard Payroll Group</field>
+            <field name="code">CN001</field>
+            <field name="type">standard</field>
+        </record>
+
+        <record id="standard_payitem_BS001" model="hr.payroll.payitem">
+            <field name="name">基本工资</field>
+            <field name="code">BS001</field>
+            <field name="meta_data" ref="meta_BS001" />
+            <field name="english_name">Base Salary</field>
+            <field name="category" ref="payitem_category_1"/>
+            <!--<field name="meta_code" ref="meta_" />-->
+            <field name="scope">company</field>
+            <field name="source">fixed</field>
+            <field name="value_type">float</field>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="standard_payroll_group_data_id"/>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <!--<record id="HumanResource" model="hr.payroll.rule.category">-->
+            <!--<field name="name">人事项目</field>-->
+            <!--<field name="code">HumanResource</field>-->
+        <!--</record>-->
+
+        <!--<record id="Allowance" model="hr.payroll.rule.category">-->
+            <!--<field name="name">津贴项目</field>-->
+            <!--<field name="code">Allowance</field>-->
+        <!--</record>-->
+
+        <!--<record id="Attendance" model="hr.payroll.rule.category">-->
+            <!--<field name="name">考勤项目</field>-->
+            <!--<field name="code">Attendance</field>-->
+        <!--</record>-->
+
+        <!--<record id="Payroll" model="hr.payroll.rule.category">-->
+            <!--<field name="name">薪资项目</field>-->
+            <!--<field name="code">Payroll</field>-->
+        <!--</record>-->
+
+        <!--<record id="Bonus" model="hr.payroll.rule.category">-->
+            <!--<field name="name">绩效奖金</field>-->
+            <!--<field name="code">Bonus</field>-->
+        <!--</record>-->
+
+        <!--<record id="Expense" model="hr.payroll.rule.category">-->
+            <!--<field name="name">报销项目</field>-->
+            <!--<field name="code">Expense</field>-->
+        <!--</record>-->
+
+        <!--<record id="LegallyBenefits" model="hr.payroll.rule.category">-->
+            <!--<field name="name">法定福利</field>-->
+            <!--<field name="code">LegallyBenefits</field>-->
+        <!--</record>-->
+
+        <!--<record id="AddionalBenefits" model="hr.payroll.rule.category">-->
+            <!--<field name="name">补充福利</field>-->
+            <!--<field name="code">AddionalBenefits</field>-->
+        <!--</record>-->
+
+        <!--<record id="Others" model="hr.payroll.rule.category">-->
+            <!--<field name="name">其他项目</field>-->
+            <!--<field name="code">Others</field>-->
+        <!--</record>-->
+
+
+    </data>
+</openerp>

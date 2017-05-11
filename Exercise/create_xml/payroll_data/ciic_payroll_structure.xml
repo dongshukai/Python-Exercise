@@ -1,0 +1,1420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--算税模型需要payitem start-->
+        <!-- 以下是工资税所需使用的payitem start-->
+
+        <record id="payitem_before_tax_normal" model="hr.payroll.payitem">
+            <field name="code">before_tax_normal</field>
+            <field name="name">正算税前</field>
+            <field name="meta_data" ref="payroll_setting.meta_before_tax_normal" />
+            <field name="source">formula</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">formula</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_before_tax_reverse" model="hr.payroll.payitem">
+            <field name="code">before_tax_reverse</field>
+            <field name="name">反算税前</field>
+            <field name="meta_data" ref="payroll_setting.meta_before_tax_reverse"/>
+            <field name="source">formula</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">formula</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_before_tax_total" model="hr.payroll.payitem">
+            <field name="code">before_tax_total</field>
+            <field name="name">总税前</field>
+            <field name="meta_data" ref="payroll_setting.meta_before_tax_total"/>
+            <field name="source">formula</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">formula</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+
+        <record id="payitem_tax_normal" model="hr.payroll.payitem">
+            <field name="code">tax_normal</field>
+            <field name="name">正算税金</field>
+            <field name="meta_data" ref="payroll_setting.meta_tax_normal"/>
+            <field name="source">formula</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">formula</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_tax_reverse" model="hr.payroll.payitem">
+            <field name="code">tax_reverse</field>
+            <field name="name">倒算税金</field>
+            <field name="meta_data" ref="payroll_setting.meta_tax_reverse"/>
+            <field name="source">formula</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">formula</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_tax_total" model="hr.payroll.payitem">
+            <field name="code">tax_total</field>
+            <field name="name">总税金</field>
+            <field name="meta_data" ref="payroll_setting.meta_tax_total"/>
+            <field name="source">formula</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">formula</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_after_tax_normal" model="hr.payroll.payitem">
+            <field name="code">after_tax_normal</field>
+            <field name="name">正算税后</field>
+            <field name="meta_data" ref="payroll_setting.meta_after_tax_normal"/>
+            <field name="source">formula</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">formula</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_after_tax_reverse" model="hr.payroll.payitem">
+            <field name="code">after_tax_reverse</field>
+            <field name="name">倒算税后</field>
+            <field name="meta_data" ref="payroll_setting.meta_after_tax_reverse"/>
+            <field name="source">formula</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">formula</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_after_tax_total" model="hr.payroll.payitem">
+            <field name="code">after_tax_total</field>
+            <field name="name">总税后</field>
+            <field name="meta_data" ref="payroll_setting.meta_after_tax_total"/>
+            <field name="source">formula</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">formula</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_person_pay_tax_differ" model="hr.payroll.payitem">
+            <field name="code">person_pay_tax_differ</field>
+            <field name="name">个人承担税差</field>
+            <field name="meta_data" ref="payroll_setting.meta_person_pay_tax_differ"/>
+            <field name="source">import</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">hr.payslip.payitem.import</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_company_pay_tax_differ" model="hr.payroll.payitem">
+            <field name="code">company_pay_tax_differ</field>
+            <field name="name">企业承担税差</field>
+            <field name="meta_data" ref="payroll_setting.meta_company_pay_tax_differ"/>
+            <field name="source">import</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">hr.payslip.payitem.import</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_salary_adjust_before_tax" model="hr.payroll.payitem">
+            <field name="code">salary_adjust_before_tax</field>
+            <field name="name">税前薪资调整</field>
+            <field name="meta_data" ref="payroll_setting.meta_salary_adjust_before_tax"/>
+            <field name="source">import</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">hr.payslip.payitem.import</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_salary_adjust_after_tax" model="hr.payroll.payitem">
+            <field name="code">salary_adjust_after_tax</field>
+            <field name="name">税后薪资调整</field>
+            <field name="meta_data" ref="payroll_setting.meta_salary_adjust_after_tax"/>
+            <field name="source">import</field>
+            <field name="category" ref="payroll_setting.payitem_category_7" />
+            <field name="src_model">hr.payslip.payitem.import</field>
+            <field name="scope">global</field>
+            <field name="value_type">float</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field name="active" eval="True"/>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <!--以下是工资税所需使用的payitem end-->
+
+        <!--以下是年终奖税所需使用的payitem start-->
+        <!--<record id="payitem_reverse_taxable_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">reverse_taxable_bonus</field>-->
+            <!--<field name="name">倒推应税年终奖</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_before_tax_total_er_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">before_tax_total_er_bonus</field>-->
+            <!--<field name="name">个人累计税前年终奖</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_before_tax_total_ee_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">before_tax_total_ee_bonus</field>-->
+            <!--<field name="name">公司累计税前年终奖</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_before_tax_total_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">before_tax_total_bonus</field>-->
+            <!--<field name="name">累计税前年终奖</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_before_tax_salary_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">before_tax_salary_bonus</field>-->
+            <!--<field name="name">倒推税前年终奖</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_SalaryTaxEE_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">SalaryTaxEE_bonus</field>-->
+            <!--<field name="name">员工承担的年终奖收入个人所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_SalaryTaxER_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">SalaryTaxER_bonus</field>-->
+            <!--<field name="name">公司承担的年终奖收入个人所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_tax_total_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">tax_total_bonus</field>-->
+            <!--<field name="name">个税累积年终奖</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_tax_person_current_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">tax_person_current_bonus</field>-->
+            <!--<field name="name">个人当批次承担年终奖税金</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_tax_enterprise_current_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">tax_enterprise_current_bonus</field>-->
+            <!--<field name="name">企业当批次承担年终奖税金</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_person_pay_tax_differ_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">person_pay_tax_differ_bonus</field>-->
+            <!--<field name="name">个人承担年终奖税差</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_company_pay_tax_differ_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">company_pay_tax_differ_bonus</field>-->
+            <!--<field name="name">企业承担年终奖税差</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_salary_adjust_before_tax_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">salary_adjust_before_tax_bonus</field>-->
+            <!--<field name="name">税前年终奖调整</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_salary_adjust_after_tax_bonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">salary_adjust_after_tax_bonus</field>-->
+            <!--<field name="name">税后年终奖调整</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field name="duplication_allowed" eval="True"/>-->
+            <!--<field name="active" eval="True"/>-->
+        <!--</record>-->
+        <!--以下是年终奖税所需使用的payitem end-->
+
+        <!--以下是劳务税所需使用的payitem start-->
+        <!-- 未配全，因为暂没有加此税种 -->
+        <!--<record id="payitem_SCTaxEE" model="hr.payroll.payitem">-->
+            <!--<field name="code">SCTaxEE</field>-->
+            <!--<field name="name">员工承担的劳务所得个人所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SCTaxER" model="hr.payroll.payitem">-->
+            <!--<field name="code">SCTaxER</field>-->
+            <!--<field name="name">公司承担的劳务所得个人所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--以下是劳务税所需使用的payitem end-->
+
+        <!--以下是离职补偿税所需使用的payitem start-->
+        <!-- 未配全，因为暂没有加此税种 -->
+        <!--<record id="payitem_SeverancePayTaxEEl" model="hr.payroll.payitem">-->
+            <!--<field name="code">SeverancePayTaxEEl</field>-->
+            <!--<field name="name">个人承担的离职补偿金所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SeverancePayTaxERFinal" model="hr.payroll.payitem">-->
+            <!--<field name="code">SeverancePayTaxERFinal</field>-->
+            <!--<field name="name">公司承担的离职补偿金所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--以下是离职补偿税所需使用的payitem end-->
+
+        <!--以下是股权激励税所需使用的payitem start-->
+        <!-- 未配全，因为暂没有加此税种 -->
+        <!--<record id="payitem_StockIncomeTaxEE" model="hr.payroll.payitem">-->
+            <!--<field name="code">StockIncomeTaxEE</field>-->
+            <!--<field name="name">个人承担的股权激励所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_StockIncomeTaxER" model="hr.payroll.payitem">-->
+            <!--<field name="code">StockIncomeTaxER</field>-->
+            <!--<field name="name">公司承担的股权激励所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--以下是股权激励税所需使用的payitem end-->
+
+        <!--以下是偶然所得税所需使用的payitem start-->
+        <!-- 未配全，因为暂没有加此税种 -->
+        <!--<record id="payitem_IncTaxEE" model="hr.payroll.payitem">-->
+            <!--<field name="code">IncTaxEE</field>-->
+            <!--<field name="name">员工承担的偶然所得个人所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_IncTaxER" model="hr.payroll.payitem">-->
+            <!--<field name="code">IncTaxER</field>-->
+            <!--<field name="name">公司承担的偶然所得个人所得税</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--以下是偶然所得税所需使用的payitem end-->
+
+        <!--算税模型需要payitem end-->
+
+        <!-- 社保计算项payitem start-->
+        <!--<record id="payitem_SBEE001" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEE001</field>-->
+            <!--<field name="name">个人养老汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEE003" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEE003</field>-->
+            <!--<field name="name">个人医疗汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEE005" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEE005</field>-->
+            <!--<field name="name">个人失业汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEE006" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEE006</field>-->
+            <!--<field name="name">个人大病医疗汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEEBackPay001" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEEBackPay001</field>-->
+            <!--<field name="name">个人养老补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEEBackPay003" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEEBackPay003</field>-->
+            <!--<field name="name">个人医疗补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEEBackPay005" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEEBackPay005</field>-->
+            <!--<field name="name">个人失业补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEEBackPay006" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEEBackPay006</field>-->
+            <!--<field name="name">个人大病医疗补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_HFEE001" model="hr.payroll.payitem">-->
+            <!--<field name="code">HFEE001</field>-->
+            <!--<field name="name">个人公积金汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_HFEE002" model="hr.payroll.payitem">-->
+            <!--<field name="code">HFEE002</field>-->
+            <!--<field name="name">个人补充公积金汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_HFEEBackPay001" model="hr.payroll.payitem">-->
+            <!--<field name="code">HFEEBackPay001</field>-->
+            <!--<field name="name">个人公积金补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_HFEEBackPay002" model="hr.payroll.payitem">-->
+            <!--<field name="code">HFEEBackPay002</field>-->
+            <!--<field name="name">个人补充公积金补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBER002" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBER002</field>-->
+            <!--<field name="name">企业补充养老汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBER004" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBER004</field>-->
+            <!--<field name="name">企业补充医疗汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBERBackPay002" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBERBackPay002</field>-->
+            <!--<field name="name">企业补充养老补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBERBackPay004" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBERBackPay004</field>-->
+            <!--<field name="name">企业补充医疗补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEE002" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEE002</field>-->
+            <!--<field name="name">个人补充养老汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEE004" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEE004</field>-->
+            <!--<field name="name">个人补充医疗汇缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEEBackPay002" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEEBackPay002</field>-->
+            <!--<field name="name">个人补充养老补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_SBEEBackPay004" model="hr.payroll.payitem">-->
+            <!--<field name="code">SBEEBackPay004</field>-->
+            <!--<field name="name">个人补充医疗补缴额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!-- 社保计算项payitem end-->
+
+        <!-- 工资计算所需要payitem start -->
+        <!--<record id="payitem_E001" model="hr.payroll.payitem">-->
+            <!--<field name="code">E001</field>-->
+            <!--<field name="name">员工姓名</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E002" model="hr.payroll.payitem">-->
+            <!--<field name="code">E002</field>-->
+            <!--<field name="name">英文名</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E003" model="hr.payroll.payitem">-->
+            <!--<field name="code">E003</field>-->
+            <!--<field name="name">员工编号</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E004" model="hr.payroll.payitem">-->
+            <!--<field name="code">E004</field>-->
+            <!--<field name="name">身份证号</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E005" model="hr.payroll.payitem">-->
+            <!--<field name="code">E005</field>-->
+            <!--<field name="name">护照号</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E006" model="hr.payroll.payitem">-->
+            <!--<field name="code">E006</field>-->
+            <!--<field name="name">部门</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E007" model="hr.payroll.payitem">-->
+            <!--<field name="code">E007</field>-->
+            <!--<field name="name">岗位</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E008" model="hr.payroll.payitem">-->
+            <!--<field name="code">E008</field>-->
+            <!--<field name="name">工作城市</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E009" model="hr.payroll.payitem">-->
+            <!--<field name="code">E009</field>-->
+            <!--<field name="name">入职日期</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E010" model="hr.payroll.payitem">-->
+            <!--<field name="code">E010</field>-->
+            <!--<field name="name">公司工龄</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_E011" model="hr.payroll.payitem">-->
+            <!--<field name="code">E011</field>-->
+            <!--<field name="name">社会工龄</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">char</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_A001" model="hr.payroll.payitem">-->
+            <!--<field name="code">A001</field>-->
+            <!--<field name="name">实际基本工资</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_AttendaceDay" model="hr.payroll.payitem">-->
+            <!--<field name="code">AttendaceDay</field>-->
+            <!--<field name="name">入离职月实际工作天数</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <record id="payitem_AA001" model="hr.payroll.payitem">
+            <field name="code">AA001</field>
+            <field name="name">基本工资</field>
+            <field name="meta_data" ref="payroll_setting.meta_AA001"/>
+            <field name="source">import</field>
+            <field name="category" ref="payroll_setting.payitem_category_1"/>
+            <field name="value_type">float</field>
+            <field eval="True" name="active"/>
+            <field name="src_model">hr.payslip.payitem.import</field>
+            <field name="scope">global</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <record id="payitem_C001" model="hr.payroll.payitem">
+            <field name="code">C001</field>
+            <field name="name">房贴</field>
+            <field name="meta_data" ref="payroll_setting.meta_C001"/>
+            <field name="source">import</field>
+            <field name="category" ref="payroll_setting.payitem_category_1"/>
+            <field name="value_type">float</field>
+            <field eval="True" name="active"/>
+            <field name="src_model">hr.payslip.payitem.import</field>
+            <field name="scope">global</field>
+            <field name="default_value">0.0</field>
+            <field name="sequence">2</field>
+            <field eval="True" name="duplication_allowed"/>
+        </record>
+
+        <!--<record id="payitem_C002" model="hr.payroll.payitem">-->
+            <!--<field name="code">C002</field>-->
+            <!--<field name="name">餐贴</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_C003" model="hr.payroll.payitem">-->
+            <!--<field name="code">C003</field>-->
+            <!--<field name="name">交通津贴</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_C004" model="hr.payroll.payitem">-->
+            <!--<field name="code">C004</field>-->
+            <!--<field name="name">车贴</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_C005" model="hr.payroll.payitem">-->
+            <!--<field name="code">C005</field>-->
+            <!--<field name="name">独生子女津贴</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_C006" model="hr.payroll.payitem">-->
+            <!--<field name="code">C006</field>-->
+            <!--<field name="name">夜班津贴</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_C007" model="hr.payroll.payitem">-->
+            <!--<field name="code">C007</field>-->
+            <!--<field name="name">高温补贴</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_C008" model="hr.payroll.payitem">-->
+            <!--<field name="code">C008</field>-->
+            <!--<field name="name">其他补贴</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_ATT001" model="hr.payroll.payitem">-->
+            <!--<field name="code">ATT001</field>-->
+            <!--<field name="name">平时加班小时数</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_ATT002" model="hr.payroll.payitem">-->
+            <!--<field name="code">ATT002</field>-->
+            <!--<field name="name">周末加班小时数</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_ATT003" model="hr.payroll.payitem">-->
+            <!--<field name="code">ATT003</field>-->
+            <!--<field name="name">节假日加班小时数</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_ATT004" model="hr.payroll.payitem">-->
+            <!--<field name="code">ATT004</field>-->
+            <!--<field name="name">其他类型的加班小时</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_OT001" model="hr.payroll.payitem">-->
+            <!--<field name="code">OT001</field>-->
+            <!--<field name="name">平时加班津贴</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_OT002" model="hr.payroll.payitem">-->
+            <!--<field name="code">OT002</field>-->
+            <!--<field name="name">周末加班津贴</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_OT003" model="hr.payroll.payitem">-->
+            <!--<field name="code">OT003</field>-->
+            <!--<field name="name">假日加班津贴</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_OT004" model="hr.payroll.payitem">-->
+            <!--<field name="code">OT004</field>-->
+            <!--<field name="name">其他加班津贴</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_ATT005" model="hr.payroll.payitem">-->
+            <!--<field name="code">ATT005</field>-->
+            <!--<field name="name">短病假天数</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_ATT006" model="hr.payroll.payitem">-->
+            <!--<field name="code">ATT006</field>-->
+            <!--<field name="name">旷工天数</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_ATT007" model="hr.payroll.payitem">-->
+            <!--<field name="code">ATT007</field>-->
+            <!--<field name="name">无薪假天数</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_ATT008" model="hr.payroll.payitem">-->
+            <!--<field name="code">ATT008</field>-->
+            <!--<field name="name">其他假天数</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_LVD001" model="hr.payroll.payitem">-->
+            <!--<field name="code">LVD001</field>-->
+            <!--<field name="name">短病假扣款</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_LVD002" model="hr.payroll.payitem">-->
+            <!--<field name="code">LVD002</field>-->
+            <!--<field name="name">旷工扣款</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_LVD003" model="hr.payroll.payitem">-->
+            <!--<field name="code">LVD003</field>-->
+            <!--<field name="name">无薪假扣款</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_LVD004" model="hr.payroll.payitem">-->
+            <!--<field name="code">LVD004</field>-->
+            <!--<field name="name">其他假期扣款</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!--<record id="payitem_LV005" model="hr.payroll.payitem">-->
+            <!--<field name="code">LV005</field>-->
+            <!--<field name="name">产假工资</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_LV006" model="hr.payroll.payitem">-->
+            <!--<field name="code">LV006</field>-->
+            <!--<field name="name">长病假工资</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+        <!-- -->
+        <!--<record id="payitem_LV007" model="hr.payroll.payitem">-->
+            <!--<field name="code">LV007</field>-->
+            <!--<field name="name">年假工资</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_F001" model="hr.payroll.payitem">-->
+            <!--<field name="code">F001</field>-->
+            <!--<field name="name">法定年假余额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_F002" model="hr.payroll.payitem">-->
+            <!--<field name="code">F002</field>-->
+            <!--<field name="name">公司年假余额</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_F003" model="hr.payroll.payitem">-->
+            <!--<field name="code">F003</field>-->
+            <!--<field name="name">法定年假折现</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_F004" model="hr.payroll.payitem">-->
+            <!--<field name="code">F004</field>-->
+            <!--<field name="name">公司年假折现</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_IncomebeforeTax" model="hr.payroll.payitem">-->
+            <!--<field name="code">IncomebeforeTax</field>-->
+            <!--<field name="name">应税工资</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_AnnualBonus" model="hr.payroll.payitem">-->
+            <!--<field name="code">AnnualBonus</field>-->
+            <!--<field name="name">全年一次性奖金合计</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_SCIncome" model="hr.payroll.payitem">-->
+            <!--<field name="code">SCIncome</field>-->
+            <!--<field name="name">劳务报酬合计</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_SeverancePay" model="hr.payroll.payitem">-->
+            <!--<field name="code">SeverancePay</field>-->
+            <!--<field name="name">离职补偿金合计</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_StockIncome" model="hr.payroll.payitem">-->
+            <!--<field name="code">StockIncome</field>-->
+            <!--<field name="name">股权激励所得合计</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_StockMonth" model="hr.payroll.payitem">-->
+            <!--<field name="code">StockMonth</field>-->
+            <!--<field name="name">规定月数</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="False" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_IncTax" model="hr.payroll.payitem">-->
+            <!--<field name="code">IncTax</field>-->
+            <!--<field name="name">偶然所得合计</field>-->
+            <!--<field name="source">import</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">hr.payslip.payitem.import</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_GrossSalary" model="hr.payroll.payitem">-->
+            <!--<field name="code">GrossSalary</field>-->
+            <!--<field name="name">税前工资</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!--<record id="payitem_NETPAY" model="hr.payroll.payitem">-->
+            <!--<field name="code">NETPAY</field>-->
+            <!--<field name="name">实发工资</field>-->
+            <!--<field name="source">formula</field>-->
+            <!--<field name="value_type">float</field>-->
+            <!--<field eval="True" name="active"/>-->
+            <!--<field name="src_model">formula</field>-->
+            <!--<field name="scope">global</field>-->
+            <!--<field name="default_value">0.0</field>-->
+            <!--<field name="fixed_value">0.0</field>-->
+            <!--<field eval="True" name="duplication_allowed"/>-->
+        <!--</record>-->
+
+        <!-- 工资计算所需要payitem end -->
+
+    </data>
+</openerp>

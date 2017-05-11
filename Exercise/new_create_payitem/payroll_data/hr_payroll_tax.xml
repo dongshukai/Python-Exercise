@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- 工资税种 start -->
+        <record id="hr_payroll_tax_salary" model="hr.payroll.tax">
+            <field name="name">工资税</field>
+            <field name="code">payroll_tax</field>
+            <field name="meta_ids" eval="[(4, ref('payroll_setting.meta_before_tax_normal')),(4, ref('payroll_setting.meta_before_tax_reverse')),(4, ref('payroll_setting.meta_before_tax_total')),
+            (4, ref('payroll_setting.meta_tax_normal')), (4, ref('payroll_setting.meta_tax_reverse')), (4, ref('payroll_setting.meta_tax_total')),
+            (4, ref('payroll_setting.meta_after_tax_normal')), (4, ref('payroll_setting.meta_after_tax_reverse')), (4, ref('payroll_setting.meta_after_tax_total'))]"/>
+        </record>
+        <!-- 工资税种 end -->
+
+        <!--&lt;!&ndash; 年终奖税种 start &ndash;&gt;-->
+
+        <!--<record id="hr_payroll_tax_bonus" model="hr.payroll.tax">-->
+            <!--<field name="name">年终奖税</field>-->
+            <!--<field name="code">payroll_tax_bonus</field>-->
+            <!--<field name="before_tax_person" ref="payroll_setting.payitem_before_tax_total_er_bonus"/>-->
+            <!--<field name="before_tax_company" ref="payroll_setting.payitem_before_tax_total_ee_bonus"/>-->
+            <!--<field name="before_tax_total" ref="payroll_setting.payitem_before_tax_total_bonus"/>-->
+            <!--<field name="tax_person" ref="payroll_setting.payitem_SalaryTaxEE_bonus"/>-->
+            <!--<field name="tax_company" ref="payroll_setting.payitem_SalaryTaxER_bonus"/>-->
+            <!--<field name="tax_total" ref="payroll_setting.payitem_tax_total_bonus"/>-->
+        <!--</record>-->
+        <!--&lt;!&ndash; 年终奖税种 end &ndash;&gt;-->
+
+        <!-- 其它几种税种因为用得较少，没有配置 -->
+
+
+    </data>
+</openerp>

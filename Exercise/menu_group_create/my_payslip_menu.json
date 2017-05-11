@@ -1,0 +1,17 @@
+{
+  "payroll_engine": [
+    ["payslip_payitem", "payroll_calculate.model_hr_payslip_payitem"],
+    ["payslip_function", "payroll_calculate.model_hr_payslip_function"],
+    ["payslip_group", "payroll_calculate.model_hr_payslip_group"],
+    ["payslip_parameter", "payroll_calculate.model_hr_payslip_parameter"],
+    ["payslip_parameter_data", "payroll_calculate.model_hr_payslip_parameter_data"],
+    ["payslip_payitem_import", "payroll_calculate.model_hr_payslip_payitem_import"],
+    ["payslip_payitem_input", "payroll_calculate.model_hr_payslip_payitem_input"],
+    ["payslip_rule_result", "payroll_calculate.model_hr_payslip_rule_result"],
+    ["payslip_run", "payroll_calculate.model_hr_payslip_run"],
+    ["payslip_tax", "payroll_calculate.model_hr_payslip_tax"],
+    ["payslip_period_result", "payroll_calculate.model_hr_payslip_period_result"],
+    ["payroll_iit_flow", "payroll_calculate.model_hr_payroll_iit_flow"],
+    ["payroll_single_calculate", "payroll_calculate.model_payroll_single_calculate"]
+  ]
+}

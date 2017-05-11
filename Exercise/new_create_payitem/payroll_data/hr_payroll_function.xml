@@ -1,0 +1,1586 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <!--<data noupdate="1">-->
+    <data>
+
+      <record model="hr.payroll.function" id="function_sick_leave_deduction">
+          <field name="name">病假扣除公式</field>
+          <field name="code">func_sick_leave_deduction</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">4</field>
+          <field name="most_parameter">4</field>
+          <field name="category">扣除公式</field>
+          <field name="python_code">def func_sick_leave_deduction(base_salary, healing_days, in_service_time, sick_leave_days):
+              #参数解释: base_salary-基本工资 healing_days-医疗期 in_service_time-工龄 sick_leave_days-病假天数
+              if healing_days &lt;= 182 and in_service_time &lt; 2:
+                  return base_salary / 21.75 * sick_leave_days * 0.4
+              if healing_days &lt;= 182 and in_service_time &lt; 4:
+                  return base_salary / 21.75 * sick_leave_days * 0.3
+              if healing_days &lt;= 182 and in_service_time &lt; 6:
+                  return base_salary / 21.75 * sick_leave_days * 0.2
+              if healing_days &lt;= 182 and in_service_time &lt; 8:
+                  return base_salary / 21.75 * sick_leave_days * 0.1
+              if healing_days &lt;= 182 and in_service_time &gt;= 8:
+                  return 0
+              if healing_days &gt;= 182 and in_service_time &lt; 1:
+                  return base_salary / 21.75 * sick_leave_days * 0.6
+              if healing_days &gt;= 182 and in_service_time &lt; 3:
+                  return base_salary / 21.75 * sick_leave_days * 0.5
+              if healing_days &gt;= 182 and in_service_time &gt;= 3:
+                  return base_salary / 21.75 * sick_leave_days * 0.4
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;病假扣除公式&lt;/p&gt;
+              &lt;p&gt;格式：病假扣除(基本工资,医疗期,工龄,病假天数)&lt;/p&gt;
+              &lt;p&gt;返回：病假扣除数&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="function_income_tax_domestic">
+          <field name="name">个人所得税公式</field>
+          <field name="code">func_income_tax_domestic</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_income_tax_domestic(taxable_salary):
+              #参数解释: taxable_salary-计税工资
+              if taxable_salary &lt;= 3500:
+                  return 0
+              else:
+                  base = taxable_salary - 3500
+                  if base &lt;= 1500:
+                      return base*0.03
+                  if base &gt; 1500 and base &lt;= 4500:
+                      return base*0.1 - 105
+                  if base &gt; 4500 and base &lt;= 9000:
+                      return base * 0.2 - 555
+                  if base &gt; 9000 and base &lt;= 35000:
+                      return base * 0.25 - 1005
+                  if base &gt; 35000 and base &lt;= 55000:
+                      return base * 0.3 - 2755
+                  if base &gt; 55000 and base &lt;= 80000:
+                      return base * 0.35 - 5505
+                  if base &gt; 80000:
+                      return base * 0.45 - 13505
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;个人所得税(中国籍)公式&lt;/p&gt;
+              &lt;p&gt;格式: 个人所得税(税前工资)&lt;/p&gt;
+              &lt;p&gt;返回: 个人所得税税金&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="func_income_from_transfer_of_property">
+          <field name="name">财产转让所得税计算公式</field>
+          <field name="code">func_income_from_transfer_of_property</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">3</field>
+          <field name="most_parameter">3</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_income_from_transfer_of_property(income_money, origin_property_money, tax_etc_money):
+              #参数解释: income_money-财产转让收入金额 origin_property_money-财产原值 tax_etc_money-相关税费等
+              if income_money &lt;= origin_property_money + tax_etc_money:
+                  return 0
+              return (income_money - origin_property_money - tax_etc_money) * 0.2
+
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;财产转让所得税计算公式(中国籍)公式&lt;/p&gt;
+              &lt;p&gt;格式: 财产转让所得税计算公式(财产转让收入金额, 财产原值, 相关税费等)&lt;/p&gt;
+              &lt;p&gt;返回: 财产转让所得税税金&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="func_interest_dividend_and_bonus_income">
+          <field name="name">股息红利所得税计算公式</field>
+          <field name="code">func_interest_dividend_and_bonus_income</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">2</field>
+          <field name="most_parameter">2</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_interest_dividend_and_bonus_income(income_money, hold_time):
+              #参数解释: income_money-股息红利收入金额 hold_time-持有时间(月)
+              if hold_time &lt; 1:
+                  return income_money * 0.2
+              if hold_time &lt; 12:
+                  return income_money * 0.1
+              return 0
+
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;股息红利所得税计算公式(中国籍)公式&lt;/p&gt;
+              &lt;p&gt;格式: 股息红利所得税计算公式(股息红利收入金额,持有时间(月))&lt;/p&gt;
+              &lt;p&gt;返回: 股息红利所得税税税金&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="func_remove_contract_pay">
+          <field name="name">解除劳动合同一次性补偿计算公式</field>
+          <field name="code">func_remove_contract_pay</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">3</field>
+          <field name="most_parameter">3</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_remove_contract_pay(income_money, average_salary, work_year):
+              #参数解释: income_money-一次性经济补偿收入 average_salary-当地上年企业职工年平均工资 work_year-工作年限数
+              if income_money &lt;= average_salary * 3:
+                  return 0
+              if work_year &gt; 12:
+                  work_year = 12
+              taxable_salary = (income_money - average_salary * 3) / work_year
+              if taxable_salary &lt;= 3500:
+                  single_tax = 0
+              else:
+                  base = taxable_salary - 3500
+                  if base &lt;= 1500:
+                      single_tax = base*0.03
+                  if base &gt; 1500 and base &lt;= 4500:
+                      single_tax = base*0.1 - 105
+                  if base &gt; 4500 and base &lt;= 9000:
+                      single_tax = base * 0.2 - 555
+                  if base &gt; 9000 and base &lt;= 35000:
+                      single_tax = base * 0.25 - 1005
+                  if base &gt; 35000 and base &lt;= 55000:
+                      single_tax = base * 0.3 - 2755
+                  if base &gt; 55000 and base &lt;= 80000:
+                      single_tax = base * 0.35 - 5505
+                  if base &gt; 80000:
+                      single_tax = base * 0.45 - 13505
+              return single_tax * work_year
+
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;解除劳动合同一次性补偿计算(中国籍)公式&lt;/p&gt;
+              &lt;p&gt;格式: 解除劳动合同一次性补偿计算公式(一次性经济补偿收入,当地上年企业职工年平均工资, 工作年限数)&lt;/p&gt;
+              &lt;p&gt;返回: 解除劳动合同一次性补偿税金&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="func_income_from_lease_of_proper">
+          <field name="name">财产租赁所得税计算公式</field>
+          <field name="code">func_income_from_lease_of_proper</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">4</field>
+          <field name="most_parameter">4</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_income_from_lease_of_proper(income_money, deduct_money, repair_money, type):
+              #参数解释: income_money-财产租赁所得 deduct_money-准予扣除项目 repair_money-修缮费用 type-出租住房类型
+              if repair_money &gt;800:
+                  repair_money = 800
+              if type == 1:
+                  tax_rate = 0.1
+              elif type == 2:
+                  tax_rate = 0.2
+              else:
+                  return 0
+              if income_money &lt; deduct_money + repair_money + 800:
+                  return 0
+              if income_money &lt;= 4000:
+                  return (income_money - deduct_money - repair_money - 800) * tax_rate
+              else:
+                  return (income_money - deduct_money - repair_money) * 0.8 * tax_rate
+
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;财产租赁所得税计算公式(中国籍)公式&lt;/p&gt;
+              &lt;p&gt;格式: 财产租赁所得税计算公式(财产租赁所得, 准予扣除项目, 修缮费用, 出租住房类型(1-个人出租,2-其他))&lt;/p&gt;
+              &lt;p&gt;返回: 财产租赁所得税税金&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="function_income_tax_foreign">
+          <field name="name">外籍个人所得税公式</field>
+          <field name="code">func_income_tax_foreign</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_income_tax_foreign(taxable_salary):
+              #参数解释: taxable_salary-计税工资
+              if taxable_salary &lt;= 4800:
+                  return 0
+              else:
+                  base = taxable_salary - 4800
+                  if base &lt;= 1500:
+                      return base*0.03
+                  if base &gt; 1500 and base &lt;= 4500:
+                      return base*0.1 - 105
+                  if base &gt; 4500 and base &lt;= 9000:
+                      return base * 0.2 - 555
+                  if base &gt; 9000 and base &lt;= 35000:
+                      return base * 0.25 - 1005
+                  if base &gt; 35000 and base &lt;= 55000:
+                      return base * 0.3 - 2755
+                  if base &gt; 55000 and base &lt;= 80000:
+                      return base * 0.35 - 5505
+                  if base &gt; 80000:
+                      return base * 0.45 - 13505
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;外籍个人所得税公式&lt;/p&gt;
+              &lt;p&gt;格式: 外籍个人所得税(税前工资)&lt;/p&gt;
+              &lt;p&gt;返回: 外籍员工个人所得税税金&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="function_annual_bonus_tax_domestic">
+          <field name="name">年终奖税公式</field>
+          <field name="code">func_annual_bonus_tax_domestic</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">2</field>
+          <field name="most_parameter">2</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_annual_bonus_tax_domestic(annual_bonus,taxable_salary):
+              #参数解释: annual_bonus-年终奖  taxable_salary-计税工资
+              base = annual_bonus
+              compare = annual_bonus / 12.0
+              if annual_bonus &lt;= 0:
+                  return 0
+              if taxable_salary &lt; 3500:
+                  if taxable_salary == 0:
+                      taxable_salary = 3500
+                  compare = (annual_bonus - (3500 - taxable_salary)) / 12.0
+                  base = annual_bonus - (3500 - taxable_salary)
+              if base &lt;= 0:
+                  return 0
+              if compare &lt;= 1500:
+                  return base*0.03
+              if compare &gt;1500 and compare &lt;= 4500:
+                  return base*0.1 - 105
+              if compare &gt;4500 and compare &lt;= 9000:
+                  return base * 0.2 - 555
+              if compare &gt; 9000 and compare &lt;= 35000:
+                  return base * 0.25 - 1005
+              if compare &gt; 35000 and compare &lt;= 55000:
+                  return base * 0.3 - 2755
+              if compare &gt; 55000 and compare &lt;= 80000:
+                  return base * 0.35 - 5505
+              if compare &gt; 80000:
+                  return base * 0.45 - 13505
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;年终奖税计算公式&lt;/p&gt;
+              &lt;p&gt;格式: 年终奖税(年终奖,计税工资)&lt;/p&gt;
+              &lt;p&gt;返回: 年终奖奖金&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_BackwardAnnualBonusIIT">
+          <field name="name">年终奖倒推应税公式</field>
+          <field name="code">F_BackwardAnnualBonusIIT</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">2</field>
+          <field name="most_parameter">2</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def F_BackwardAnnualBonusIIT(after_tax, taxable_salary):
+              #参数解释: after_tax->税后金额(奖金扣除税金), taxable_salary-计税工资
+              if taxable_salary &gt;= 3500:
+                  return min([after_tax/0.97, (after_tax-105)/0.9, (after_tax-555)/0.8, (after_tax-1005)/0.75, (after_tax-2755)/0.7, (after_tax-5505)/0.65, (after_tax-13505)/0.55])
+              else:
+                  return min([(after_tax - (3500-taxable_salary)*0.03)/0.97, (after_tax - 105 - (3500-taxable_salary)*0.1)/0.9, (after_tax - 555 - (3500-taxable_salary)*0.2)/0.8, (after_tax - 1005 - (3500-taxable_salary)*0.25)/0.75, (after_tax - 2755 - (3500-taxable_salary)*0.3)/0.7, (after_tax - 5505 - (3500-taxable_salary)*0.35)/0.65, (after_tax - 13505 - (3500-taxable_salary)*0.45)/0.55])
+
+         </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;根据年终奖税后(奖金-奖金税)倒推出年终奖奖金&lt;/p&gt;
+              &lt;p&gt;格式: 年终奖税倒算(税后金额,计税工资)&lt;/p&gt;
+              &lt;p&gt;返回: 年终奖金额&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="function_annual_bonus_tax_foreign">
+          <field name="name">外籍员工年终奖税公式</field>
+          <field name="code">func_annual_bonus_tax_foreign</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">2</field>
+          <field name="most_parameter">2</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_annual_bonus_tax_foreign(annual_bonus,taxable_salary):
+              #参数解释: annual_bonus-年终奖  taxable_salary-计税工资
+              base = annual_bonus
+              compare = annual_bonus / 12.0
+              if taxable_salary &lt;= 0:
+                  return 0
+              if taxable_salary &lt; 4800:
+                  compare = (annual_bonus - (4800 - taxable_salary)) / 12.0
+                  base = annual_bonus - (4800 - taxable_salary)
+              if base &lt;= 0:
+                  return 0
+              if compare &lt;= 1500:
+                  return base*0.03
+              if compare &gt;1500 and compare &lt;= 4500:
+                  return base*0.1 - 105
+              if compare &gt;4500 and compare &lt;= 9000:
+                  return base * 0.2 - 555
+              if compare &gt; 9000 and compare &lt;= 35000:
+                  return base * 0.25 - 1005
+              if compare &gt; 35000 and compare &lt;= 55000:
+                  return base * 0.3 - 2755
+              if compare &gt; 55000 and compare &lt;= 80000:
+                  return base * 0.35 - 5505
+              if compare &gt; 80000:
+                  return base * 0.45 - 13505
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;根据年终奖税后(奖金-奖金税)倒推出年终奖奖金&lt;/p&gt;
+              &lt;p&gt;格式: 年终奖税倒算(税后金额,计税工资)&lt;/p&gt;
+              &lt;p&gt;返回: 年终奖金额&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_ServiceChargeIIT">
+          <field name="name">劳务报酬个税公式</field>
+          <field name="code">F_ServiceChargeIIT</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def F_ServiceChargeIIT(labor_income):
+              #参数解释: labor_income ->  劳务报酬
+              if 800 &lt; labor_income &lt; 4000:
+                  return (labor_income-800) * 0.2
+              elif 4000 &lt;= labor_income &lt; 20000:
+                  return labor_income * 0.8 * 0.2
+              elif 20000 &lt;= labor_income &lt; 50000:
+                  return labor_income * 0.8 * 0.3 - 2000
+              elif 50000 &lt;= labor_income:
+                  return labor_income * 0.8 * 0.4 - 7000
+              else:
+                  return 0
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;输入：工资项或者工资项加运算符，譬如（劳务费）；&lt;/p&gt;
+              &lt;p&gt;输出：根据个税算法计算出输入的薪资项的个人所得税。&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_BackwardServiceChargeIIT">
+          <field name="name">劳务报酬倒推应税</field>
+          <field name="code">F_BackwardServiceChargeIIT</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def F_BackwardServiceChargeIIT(labor_income_after_tax):
+              #参数解释: labor_income_after_tax ->  劳务报酬税后金额
+              if labor_income_after_tax &lt;= 3360:
+                  return (labor_income_after_tax - 800) / (1-0.2)
+              if labor_income_after_tax &gt; 3360 and labor_income_after_tax &lt;= 21000:
+                  return (labor_income_after_tax - 0) * (1 - 0.2) / (1 - 0.2 * (1 - 0.2))
+              if labor_income_after_tax &gt; 21000 and labor_income_after_tax &lt;= 49500:
+                  return (labor_income_after_tax - 2000) * (1 - 0.2) / (1 - 0.3 * (1 - 0.2))
+              if labor_income_after_tax &gt; 49500:
+                  return (labor_income_after_tax - 7000) * (1 - 0.2) / (1 - 0.4 * (1 - 0.2))
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;输入：薪资项或薪资项组合，输入税后金额, 即税前扣除税金后的金额&lt;/p&gt;
+              &lt;p&gt;输出：根据倒推税算法计算出劳务报酬实际应税工资。&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_IncidentalIncomeIIT">
+          <field name="name">偶然所得个税公式</field>
+          <field name="code">F_IncidentalIncomeIIT</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def F_IncidentalIncomeIIT(incidental_income):
+              #参数解释: incidental_income ->  偶然所得金额
+              return incidental_income * 0.2
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;输入：工资项或者工资项加运算符，譬如（稿酬1+稿酬2+彩票奖金）；&lt;/p&gt;
+              &lt;p&gt;输出：根据个税算法计算出输入的薪资项的个人所得税。&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_StockOptionIncomeIIT">
+          <field name="name">股票期权个税公式</field>
+          <field name="code">F_StockOptionIncomeIIT</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">4</field>
+          <field name="most_parameter">4</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def F_StockOptionIncomeIIT(market_price, exercise_price, shares, months):
+              #参数解释: market_price -> 行权日股票价格, exercise_price -> 授权日股票价格, shares -> 行权股票份数, months -> 规定月份数
+              if months &gt; 12:
+                  months = 12
+              taxable = (market_price - exercise_price) * shares / months
+              if taxable &lt;= 3500:
+                  return 0
+              else:
+                  base = taxable - 3500
+                  if base &lt;= 1500:
+                      return base*0.03
+                  if base &gt; 1500 and base &lt;= 4500:
+                      return base*0.1 - 105
+                  if base &gt; 4500 and base &lt;= 9000:
+                      return base * 0.2 - 555
+                  if base &gt; 9000 and base &lt;= 35000:
+                      return base * 0.25 - 1005
+                  if base &gt; 35000 and base &lt;= 55000:
+                      return base * 0.3 - 2755
+                  if base &gt; 55000 and base &lt;= 80000:
+                      return base * 0.35 - 5505
+                  if base &gt; 80000:
+                      return base * 0.45 - 13505
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;输入：行权日股票价格, 授权日股票价格, 行权股票份数, 规定月份数;&lt;/p&gt;
+              &lt;p&gt;输出：根据个税算法计算出输入的薪资项的个人所得税&lt;/p&gt;
+          </field>
+      </record>
+
+
+      <record model="hr.payroll.function" id="F_SeverancePayIIT">
+          <field name="name">离职补偿金个税公式</field>
+          <field name="code">F_SeverancePayIIT</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">3</field>
+          <field name="most_parameter">3</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def F_SeverancePayIIT(SeverancePay, market_average, work_age):
+              #参数解释: SeverancePay -> 离职补偿金, market_average -> 市场平均工资, work_age -> 累计工龄
+              if SeverancePay &lt;= 3 * market_average:
+                  return 0
+              base = (SeverancePay - 3 * market_average) / work_age - 2000
+              if base &lt; 1500:
+                  return base*0.03 * work_age
+              if base &gt;= 1500 and base &lt; 4500:
+                  return (base*0.1 - 105) * work_age
+              if base &gt;= 4500 and base &lt; 9000:
+                  return (base * 0.2 - 555) * work_age
+              if base &gt;= 9000 and base &lt; 35000:
+                  return (base * 0.25 - 1005) * work_age
+              if base &gt;= 35000 and base &lt; 55000:
+                  return (base * 0.3 - 2755) * work_age
+              if base &gt;= 55000 and base &lt; 80000:
+                  return (base * 0.35 - 5505) * work_age
+              if base &gt;= 80000:
+                  return (base * 0.45 - 13505) * work_age
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;根据工龄计算离职补偿金&lt;/p&gt;
+              &lt;p&gt;格式: 离职补偿(离职补偿金, 市场平均工资, 累计工龄)&lt;/p&gt;
+              &lt;p&gt;返回: 离职补偿金个税&lt;/p&gt;
+          </field>
+      </record>
+
+
+      <record model="hr.payroll.function" id="F_GetDaysof">
+          <field name="name">指定期段日历日历天数公式</field>
+          <field name="code">F_GetDaysof</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">2</field>
+          <field name="most_parameter">3</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">时间公式</field>
+          <field name="python_code">def F_GetDaysof(*args):
+              #参数解释: BeginDate -> 起始日, EndDate -> 结束日, DayType -> 取值类型
+              #返回: 从员工对应的日历中，根据起始日和结束日统计指定期段中指定类型的天数
+              if len(args) == 0 or len(args) == 1:
+                  return 0
+              elif len(args) == 2:
+                  BeginDate = args[0]
+                  EndDate = args[1]
+                  DayType = 1
+              elif len(args) == 3:
+                  BeginDate = args[0]
+                  EndDate = args[1]
+                  DayType = args[2]
+              else:
+                  return 0
+              payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+              calendar_var = payslip_var.payroll_group_id.work_calendar_id
+              workday_date = [i.day for i in calendar_var.work_calendar_lines if i.day_type == 'work']
+              holiday_date = [i.day for i in calendar_var.work_calendar_lines if i.day_type == 'holiday']
+              lower_date = datetime.strptime(BeginDate, '%Y-%m-%d')
+              upper_date = datetime.strptime(EndDate, '%Y-%m-%d')
+              if DayType == 1:
+                  return (upper_date - lower_date).days
+              if DayType == 2:
+                  minus = 0
+                  difference = upper_date - lower_date
+                  for i in range(difference.days + 1):
+                      temp = lower_date + timedelta(days=i)
+                      if temp.weekday() == 5 or temp.weekday() == 6:
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str not in workday_date and temp_str not in holiday_date:
+                              minus += 1
+                  return (upper_date - lower_date).days - len(holiday_date) - minus
+              if DayType == 3:
+                  count = 0
+                  for day in holiday_date:
+                      if day &gt;= BeginDate and day &lt;= EndDate:
+                          count += 1
+                  return count
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;使用前提：需要安装Work Calendar 和 Payroll Group Work Calendar模块,并在编辑薪资组时在工作日历中选择相应的类型 &lt;/p&gt;
+              &lt;p&gt;函数目标：获取指定期段的指定类型的天数&lt;/p&gt;
+              &lt;p&gt;输入参数：&lt;/p&gt;
+              &lt;p&gt;起始日：日期字符串，格式: "2222-01-01"&lt;/p&gt;
+              &lt;p&gt;结束日：日期字符串, 格式: "2222-01-01"&lt;/p&gt;
+              &lt;p&gt;取值类型：1-日历日天数，2-工作日天数（不含周末），3-法定节假日天数&lt;/p&gt;
+              &lt;p&gt;输出：数值型&lt;/p&gt;
+              &lt;p&gt;取值逻辑：从员工对应的日历中，统计指定期段中指定类型的天数，注意需要包含这里的起始日和结束日。&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_IsNew">
+          <field name="name">是否本月入职公式</field>
+          <field name="code">F_IsNew</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">0</field>
+          <field name="most_parameter">0</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">时间公式</field>
+          <field name="python_code">def F_IsNew():
+              #参数解释: 无
+              #返回: 入职日期在当前薪资期间内的，返回真True, 否则返回假False
+              period_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id).payroll_period
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              if employee_var.hiredate &gt; period_var.date_start:
+                  return True
+              else:
+                  return False
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;函数目标：判断员工是否为当前薪资月或考勤月中新入职员工&lt;/p&gt;
+              &lt;p&gt;输入参数：无&lt;/p&gt;
+              &lt;p&gt;输出：根据所选周期类型的当前周期的起始日期和结束日期判断, 如果入职日期在当前薪资期间内的，返回真True, 否则返回假False。&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_IsTerminated">
+          <field name="name">是否本月离职公式</field>
+          <field name="code">F_IsTerminated</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">0</field>
+          <field name="most_parameter">0</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">时间公式</field>
+          <field name="python_code">def F_IsTerminated():
+              #参数解释: 无
+              #返回: 如果离职日期在当前薪资期间内的，返回真True, 否则返回假False
+              period_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id).payroll_period
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              if not employee_var.departure_time:
+                  return False
+              if employee_var.departure_time &lt; period_var.date_end and employee_var.departure_time &gt;= period_var.date_start:
+                  return True
+              else:
+                  return False
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;使用前提：需要在员工管理中设置离职日期, 如未设置,则返回False &lt;/p&gt;
+              &lt;p&gt;函数目标：判断员工是否为当前薪资期间中离职员工&lt;/p&gt;
+              &lt;p&gt;输入参数：无&lt;/p&gt;
+              &lt;p&gt;输出：根据所选周期类型的当前薪资期间的起始日期和结束日期判断, 如果离职日期在当前周期内的，返回真True, 否则返回假False。&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_YOS">
+          <field name="name">离职补偿服务年限公式</field>
+          <field name="code">F_YOS</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">0</field>
+          <field name="most_parameter">0</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">时间公式</field>
+          <field name="python_code">def F_YOS():
+              #参数解释:无
+              #返回: 离职员工的服务年限数值
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              if not employee_var.departure_time:
+                  return 0
+              if not employee_var.social_working_age_adjustment:
+                  adjustment = 0
+              else:
+                  adjustment = employee_var.social_working_age_adjustment
+              entry_date = datetime.strptime(employee_var.hiredate, '%Y-%m-%d')
+              leave_date = datetime.strptime(employee_var.departure_time, '%Y-%m-%d')
+              difference = (leave_date - entry_date).days
+              return difference / 365 + adjustment
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;使用前提：需要在员工管理中设置离职日期, 如未设置,则返回0 &lt;/p&gt;
+              &lt;p&gt;函数目标：计算离职员工的服务年限&lt;/p&gt;
+              &lt;p&gt;输入参数：无&lt;/p&gt;
+              &lt;p&gt;输出：根据参数按以下算法给出计算结果，返回数值&lt;/p&gt;
+              &lt;p&gt;(离职日- 入职日)/365+ 公司工龄调整&lt;/p&gt;
+              &lt;p&gt;算法：&lt;/p&gt;
+              &lt;p&gt;如果离职日期不为空，则取出(离职日- 入职日)/365+ 公司工龄调整，否则：0&lt;/p&gt;
+              &lt;p&gt;返回数值保留高精度.用户可在薪资项中引用该函数自定义精度控制方式.&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_GetNewHireDays">
+          <field name="name">入职折算天数公式</field>
+          <field name="code">F_GetNewHireDays</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">0</field>
+          <field name="most_parameter">1</field>
+          <field name="category">时间公式</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="python_code">def F_GetNewHireDays(*args):
+              #参数解释: daytype -> 取值类型(1-工作天数,2-缺勤天数), 默认参数为1.
+              #返回: 如果员工在薪资组当前期间月份入职,则返回相应的天数数值,否则返回0.
+              if len(args) == 0:
+                  daytype = 1
+              elif len(args) == 1:
+                  daytype = args[0]
+              else:
+                  return 0
+              payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+              payslip_group_id = pool.get('hr.payslip.group').search(cr, uid, [('payslip_run_id', '=', payslip_run_id)])
+              payslip_group_var = pool.get('hr.payslip.group').browse(cr, uid, payslip_group_id)
+              first_open_period_res = pool.get('hr.payroll.group')._get_first_open_period_name(cr, uid, payslip_group_var.payroll_group_id, field=None, arg=None)
+              first_open_period_name = first_open_period_res[payslip_group_var.payroll_group_id]
+              first_open_period_year = str(first_open_period_name)[0:4]
+              first_open_period_month = str(first_open_period_name)[-2:]
+              pay_month = first_open_period_year + '-' + first_open_period_month
+              pay_month_time = datetime.strptime(pay_month, '%Y-%m')
+              payslip_start_date = pay_month_time.replace(day = 1)
+              payslip_end_date = pay_month_time.replace(day = calendar.monthrange(pay_month_time.year, pay_month_time.month)[1])
+              calendar_var = payslip_var.payroll_group_id.work_calendar_id
+              if not calendar_var:
+                  return 0
+              workday_date = [i.day for i in calendar_var.work_calendar_lines if i.day_type == 'work']
+              holiday_date = [i.day for i in calendar_var.work_calendar_lines if i.day_type == 'holiday']
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              if not employee_var.hiredate:
+                  return 0
+              hire_date = datetime.strptime(employee_var.hiredate, '%Y-%m-%d')
+              hire_date_month = str(hire_date)[0:7]
+              departure_date_month = None
+              if employee_var.departure_time:
+                  departure_date = datetime.strptime(employee_var.departure_time, '%Y-%m-%d')
+                  departure_date_month = str(departure_date)[0:7]
+              if hire_date &lt; payslip_start_date or hire_date &gt; payslip_end_date:
+                  return 0
+              start_departure_delta_days = (hire_date - payslip_start_date).days
+              departure_end_delta_days = (payslip_end_date - hire_date).days
+              if departure_date_month and departure_date_month == hire_date_month:
+                  departure_end_delta_days = (departure_date - hire_date).days
+              if daytype == 2:
+                  absence_day = 0
+                  if departure_date_month and hire_date_month == departure_date_month:
+                      begin_absence_day = 0
+                      departure_end_delta_days_begin = (payslip_end_date - departure_date).days
+                      for i in range(departure_end_delta_days_begin):
+                          temp = departure_date + timedelta(days=i+1)
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str in workday_date:
+                              begin_absence_day += 1
+                          elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                              begin_absence_day += 1
+                      for i in range(start_departure_delta_days):
+                          temp = payslip_start_date + timedelta(days=i)
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str in workday_date:
+                              absence_day += 1
+                          elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                              absence_day += 1
+                          return begin_absence_day+absence_day
+                  else:
+                      for i in range(start_departure_delta_days):
+                          temp = payslip_start_date + timedelta(days=i)
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str in workday_date:
+                              absence_day += 1
+                          elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                              absence_day += 1
+                      return absence_day
+              if daytype == 1:
+                  work_day = 0
+                  if departure_date_month and hire_date_month == departure_date_month:
+                      start_departure_delta_days = (departure_date - hire_date).days
+                      for i in range(start_departure_delta_days + 1):
+                          temp = hire_date + timedelta(days=i)
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str in workday_date:
+                              work_day += 1
+                          elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                              work_day += 1
+                      return work_day
+                  else:
+                      for i in range(departure_end_delta_days+1):
+                           temp = hire_date + timedelta(days=i)
+                           temp_str = temp.strftime('%Y-%m-%d')
+                           if temp_str in workday_date:
+                               work_day += 1
+                           elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                               work_day += 1
+                      return work_day
+              return 0
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;使用前提：需要安装Work Calendar 和 Payroll Group Work Calendar模块,并在编辑薪资组时在工作日历中选择相应的类型 &lt;/p&gt;
+              &lt;p&gt;公式配置示例：F_GetNewHireDays(),F_GetNewHireDays(1),F_GetNewHireDays(2) &lt;/p&gt;
+              &lt;p&gt;输入：取值类型&lt;/p&gt;
+              &lt;p&gt;输出：如果员工在薪资组当前期间月份入职,则返回相应的天数数值,否则返回0.&lt;/p&gt;
+              &lt;p&gt;计算逻辑：1-工作日天数 2- 缺勤天数
+              &lt;p&gt;工作日天数：员工入职日期（含）至当前薪资周期结束日的天数减去该时间段的周末和法定节假日；&lt;/p&gt;
+              &lt;p&gt;缺勤天数：当前薪资周期开始日至入职日期日（不含）的天数减去该时间段的周末和法定节假日。&lt;/p&gt;
+              &lt;p&gt;备注：该缺勤天数的含义不包括考勤的请休假。&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_GetCalendarDays">
+          <field name="name">获取日历天数公式</field>
+          <field name="code">F_GetCalendarDays</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">0</field>
+          <field name="most_parameter">3</field>
+          <field name="category">时间公式</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="python_code">def F_GetCalendarDays(*args):
+              #参数解释: period_type -> 取值类型(1-工作天数,2-缺勤天数),month_type, value_type
+              #返回: 如果员工在薪资组当前期间月份入职,则返回相应的天数数值,否则返回0.
+              if len(args) == 0:
+                  period_type=1
+                  month_type=1
+                  value_type=1
+              elif len(args) == 1:
+                  period_type = args[0]
+                  month_type = 1
+                  value_type = 1
+              elif len(args) == 2:
+                  period_type = args[0]
+                  month_type = args[1]
+                  value_type = 1
+              elif len(args) == 3:
+                  period_type = args[0]
+                  month_type = args[1]
+                  value_type = args[2]
+              else:
+                  return 0
+              payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+              calendar_var = payslip_var.payroll_group_id.work_calendar_id
+              holiday_data = [i.day for i in calendar_var.work_calendar_lines if i.day &lt;= payslip_var.date_end and i.day &gt;= payslip_var.date_start and i.day_type == 'holiday']
+              workday_data = [i.day for i in calendar_var.work_calendar_lines if i.day &lt;= payslip_var.date_end and i.day &gt;= payslip_var.date_start and i.day_type == 'work']
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              upper_date = datetime.strptime(payslip_var.date_end, '%Y-%m-%d')
+              lower_date = datetime.strptime(employee_var.hiredate, '%Y-%m-%d')
+              if value_type == 1:
+                  count = (upper_date - lower_date).days
+                  return count
+              if value_type == 2:
+                  count = (upper_date - lower_date).days
+                  if lower_date.weekday == 5 or lower_date.weekday == 6:
+                      count = count - 1
+                  while True:
+                      lower_date = lower_date + timedelta(days=1)
+                      if lower_date > upper_date:
+                          break
+                      if lower_date.weekday == 5 or lower_date.weekday == 6:
+                          count = count -1
+                  return count
+              if value_type == 3:
+                  return len(holiday_data)
+
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;函数目标：获取员工在指定月或当前月的日历日天数、或法定节假日天数、或周末天数&lt;/p&gt;
+              &lt;p&gt;输入参数：周期类型，指定月类型，取值类型&lt;/p&gt;
+              &lt;p&gt;周期类型：1-薪资周期，2-考勤周期&lt;/p&gt;
+              &lt;p&gt;指定月类型：1-当前月，2-上个月。&lt;/p&gt;
+              &lt;p&gt;取值类型：1-日历日天数，2-工作日天数，3-法定假日天数&lt;/p&gt;
+              &lt;p&gt;输出：数值型&lt;/p&gt;
+              &lt;p&gt;取值逻辑：从员工对应的日历中，统计指定周期中指定类型的天数，工作日天数＝历日历天数－法定假日天数－周末天数－请假合计天数&lt;/p&gt;
+              &lt;p&gt;应用场景：&lt;/p&gt;
+              &lt;p&gt;如计算【当月日工资=当月基本工资/当月日历日天数】时，分母可以调用该函数&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="function_inverse_tax">
+          <field name="name">个税倒算税公式</field>
+          <field name="code">func_inverse_tax</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_inverse_tax(after_tax):
+              #参数解释: after_tax->税后金额
+              #返回: 根据税金倒算出税前金额
+
+              return max([(after_tax-3500)+3500, (after_tax-3500)/(1-0.03)+3500, (after_tax-3500-105)/(1-0.1)+3500, (after_tax-3500-555)/(1-0.2)+3500, (after_tax-3500-1005)/(1-0.25)+3500, (after_tax-3500-2755)/(1-0.3)+3500, (after_tax-3500-5505)/(1-0.35)+3500, (after_tax-3500-13505)/(1-0.45)+3500])
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;根据税后金额(税前-税金)倒推出税前金额&lt;/p&gt;
+              &lt;p&gt;格式: 个税倒算税(税后金额)&lt;/p&gt;
+              &lt;p&gt;返回: 税前金额&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="function_income_tax_round">
+          <field name="name">个税一元税公式</field>
+          <field name="code">func_income_tax_round</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def func_income_tax_round(taxable_salary):
+              #参数解释: taxable_salary-计税工资
+              #返回: 个人所得税税金, 若税金小于1元则返回0
+              if taxable_salary &lt;= 3500:
+                  return 0
+              else:
+                  res = 0
+                  base = taxable_salary - 3500
+                  if base &lt; 1500:
+                      res = base*0.03
+                  elif base &gt;= 1500 and base &lt; 4500:
+                      res = base*0.1 - 105
+                  elif base &gt;= 4500 and base &lt; 9000:
+                      res = base * 0.2 - 555
+                  elif base &gt;= 9000 and base &lt; 35000:
+                      res = base * 0.25 - 1005
+                  elif base &gt;= 35000 and base &lt; 55000:
+                      res = base * 0.3 - 2755
+                  elif base &gt;= 55000 and base &lt; 80000:
+                      res = base * 0.35 - 5505
+                  elif base &gt;= 80000:
+                      res = base * 0.45 - 13505
+
+                  if res &lt; 1:
+                      return 0
+                  else:
+                      return res
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;一元所得税公式&lt;/p&gt;
+              &lt;p&gt;格式: 个税一元税(税前工资)&lt;/p&gt;
+              &lt;p&gt;返回: 个人所得税税金, 若税金小于1元则返回0&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="IIT_flow_before_tax_normal">
+          <field name="name">累计正算税前公式</field>
+          <field name="code">IIT_flow_before_tax_normal</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def IIT_flow_before_tax_normal(data):
+              #参数解释: data-当批次正算税前
+              #返回: 从数据库中读取期间历史累计正算税前 ＋ 当批次正算税前
+              try:
+                  result = data + before_tax_normal
+              except:
+                  result = data
+              return result
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;用于多批次计算时的税务处理, 主要用于储存税务由员工承担的税前金额&lt;/p&gt;
+              &lt;p&gt;格式: 累计正算税前(税前金额)&lt;/p&gt;
+              &lt;p&gt;返回: 从数据库中读取期间历史累计正算税前 ＋ 当批次正算税前&lt;/p&gt;
+              &lt;p&gt;例如参数金额=0, 表示从数据库中读取期间历史累计正算税前(不包含当前批次)&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="IIT_flow_tax_normal">
+          <field name="name">累计正算税金公式</field>
+          <field name="code">IIT_flow_tax_normal</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def IIT_flow_tax_normal(data):
+              #参数解释: data-当批次正算税金
+              #返回: 从数据库中读取期间历史累计正算税金 ＋ 当批次正算税金
+              try:
+                  result = data + tax_normal
+              except:
+                  result = data
+              return result
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;用于多批次计算时的税务处理, 主要用于储存税务由员工承担的税金&lt;/p&gt;
+              &lt;p&gt;格式: 累计正算税金(金额)&lt;/p&gt;
+              &lt;p&gt;返回: 从数据库中读取期间历史累计正算税金 ＋ 当批次正算税金&lt;/p&gt;
+              &lt;p&gt;例如参数金额=0, 表示从数据库中读取期间历史累计正算税金(不包含当前批次)&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="IIT_flow_before_tax_reverse">
+          <field name="name">累计倒算税前公式</field>
+          <field name="code">IIT_flow_before_tax_reverse</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def IIT_flow_before_tax_reverse(data):
+              #参数解释: data-当批次倒算税前
+              #返回: 从数据库中读取期间历史累计倒算税前 ＋ 当批次倒算税前
+              try:
+                  result = data + before_tax_reverse
+              except:
+                  result = data
+              return result
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;用于多批次计算时的税务处理, 主要用于储存税务由企业承担的税前金额&lt;/p&gt;
+              &lt;p&gt;格式: 累计倒算税前(税前金额)&lt;/p&gt;
+              &lt;p&gt;返回: 从数据库中读取期间历史累计倒算税前 ＋ 当批次倒算税前&lt;/p&gt;
+              &lt;p&gt;例如参数金额=0, 则表示从数据库中读取期间历史累计倒算税前金额(不包含当前批次) &lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="IIT_flow_before_tax_total">
+          <field name="name">累计税前公式</field>
+          <field name="code">IIT_flow_before_tax_total</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def IIT_flow_before_tax_total(data):
+              #参数解释: data-当批次税前金额
+              #返回: 从数据库中读取期间历史累计总税前金额 ＋ 当批次总税前金额
+              try:
+                  result = data + before_tax_total
+              except:
+                  result = data
+              return result
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;用于多批次计算时的税务处理, 主要用于储存员工和企业承担的税前金额。若薪资项部分由员工承担，部分由企业承担，则累计税前通过倒推得出&lt;/p&gt;
+              &lt;p&gt;格式: 累计税前(金额)&lt;/p&gt;
+              &lt;p&gt;返回: 从数据库中读取期间历史累计税前金额 ＋ 当批次税前金额 &lt;/p&gt;
+              &lt;p&gt;例如参数金额=0, 则表示从数据库中读取期间历史累计税前金额(不包含当前批次) &lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="IIT_flow_tax_total">
+          <field name="name">累计总税金公式</field>
+          <field name="code">IIT_flow_tax_total</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def IIT_flow_tax_total(data):
+              #参数解释: data-当批次总税金金额
+              #返回: 从数据库中读取期间历史累计总税金金额 ＋ 当批次总税金金额
+              try:
+                  result = data + tax_total
+              except:
+                  result = data
+              return result
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;用于多批次计算时的税务处理, 计算总的税金，包含员工和企业各自承担的部分&lt;/p&gt;
+              &lt;p&gt;格式: 累计总税金(金额)&lt;/p&gt;
+              &lt;p&gt;返回: 从数据库中读取期间历史累计总税金金额 ＋ 当批次总税金金额.&lt;/p&gt;
+              &lt;p&gt;例如参数金额=0, 则表示从数据库中读取期间历史累计总税金(不包含当前批次) &lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="IIT_flow_tax_reverse">
+          <field name="name">累计倒算税金公式</field>
+          <field name="code">IIT_flow_tax_reverse</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def IIT_flow_tax_reverse(data):
+              #参数解释: data-当批次倒算税金金额
+              #返回: 从数据库中读取期间历史累计倒算税金金额 ＋ 当批次倒算税金金额
+              try:
+                  result = data + tax_reverse
+              except:
+                  result = data
+              return result
+          </field>
+          <field name="value_type">float</field>
+           <field name="note">
+               &lt;p&gt;用于多批次计算时的税务处理, 计算企业承担的税金&lt;/p&gt;
+               &lt;p&gt;格式: 累计倒算税金(金额)&lt;/p&gt;
+               &lt;p&gt;返回: 从数据库中读取期间历史倒算税金金额 ＋ 当批次倒算税金金额.&lt;/p&gt;
+               &lt;p&gt;例如参数金额=0, 表示从数据库中读取期间历史累计倒算税金(不包含当前批次)&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_SumLeave">
+          <field name="name">获取休假时间</field>
+          <field name="code">F_SumLeave</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">时间公式</field>
+          <field name="python_code">def F_SumLeave(LeaveType):
+               #参数解释: LeaveType-休假类型列表中休假的假期编号
+               #返回: 获取当前薪资周期的指定假期类型的休假时间
+               employee = pool.get('hr.employee').browse(cr, uid, employee_id)
+               employee_code = employee.employee_number
+               payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+               period_id = payslip_var.payroll_period.id
+               search_domain = [('leave_type_code', '=', LeaveType),('employee_code', '=', employee_code),('payroll_period', '=', period_id)]
+               attendance_id = pool.get('attendance.submit.line').search(cr, uid, search_domain)
+               attendance_item = pool.get('attendance.submit.line').browse(cr,uid,attendance_id)
+               holiday_allot_count = attendance_item.allot_count
+               return holiday_allot_count
+          </field>
+          <field name="value_type">float</field>
+           <field name="note">
+              &lt;p&gt;使用前提：需要安装考勤数据提交模块 &lt;/p&gt;
+              &lt;p&gt;公式配置示例：F_SumLeave('L001')&lt;/p&gt;
+              &lt;p&gt;获取当前薪资周期的指定假期类型的休假时间&lt;/p&gt;
+              &lt;p&gt;输入参数：休假类型列表中休假的假期编号&lt;/p&gt;
+              &lt;p&gt;返回: 按指定假期类型的员工休假时间（返回小时数)&lt;/p&gt;
+              &lt;p&gt;函数目标：按指定假期类型的员工休假时间（返回小时数）&lt;/p&gt;
+              &lt;p&gt;所有假期类型对应情况:L001-年假, L002-去年法定年假,L003-去年公司年假,L004-去年法定年假,L005-公司年假&lt;/p&gt;
+              &lt;/p&gt;L006-事假,L007-病假,L008-调休假,L009-婚假,L010-产检假,L011-产假&lt;/p&gt;
+              &lt;/p&gt;L012-带薪病假,L013-授乳假,L014-陪产假,L015-难产假,L016-丧假&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_SumOT">
+          <field name="name">获取加班时间</field>
+          <field name="code">F_SumOT</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">时间公式</field>
+          <field name="python_code">def F_SumOT(OverTimeType):
+               #参数解释: OverTimeType-加班类型列表中加班的假期编号
+               #返回: 获取当前薪资周期的指定加班类型的加班时间
+               employee = pool.get('hr.employee').browse(cr, uid, employee_id)
+               employee_code = employee.employee_number
+               payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+               period_id = payslip_var.payroll_period.id
+               search_domain = [('overtime_type_code', '=', OverTimeType),('employee_code', '=', employee_code),('payroll_period', '=', period_id)]
+               attendance_id = pool.get('attendance.submit.line').search(cr, uid, search_domain)
+               attendance_item = pool.get('attendance.submit.line').browse(cr,uid,attendance_id)
+               overtime_hour = attendance_item.total_hours
+               return overtime_hour
+          </field>
+          <field name="value_type">float</field>
+           <field name="note">
+              &lt;p&gt;使用前提：需要安装考勤数据提交模块 &lt;/p&gt;
+              &lt;p&gt;公式配置示例：F_SumOT('OTTYPE74821345')&lt;/p&gt;
+              &lt;p&gt;获取当前薪资周期的指定加班类型的加班时间&lt;/p&gt;
+              &lt;p&gt;输入参数：仅限于输入加班类型列表中的加班编号&lt;/p&gt;
+              &lt;p&gt;按指定加班类型的员工加班时间（返回小时数)&lt;/p&gt;
+              &lt;p&gt;所有加班类型对应情况:OTTYPE74821345-工作日加班, OTTYPE12958432-休息日加班,OTTYPE68391546-节假日加班&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_SumAttendance">
+          <field name="name">获取考勤异常数据</field>
+          <field name="code">F_SumAttendance</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">1</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">时间公式</field>
+          <field name="python_code">def F_SumAttendance(AttendanceType):
+               #参数解释: LeaveType-考勤异常类型编号
+               #返回: 当前薪资周期的指定考勤异常类型的总次数(整数)
+               employee = pool.get('hr.employee').browse(cr, uid, employee_id)
+               employee_code = employee.employee_number
+               payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+               period_id = payslip_var.payroll_period.id
+               search_domain = [('abnormality_type_code', '=', AttendanceType),('employee_code', '=', employee_code),('payroll_period', '=', period_id)]
+               attendance_id = pool.get('attendance.submit.line').search(cr, uid, search_domain)
+               attendance_item = pool.get('attendance.submit.line').browse(cr,uid,attendance_id)
+               abnormality_times = attendance_item.abnormality_times
+               return abnormality_times
+          </field>
+          <field name="value_type">float</field>
+           <field name="note">
+              &lt;p&gt;使用前提：需要安装考勤数据提交模块 &lt;/p&gt;
+              &lt;p&gt;公式配置示例：F_SumAttendance('leave_early')&lt;/p&gt;
+              &lt;p&gt;获取当前薪资周期的指定考勤异常类型的总次数&lt;/p&gt;
+              &lt;p&gt;输入参数：仅限于输入考勤类型列表中的编号&lt;/p&gt;
+              &lt;p&gt;返回:异常次数，整数&lt;/p&gt;
+              &lt;p&gt;所有考勤类型对应情况:later-迟到，leave_early-早退，not_sign-未打卡&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_GetTerminationDays">
+          <field name="name">获取离职天数公式</field>
+          <field name="code">F_GetTerminationDays</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">0</field>
+          <field name="most_parameter">1</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">时间公式</field>
+          <field name="python_code">def F_GetTerminationDays(*args):
+              #参数解释: daytype -> 取值类型(1-工作天数,2-缺勤天数), 默认参数为1.
+              #返回: 如果员工在薪资组当前期间月份离职,则返回相应的天数数值,否则返回0.
+              if len(args) == 0:
+                  daytype = 1
+              elif len(args) == 1:
+                  daytype = args[0]
+              else:
+                  return 0
+              payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+              payslip_group_id = pool.get('hr.payslip.group').search(cr, uid, [('payslip_run_id', '=', payslip_run_id)])
+              payslip_group_var = pool.get('hr.payslip.group').browse(cr, uid, payslip_group_id)
+              first_open_period_res = pool.get('hr.payroll.group')._get_first_open_period_name(cr, uid, payslip_group_var.payroll_group_id, field=None, arg=None)
+              first_open_period_name = first_open_period_res[payslip_group_var.payroll_group_id]
+              first_open_period_year = str(first_open_period_name)[0:4]
+              first_open_period_month = str(first_open_period_name)[-2:]
+              pay_month = first_open_period_year + '-' + first_open_period_month
+              pay_month_time = datetime.strptime(pay_month, '%Y-%m')
+              payslip_start_date = pay_month_time.replace(day = 1)
+              payslip_end_date = pay_month_time.replace(day = calendar.monthrange(pay_month_time.year, pay_month_time.month)[1])
+              calendar_var = payslip_var.payroll_group_id.work_calendar_id
+              if not calendar_var:
+                  return 0
+              workday_date = [i.day for i in calendar_var.work_calendar_lines if i.day_type == 'work']
+              holiday_date = [i.day for i in calendar_var.work_calendar_lines if i.day_type == 'holiday']
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              if not employee_var.departure_time:
+                  return 0
+              departure_date = datetime.strptime(employee_var.departure_time, '%Y-%m-%d')
+              departure_date_month = str(departure_date)[0:7]
+              hire_date_month = None
+              if employee_var.hiredate:
+                  hire_date = datetime.strptime(employee_var.hiredate, '%Y-%m-%d')
+                  hire_date_month = str(hire_date)[0:7]
+              if departure_date &lt; payslip_start_date or departure_date &gt; payslip_end_date:
+                  return 0
+              start_departure_delta_days = (departure_date - payslip_start_date).days
+              departure_end_delta_days = (payslip_end_date - departure_date).days
+              if daytype == 1:
+                  work_day = 0
+                  if hire_date_month and hire_date_month == departure_date_month:
+                      start_departure_delta_days = (departure_date - hire_date).days
+                      for i in range(start_departure_delta_days + 1):
+                          temp = hire_date + timedelta(days=i)
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str in workday_date:
+                              work_day += 1
+                          elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                              work_day += 1
+                      return work_day
+                  else:
+                      for i in range(start_departure_delta_days + 1):
+                          temp = payslip_start_date + timedelta(days=i)
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str in workday_date:
+                              work_day += 1
+                          elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                              work_day += 1
+                      return work_day
+              if daytype == 2:
+                  absence_day = 0
+                  if hire_date_month and hire_date_month == departure_date_month:
+                      begin_absence_day = 0
+                      departure_end_delta_days_begin = (hire_date - payslip_start_date).days
+                      for i in range(departure_end_delta_days_begin):
+                          temp = payslip_start_date + timedelta(days=i)
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str in workday_date:
+                              begin_absence_day += 1
+                          elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                              begin_absence_day += 1
+                      for i in range(departure_end_delta_days):
+                          temp = departure_date + timedelta(days=i+1)
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str in workday_date:
+                              absence_day += 1
+                          elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                              absence_day += 1
+                      return begin_absence_day+absence_day
+                  else:
+                      for i in range(departure_end_delta_days):
+                          temp = departure_date + timedelta(days=i+1)
+                          temp_str = temp.strftime('%Y-%m-%d')
+                          if temp_str in workday_date:
+                              absence_day += 1
+                          elif temp.weekday() != 5 and temp.weekday() != 6  and temp_str not in holiday_date:
+                              absence_day += 1
+                      return absence_day
+              return 0
+          </field>
+          <field name="value_type">float</field>
+           <field name="note">
+              &lt;p&gt;使用前提：需要安装Work Calendar 和 Payroll Group Work Calendar模块,并在编辑薪资组时在工作日历中选择相应的类型 &lt;/p&gt;
+              &lt;p&gt;公式配置示例：F_GetTerminationDays(),F_GetTerminationDays(1),F_GetTerminationDays(2) &lt;/p&gt;
+              &lt;p&gt;输入：折算天数类型（1-工作日天数，2-缺勤天数)&lt;/p&gt;
+              &lt;p&gt;输出：如果员工在薪资组当前期间月份离职,则返回相应的天数数值,否则返回0.&lt;/p&gt;
+              &lt;p&gt;计算逻辑：1-工作日天数 2- 缺勤天数
+              &lt;p&gt;工作日天数：当前薪资周期开始日（含）至员工离职日的天数减去该时间段的周末和法定节假日；&lt;/p&gt;
+              &lt;p&gt;缺勤天数：员工离职日（不含）至当前薪资周期结束日的天数减去周末和法定节假日。&lt;/p&gt;
+              &lt;p&gt;备注：该缺勤天数的含义不包括考勤的请休假。&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="SBCalculate">
+          <field name="name">社保计算公式</field>
+          <field name="code">SBCalculate</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">2</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">税务公式</field>
+          <field name="python_code">def SBCalculate(*args):
+              #参数解释: sb_code -> 社保编码, sb_type -> 计算类型(1或2)
+              #返回: ：根据社保编码，计算类型返回该员工的企业部分或个人部分的社保缴纳值
+              if len(args) == 0:
+                  return 0
+              elif len(args) == 1:
+                  sb_code = args[0]
+                  sb_type = 1
+              elif len(args) == 2:
+                  sb_code = args[0]
+                  sb_type = args[1]
+              else:
+                  return 0
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              year_month_now = datetime.now().strftime('%Y-%m')
+              social_security_start_month = employee_var.social_security_start_month
+              social_security_end_month = employee_var.social_security_end_month
+              if social_security_start_month:
+                  social_security_start_month = social_security_start_month[0:7]
+              if social_security_end_month:
+                  social_security_end_month = social_security_end_month[0:7]
+              social_security_rule = employee_var.social_security_id
+              social_security_base = employee_var.social_security_base
+              rule_ids = social_security_rule.rule_ids
+              if social_security_start_month and rule_ids:
+                  if social_security_end_month:
+                      if  social_security_end_month &lt; year_month_now:
+                          return 0
+                  if social_security_start_month &lt; year_month_now:
+                      insurance_code_dict = {}
+                      for insurance_rule in rule_ids:
+                          insurance_code = insurance_rule.insurance_id.code
+                          insurance_code_dict.update({insurance_code:insurance_rule})
+                      if sb_code in insurance_code_dict.keys():
+                          insurance_rule = insurance_code_dict[sb_code]
+                          calculate_accuracy = insurance_rule.calculate_accuracy
+                          max_base = insurance_rule.max_base
+                          min_base = insurance_rule.min_base
+                          calculate_result = 0
+                          if sb_type == 1:
+                              calculate_ratio = insurance_rule.company_ratio or 0
+                          elif sb_type == 2:
+                              calculate_ratio = insurance_rule.personal_ratio or 0
+                          else:
+                              return 0
+                          if social_security_base and max_base and social_security_base &gt; max_base:
+                              social_security_base = max_base
+                          if social_security_base and min_base and social_security_base &lt; min_base:
+                              social_security_base = min_base
+                          if insurance_rule.calculate_type == 'base_ratio':
+                              if social_security_base:
+                                  calculate_result = social_security_base * calculate_ratio
+                              else:
+                                  return 0
+                          elif insurance_rule.calculate_type == 'base_ratio_plus_fixed_payment':
+                              if social_security_base and insurance_rule.fixed_payment:
+                                  if sb_type == 1:
+                                      calculate_result = social_security_base * calculate_ratio + insurance_rule.fixed_payment
+                                  if sb_type == 2:
+                                      calculate_result = social_security_base * calculate_ratio
+                              else:
+                                  return 0
+                          elif insurance_rule.calculate_type == 'fixed_payment':
+                              if sb_type == 1:
+                                  calculate_result = insurance_rule.fixed_payment
+                              if sb_type == 2:
+                                  return 0
+                          else:
+                              return 0
+                          if calculate_result:
+                              if calculate_accuracy == 'round_to_0.01':
+                                 result = round(calculate_result,2)
+                              elif calculate_accuracy == 'round_to_0.1':
+                                 result = round(calculate_result,1)
+                              elif calculate_accuracy == 'round_to_1':
+                                 result = round(calculate_result)
+                              elif calculate_accuracy == 'all_to_0.01':
+                                 result = math.ceil(calculate_result*100)/100
+                              elif calculate_accuracy == 'all_to_0.1':
+                                 result = math.ceil(calculate_result*10)/10
+                              elif calculate_accuracy == 'all_to_1':
+                                 result = math.ceil(calculate_result)
+                              return result
+                          else:
+                              return 0
+                      else:
+                          return 0
+                  else:
+                      return 0
+              else:
+                  return 0
+          </field>
+          <field name="value_type">float</field>
+           <field name="note">
+              &lt;p&gt;使用前提：需要安装Work Calendar 和 Payroll Group Work Calendar模块,并在编辑薪资组时在工作日历中选择相应的类型 &lt;/p&gt;
+              &lt;p&gt;公式配置示例：SBCalculate('sb_code', 1)&lt;/p&gt;
+              &lt;p&gt;输入：社保计算公式（社保编码，计算类型)&lt;/p&gt;
+              &lt;p&gt;计算类型：1代表企业部分，2代表个人部分&lt;/p&gt;
+              &lt;p&gt;输出：根据社保编码，社保类型计算该员工的各项社保缴纳值&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="HFCalculate">
+          <field name="name">公积金计算公式</field>
+          <field name="code">HFCalculate</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">1</field>
+          <field name="most_parameter">2</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">税务公式</field>
+          <field name="python_code">def HFCalculate(*args):
+              #参数解释: sb_code -> 公积金编码, sb_type -> 计算类型(1或2)
+              #返回: 根据公积金编码，计算类型返回该员工的企业部分或个人部分的公积金缴纳值
+              if len(args) == 0:
+                  return 0
+              elif len(args) == 1:
+                  hf_code = args[0]
+                  hf_type = 1
+              elif len(args) == 2:
+                  hf_code = args[0]
+                  hf_type = args[1]
+              else:
+                  return 0
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              year_month_now = datetime.now().strftime("%Y-%m")
+              housing_fund_start_month = employee_var.housing_fund_start_month
+              housing_fund_end_month = employee_var.housing_fund_end_month
+              if housing_fund_start_month:
+                  housing_fund_start_month = housing_fund_start_month[0:7]
+              if housing_fund_end_month:
+                  housing_fund_end_month = housing_fund_end_month[0:7]
+              housing_fund_rule = employee_var.housing_fund_id
+              housing_fund_base = employee_var.housing_fund_base
+              rule_ids = housing_fund_rule.rule_ids
+              if housing_fund_start_month and rule_ids:
+                  if housing_fund_end_month:
+                      if housing_fund_end_month &lt; year_month_now:
+                          return 0
+                  if housing_fund_start_month &lt; year_month_now:
+                      insurance_code_dict = {}
+                      for insurance_rule in rule_ids:
+                          insurance_code = insurance_rule.insurance_id.code
+                          insurance_code_dict.update({insurance_code:insurance_rule})
+                      if hf_code in insurance_code_dict.keys():
+                          insurance_rule = insurance_code_dict[hf_code]
+                          calculate_accuracy = insurance_rule.calculate_accuracy
+                          max_base = insurance_rule.max_base
+                          min_base = insurance_rule.min_base
+                          calculate_result = 0
+                          if hf_type == 1:
+                              calculate_ratio = insurance_rule.company_ratio or 0
+                          elif hf_type == 2:
+                              calculate_ratio = insurance_rule.personal_ratio or 0
+                          else:
+                              return 0
+                          if housing_fund_base and max_base and housing_fund_base &gt; max_base:
+                              housing_fund_base = max_base
+                          if housing_fund_base and min_base and housing_fund_base &lt; min_base:
+                              housing_fund_base = min_base
+                          if insurance_rule.calculate_type == 'base_ratio':
+                              if housing_fund_base:
+                                  calculate_result = housing_fund_base * calculate_ratio
+                              else:
+                                  return 0
+                          elif insurance_rule.calculate_type == 'base_ratio_plus_fixed_payment':
+                              if housing_fund_base and insurance_rule.fixed_payment:
+                                  if sb_type == 1:
+                                      calculate_result = housing_fund_base * calculate_ratio + insurance_rule.fixed_payment
+                                  if sb_type == 2:
+                                      calculate_result = housing_fund_base * calculate_ratio
+                              else:
+                                  return 0
+                          elif insurance_rule.calculate_type == 'fixed_payment':
+                              if sb_type == 1:
+                                  calculate_result = insurance_rule.fixed_payment
+                              if sb_type == 2:
+                                  return 0
+                          else:
+                              return 0
+                          if calculate_result:
+                              if calculate_accuracy == 'round_to_0.01':
+                                  result = round(calculate_result,2)
+                              elif calculate_accuracy == 'round_to_0.1':
+                                  result = round(calculate_result,1)
+                              elif calculate_accuracy == 'round_to_1':
+                                  result = round(calculate_result)
+                              elif calculate_accuracy == 'all_to_0.01':
+                                  result = math.ceil(calculate_result*100)/100
+                              elif calculate_accuracy == 'all_to_0.1':
+                                  result = math.ceil(calculate_result*10)/10
+                              elif calculate_accuracy == 'all_to_1':
+                                  result = math.ceil(calculate_result)
+                              return result
+                          else:
+                              return 0
+                      else:
+                          return 0
+                  else:
+                      return 0
+              else:
+                  return 0
+          </field>
+          <field name="value_type">float</field>
+           <field name="note">
+              &lt;p&gt;使用前提：需要在员工管理社保福利中为员工配置相应的规则&lt;/p&gt;
+              &lt;p&gt;公式配置示例：HFCalculate('sb_code', 1)&lt;/p&gt;
+              &lt;p&gt;输入：公积金计算公式（公积金编码，计算类型)&lt;/p&gt;
+              &lt;p&gt;输出：根据公积金编码，公积金类型计算该员工的各项公积金缴纳值&lt;/p&gt;
+              &lt;p&gt;计算逻辑：1代表企业部分，2代表个人部分
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_GetRate">
+          <field name="name">获取汇率值</field>
+          <field name="code">F_GetRate</field>
+          <field name="type">self_defined</field>
+          <field name="least_parameter">2</field>
+          <field name="most_parameter">2</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="category">税务公式</field>
+          <field name="python_code">def F_GetRate(code,type):
+               #参数解释: code -> 汇率编码, type -> 汇率类型(settlement_type)
+               #返回: 根据汇率编码，汇率类型返回与薪资组本位币相对应的汇率
+               payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+               payslip_group_id = pool.get('hr.payslip.group').search(cr, uid, [('payslip_run_id', '=', payslip_run_id)])
+               payslip_group_var = pool.get('hr.payslip.group').browse(cr, uid, payslip_group_id)
+               payroll_group_id = payslip_group_var.payroll_group_id.id
+               first_open_period_res = pool.get('hr.payroll.group')._get_first_open_period_name(cr, uid, payslip_group_var.payroll_group_id, field=None, arg=None)
+               first_open_period_name = first_open_period_res[payslip_group_var.payroll_group_id]
+               first_open_period_year = str(first_open_period_name)[0:4]
+               first_open_period_month = str(first_open_period_name)[-2:]
+               pay_month = first_open_period_year + '-' + first_open_period_month
+               code_id = pool.get('res.currency').search(cr, uid, [('name', '=', code)])[0]
+               if isinstance(type, ( int, long ) ):
+                   if type in range(1,32):
+                       settlement_type = 'chose_one_day'
+                       the_chosen_day = type
+                       rate_id = pool.get('res.currency.rate').search(cr, uid, [('settlement_type', '=', settlement_type), ('the_chosen_day', '=', the_chosen_day), ('pay_month', '=', pay_month), ('currency_id', '=', code_id), ('payroll_group_id', '=', payroll_group_id)])
+                   else:
+                       return 0
+               elif type in ['month_start', 'month_end', 'appoint']:
+                   settlement_type = type
+                   rate_id = pool.get('res.currency.rate').search(cr, uid, [('settlement_type', '=', settlement_type),('pay_month', '=', pay_month), ('currency_id', '=', code_id), ('payroll_group_id', '=', payroll_group_id)])
+               else:
+                   return 0
+               rate_var = pool.get('res.currency.rate').browse(cr, uid, rate_id[0])
+               return rate_var.rate
+          </field>
+          <field name="value_type">float</field>
+           <field name="note">
+               &lt;p&gt;获取汇率值,根据当前薪资周期,汇率编码,汇率类型&lt;/p&gt;
+               &lt;p&gt;汇率编码code：USD,EUR等.
+               汇率类型type:'month_start':月初,'month_end':月末,'appoint':约定,1-31数字:选择一天,并且天数为输入的数字l&lt;/p&gt;
+              &lt;p&gt;返回:输入参数正确返回相应的汇率值,如不正确返回0&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_CompanyWorkAge">
+          <field name="name">计算员工公司工龄</field>
+          <field name="code">F_CompanyWorkAge</field>
+          <field name="type">self_defined</field>
+          <field name="sequence">6</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="least_parameter">0</field>
+          <field name="most_parameter">0</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def F_CompanyWorkAge():
+              #参数解释: 无
+              #返回: 员工公司工龄(float)
+              payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+              payslip_group_var = pool.get('hr.payroll.group').browse(cr, uid, payslip_var.payroll_group_id.id)
+              first_open_payroll_date = payslip_group_var.first_open_payroll_date
+              first_open_payroll_end_date = first_open_payroll_date[-10:]
+              pay_month_end_time = datetime.strptime(first_open_payroll_end_date, '%Y/%m/%d')
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              hire_date = datetime.strptime(employee_var.hiredate, '%Y-%m-%d')
+              departure_time = employee_var.departure_time
+              if departure_time:
+                  departure_time = datetime.strptime(employee_var.departure_time, '%Y-%m-%d')
+              company_working_age_adjustment = employee_var.company_working_age_adjustment or 0
+              if departure_time:
+                  return (departure_time-hire_date).days/365 + company_working_age_adjustment
+              else:
+                  return (pay_month_end_time-hire_date).days/365 + company_working_age_adjustment
+
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;计算员工公司工龄&lt;/p&gt;
+              &lt;p&gt;格式: 计算员工公司工龄&lt;/p&gt;
+              &lt;p&gt;返回: 员工公司工龄&lt;/p&gt;
+          </field>
+      </record>
+
+      <record model="hr.payroll.function" id="F_SocialWorkAge">
+          <field name="name">计算员工社会工龄</field>
+          <field name="code">F_SocialWorkAge</field>
+          <field name="type">self_defined</field>
+          <field name="sequence">6</field>
+          <field name="pre_cal" eval="True"/>
+          <field name="least_parameter">0</field>
+          <field name="most_parameter">0</field>
+          <field name="category">税务公式</field>
+          <field name="python_code">def F_SocialWorkAge():
+              #参数解释: 无
+              #返回: 员工社会工龄(float)
+              payslip_var = pool.get('hr.payslip.run').browse(cr, uid, payslip_run_id)
+              payslip_group_var = pool.get('hr.payroll.group').browse(cr, uid, payslip_var.payroll_group_id.id)
+              first_open_payroll_date = payslip_group_var.first_open_payroll_date
+              first_open_payroll_end_date = first_open_payroll_date[-10:]
+              pay_month_end_time = datetime.strptime(first_open_payroll_end_date, '%Y/%m/%d')
+              employee_var = pool.get('hr.employee').browse(cr, uid, employee_id)
+              if employee_var.social_work_start_date:
+                  social_work_start_date = datetime.strptime(employee_var.social_work_start_date, '%Y-%m-%d')
+              else:
+                  return 0
+              departure_time = employee_var.departure_time
+              if departure_time:
+                  departure_time = datetime.strptime(employee_var.departure_time, '%Y-%m-%d')
+              social_working_age_adjustment = employee_var.social_working_age_adjustment or 0
+              if departure_time:
+                  return (departure_time-social_work_start_date).days/365 + social_working_age_adjustment
+              else:
+                  return (pay_month_end_time-social_work_start_date).days/365 + social_working_age_adjustment
+
+          </field>
+          <field name="value_type">float</field>
+          <field name="note">
+              &lt;p&gt;计算员工社会工龄&lt;/p&gt;
+              &lt;p&gt;格式: 员工社会工龄&lt;/p&gt;
+              &lt;p&gt;返回: 员工社会工龄&lt;/p&gt;
+          </field>
+      </record>
+
+    </data>
+</openerp>

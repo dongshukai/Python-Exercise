@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="payitem_category_1" model="hr.payroll.payitem.category">
+            <field name="name">收入</field>
+        </record>
+
+        <record id="payitem_category_2" model="hr.payroll.payitem.category">
+            <field name="name">其他</field>
+        </record>
+
+        <record id="payitem_category_3" model="hr.payroll.payitem.category">
+            <field name="name">扣款</field>
+        </record>
+
+        <record id="payitem_category_4" model="hr.payroll.payitem.category">
+            <field name="name">企业社保福利</field>
+        </record>
+
+        <record id="payitem_category_5" model="hr.payroll.payitem.category">
+            <field name="name">个人社保福利</field>
+        </record>
+
+        <record id="payitem_category_6" model="hr.payroll.payitem.category">
+            <field name="name">应发工资</field>
+        </record>
+
+        <record id="payitem_category_7" model="hr.payroll.payitem.category">
+            <field name="name">个人所得税</field>
+        </record>
+
+        <record id="payitem_category_8" model="hr.payroll.payitem.category">
+            <field name="name">企业承担个税</field>
+        </record>
+
+        <record id="payitem_category_9" model="hr.payroll.payitem.category">
+            <field name="name">计税不发薪</field>
+        </record>
+
+        <record id="payitem_category_10" model="hr.payroll.payitem.category">
+            <field name="name">实发工资</field>
+        </record>
+
+        <record id="payitem_category_11" model="hr.payroll.payitem.category">
+            <field name="name">累计收入</field>
+        </record>
+
+        <!-- 应税工资-->
+        <record id="payitem_category_12" model="hr.payroll.payitem.category">
+            <field name="name">应税工资</field>
+        </record>
+
+        <!-- 回溯计算-->
+        <record id="payitem_category_14" model="hr.payroll.payitem.category">
+            <field name="name">回溯计算</field>
+        </record>
+
+        <!-- False-->
+        <record id="payitem_category_13" model="hr.payroll.payitem.category">
+            <field name="name">0</field>
+        </record>
+
+    </data>
+</openerp>
+
+    <!-- 0-->
+        <record id="payitem_category_16" model="hr.payroll.payitem.category">
+            <field name="name">0</field>
+        </record>

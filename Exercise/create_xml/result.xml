@@ -1,0 +1,2464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="standard_payroll_group_data_id" model="hr.payroll.group">
+            <field name="name">标准薪资结构</field>
+            <field name="english_name">Standard Payroll Group</field>
+            <field name="code">CN001</field>
+            <field name="type">standard</field>
+        </record>
+
+        
+    <!-- BS001-->
+        <record id="standard_payitem_BS001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_BS001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">基本工资</field>
+            <field name="code">BS001</field>
+            <field name="english_name">Base Salary </field>
+            <field name="source">fixed</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">0</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ABS001-->
+        <record id="standard_payitem_ABS001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ABS001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">实际基本工资</field>
+            <field name="code">ABS001</field>
+            <field name="english_name">Actual Base Salary</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">1</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- FS001-->
+        <record id="standard_payitem_FS001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_FS001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">固定项1</field>
+            <field name="code">FS001</field>
+            <field name="english_name">Fixed Salary1</field>
+            <field name="source">fixed</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">2</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AFS001-->
+        <record id="standard_payitem_AFS001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AFS001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">实际固定项1</field>
+            <field name="code">AFS001</field>
+            <field name="english_name">Actual Fixed Salary1</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">3</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- FS002-->
+        <record id="standard_payitem_FS002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_FS002" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">固定项2</field>
+            <field name="code">FS002</field>
+            <field name="english_name">Actual Fixed Salary2</field>
+            <field name="source">fixed</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">4</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AFS003-->
+        <record id="standard_payitem_AFS003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AFS003" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">实际固定项2</field>
+            <field name="code">AFS003</field>
+            <field name="english_name">Fixed Salary2</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A001-->
+        <record id="standard_payitem_A001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">房贴</field>
+            <field name="code">A001</field>
+            <field name="english_name">Housing Allowance </field>
+            <field name="source">fixed</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">6</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AA001-->
+        <record id="standard_payitem_AA001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AA001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">实际房贴</field>
+            <field name="code">AA001</field>
+            <field name="english_name">Actual Housing Allowance </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">7</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A002-->
+        <record id="standard_payitem_A002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A002" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">餐贴 </field>
+            <field name="code">A002</field>
+            <field name="english_name">Meal Allowance  </field>
+            <field name="source">fixed</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">8</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AA002-->
+        <record id="standard_payitem_AA002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AA002" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">实际餐贴</field>
+            <field name="code">AA002</field>
+            <field name="english_name">Actual Meal Allowance  </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">9</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A003-->
+        <record id="standard_payitem_A003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A003" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">交通津贴</field>
+            <field name="code">A003</field>
+            <field name="english_name">Transportation Allowance </field>
+            <field name="source">fixed</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">10</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AA003-->
+        <record id="standard_payitem_AA003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AA003" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">实际交通津贴</field>
+            <field name="code">AA003</field>
+            <field name="english_name">Actual Transportation allowance </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">11</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A004-->
+        <record id="standard_payitem_A004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A004" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">车贴</field>
+            <field name="code">A004</field>
+            <field name="english_name">Car allowance </field>
+            <field name="source">fixed</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">12</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AA004-->
+        <record id="standard_payitem_AA004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AA004" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">实际车贴</field>
+            <field name="code">AA004</field>
+            <field name="english_name">Actual Car allowance </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">13</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A005-->
+        <record id="standard_payitem_A005" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A005" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">独生子女津贴</field>
+            <field name="code">A005</field>
+            <field name="english_name">Single Child Allowance </field>
+            <field name="source">fixed</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">14</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A006-->
+        <record id="standard_payitem_A006" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A006" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">夜班津贴</field>
+            <field name="code">A006</field>
+            <field name="english_name">Night Shift Allowance </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">15</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A007-->
+        <record id="standard_payitem_A007" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A007" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">轮班津贴</field>
+            <field name="code">A007</field>
+            <field name="english_name">Shift Allowance </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">16</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A008-->
+        <record id="standard_payitem_A008" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A008" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">高温补贴</field>
+            <field name="code">A008</field>
+            <field name="english_name">High Temperature Allowance </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">17</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A009-->
+        <record id="standard_payitem_A009" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A009" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">其他补贴1</field>
+            <field name="code">A009</field>
+            <field name="english_name">Other Allowance1</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">18</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- A010-->
+        <record id="standard_payitem_A010" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A010" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">其他补贴2</field>
+            <field name="code">A010</field>
+            <field name="english_name">Other Allowance2</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">19</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ATT001-->
+        <record id="standard_payitem_ATT001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT001" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">平时加班小时数</field>
+            <field name="code">ATT001</field>
+            <field name="english_name">Weekday OT Hours</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">20</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ATT002-->
+        <record id="standard_payitem_ATT002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT002" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">周末加班小时数</field>
+            <field name="code">ATT002</field>
+            <field name="english_name">Weekend OT Hours</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">21</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ATT003-->
+        <record id="standard_payitem_ATT003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT003" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">节假日加班小时数</field>
+            <field name="code">ATT003</field>
+            <field name="english_name">Holiday OT Hours</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">22</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ATT004-->
+        <record id="standard_payitem_ATT004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT004" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">其他类型的加班小时</field>
+            <field name="code">ATT004</field>
+            <field name="english_name">Other OT Hours  </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">23</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- OTA001-->
+        <record id="standard_payitem_OTA001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_OTA001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">平时加班津贴</field>
+            <field name="code">OTA001</field>
+            <field name="english_name">Weekday OT Allowance  </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">24</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- OTA002-->
+        <record id="standard_payitem_OTA002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_OTA002" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">周末加班津贴</field>
+            <field name="code">OTA002</field>
+            <field name="english_name">Weekend OT Allowance  </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">25</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- OTA003-->
+        <record id="standard_payitem_OTA003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_OTA003" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">假日加班津贴</field>
+            <field name="code">OTA003</field>
+            <field name="english_name">Holiday OT Allowance  </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">26</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- OTA004-->
+        <record id="standard_payitem_OTA004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_OTA004" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">其他加班津贴</field>
+            <field name="code">OTA004</field>
+            <field name="english_name">Other OT Allowance</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">27</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ATT005-->
+        <record id="standard_payitem_ATT005" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT005" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">短病假天数</field>
+            <field name="code">ATT005</field>
+            <field name="english_name">Partly Paid Sick Leave Days</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">28</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ATT006-->
+        <record id="standard_payitem_ATT006" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT006" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">旷工天数</field>
+            <field name="code">ATT006</field>
+            <field name="english_name">Absence Days</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">29</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ATT007-->
+        <record id="standard_payitem_ATT007" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT007" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">无薪假天数</field>
+            <field name="code">ATT007</field>
+            <field name="english_name">Unpaid  Leave Days</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">30</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ATT008-->
+        <record id="standard_payitem_ATT008" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT008" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">其他假天数</field>
+            <field name="code">ATT008</field>
+            <field name="english_name">Others Leave Days</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">31</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- LVD001-->
+        <record id="standard_payitem_LVD001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_LVD001" />
+            <field name="category" ref="payitem_category_3" />
+            <field name="name">短病假扣款</field>
+            <field name="code">LVD001</field>
+            <field name="english_name">Partly Paid Sick Leave Deduction</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">32</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- LVD002-->
+        <record id="standard_payitem_LVD002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_LVD002" />
+            <field name="category" ref="payitem_category_3" />
+            <field name="name">旷工扣款</field>
+            <field name="code">LVD002</field>
+            <field name="english_name">Absence deduction </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">33</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- LVD003-->
+        <record id="standard_payitem_LVD003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_LVD003" />
+            <field name="category" ref="payitem_category_3" />
+            <field name="name">无薪假扣款</field>
+            <field name="code">LVD003</field>
+            <field name="english_name">Unpaid  Leave Deduction</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">34</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- LVD004-->
+        <record id="standard_payitem_LVD004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_LVD004" />
+            <field name="category" ref="payitem_category_3" />
+            <field name="name">其他假期扣款</field>
+            <field name="code">LVD004</field>
+            <field name="english_name">Others Leave deduction </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">35</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- LV001-->
+        <record id="standard_payitem_LV001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_LV001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">产假工资 </field>
+            <field name="code">LV001</field>
+            <field name="english_name">Maternity Leave Payment</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">36</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- LV002-->
+        <record id="standard_payitem_LV002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_LV002" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">长病假工资 </field>
+            <field name="code">LV002</field>
+            <field name="english_name">Sick Leave Payment</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">37</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- F001-->
+        <record id="standard_payitem_F001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_F001" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">法定年假余额</field>
+            <field name="code">F001</field>
+            <field name="english_name">Statutory Annual Leave Balance</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">38</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- F002-->
+        <record id="standard_payitem_F002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_F002" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">公司年假余额</field>
+            <field name="code">F002</field>
+            <field name="english_name">Corporate Annual Leave Balance</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">39</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- F003-->
+        <record id="standard_payitem_F003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_F003" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">法定年假折现</field>
+            <field name="code">F003</field>
+            <field name="english_name">MAL Cash Out  </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">40</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- F004-->
+        <record id="standard_payitem_F004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_F004" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">公司年假折现</field>
+            <field name="code">F004</field>
+            <field name="english_name">SAL Cash Out  </field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">41</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER001-->
+        <record id="standard_payitem_SBER001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER001" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业养老汇缴额</field>
+            <field name="code">SBER001</field>
+            <field name="english_name">Pension Contribution by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">42</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER002-->
+        <record id="standard_payitem_SBER002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER002" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业医疗汇缴额</field>
+            <field name="code">SBER002</field>
+            <field name="english_name">Medical Insurance Contribution by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">43</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER003-->
+        <record id="standard_payitem_SBER003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER003" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业失业汇缴额</field>
+            <field name="code">SBER003</field>
+            <field name="english_name">Unemployment Insurance Contribution by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">44</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER004-->
+        <record id="standard_payitem_SBER004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER004" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业大病医疗汇缴额</field>
+            <field name="code">SBER004</field>
+            <field name="english_name">Critical Illness Insurance Contribution by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">45</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER005-->
+        <record id="standard_payitem_SBER005" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER005" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">工伤保险汇缴额</field>
+            <field name="code">SBER005</field>
+            <field name="english_name">Injury Insurance Contribution </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">46</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER006-->
+        <record id="standard_payitem_SBER006" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER006" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">生育保险汇缴额</field>
+            <field name="code">SBER006</field>
+            <field name="english_name">Maternity Insurance Contribution </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">47</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER007-->
+        <record id="standard_payitem_SBER007" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER007" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">残保金汇缴额</field>
+            <field name="code">SBER007</field>
+            <field name="english_name">Insurance Contribution against Invalidity </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">48</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER008-->
+        <record id="standard_payitem_SBER008" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER008" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">采暖费汇缴额</field>
+            <field name="code">SBER008</field>
+            <field name="english_name">Heating Fee Contribution</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">49</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER009-->
+        <record id="standard_payitem_SBER009" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER009" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">工会费汇缴额</field>
+            <field name="code">SBER009</field>
+            <field name="english_name">Labor Union Fee Contribution</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">50</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER010-->
+        <record id="standard_payitem_SBER010" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER010" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业补充养老汇缴额</field>
+            <field name="code">SBER010</field>
+            <field name="english_name">Additional Pension Contribution by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">51</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBER011-->
+        <record id="standard_payitem_SBER011" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBER011" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业补充医疗汇缴额</field>
+            <field name="code">SBER011</field>
+            <field name="english_name">Additional Medical Insurance Contribution by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">52</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFER001-->
+        <record id="standard_payitem_HFER001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFER001" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业公积金汇缴额</field>
+            <field name="code">HFER001</field>
+            <field name="english_name">Housing Fund Contribution by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">53</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFER002-->
+        <record id="standard_payitem_HFER002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFER002" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业补充公积金汇缴额</field>
+            <field name="code">HFER002</field>
+            <field name="english_name">Additional Housing Fund Contribution by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">54</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEE001-->
+        <record id="standard_payitem_SBEE001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEE001" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人养老汇缴额</field>
+            <field name="code">SBEE001</field>
+            <field name="english_name">Pension Contribution by Employee </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">55</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEE002-->
+        <record id="standard_payitem_SBEE002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEE002" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人医疗汇缴额</field>
+            <field name="code">SBEE002</field>
+            <field name="english_name">Medical Insurance Contribution by Employee </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">56</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEE003-->
+        <record id="standard_payitem_SBEE003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEE003" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人失业汇缴额</field>
+            <field name="code">SBEE003</field>
+            <field name="english_name">Unemployment Insurance Contribution by Employee </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">57</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEE004-->
+        <record id="standard_payitem_SBEE004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEE004" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人大病医疗汇缴额</field>
+            <field name="code">SBEE004</field>
+            <field name="english_name">Critical Illness Insurance Contribution by Employee </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">58</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEE005-->
+        <record id="standard_payitem_SBEE005" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEE005" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人补充养老汇缴额</field>
+            <field name="code">SBEE005</field>
+            <field name="english_name">Additional Pension Contribution by Employee </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">59</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEE006-->
+        <record id="standard_payitem_SBEE006" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEE006" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人补充医疗汇缴额</field>
+            <field name="code">SBEE006</field>
+            <field name="english_name">Additional Medical Insurance Contribution by Employee </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">60</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFEE001-->
+        <record id="standard_payitem_HFEE001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFEE001" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人公积金汇缴额</field>
+            <field name="code">HFEE001</field>
+            <field name="english_name">Housing Fund Contribution by Employee </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">61</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFEE002-->
+        <record id="standard_payitem_HFEE002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFEE002" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人补充公积金汇缴额</field>
+            <field name="code">HFEE002</field>
+            <field name="english_name">Additional Housing Fund Contribution by Employee </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">62</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay001-->
+        <record id="standard_payitem_SBERBackpay001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay001" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业养老补缴额</field>
+            <field name="code">SBERBackpay001</field>
+            <field name="english_name">Pension Backpay  by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">63</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay002-->
+        <record id="standard_payitem_SBERBackpay002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay002" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业医疗补缴额</field>
+            <field name="code">SBERBackpay002</field>
+            <field name="english_name">Medical Insurance Backpay by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">64</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay003-->
+        <record id="standard_payitem_SBERBackpay003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay003" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业失业补缴额</field>
+            <field name="code">SBERBackpay003</field>
+            <field name="english_name">Unemployment Insurance Backpay  by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">65</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay004-->
+        <record id="standard_payitem_SBERBackpay004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay004" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业大病医疗补缴额</field>
+            <field name="code">SBERBackpay004</field>
+            <field name="english_name">Critical Illness Insurance Backpay by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">66</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay005-->
+        <record id="standard_payitem_SBERBackpay005" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay005" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">工伤保险补缴额</field>
+            <field name="code">SBERBackpay005</field>
+            <field name="english_name">Injury Backpay  by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">67</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay006-->
+        <record id="standard_payitem_SBERBackpay006" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay006" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">生育保险补缴额</field>
+            <field name="code">SBERBackpay006</field>
+            <field name="english_name">Maternity Backpay  by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">68</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay007-->
+        <record id="standard_payitem_SBERBackpay007" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay007" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">残保金补缴额</field>
+            <field name="code">SBERBackpay007</field>
+            <field name="english_name">Insurance against Invalidity Backpay</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">69</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay008-->
+        <record id="standard_payitem_SBERBackpay008" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay008" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">采暖费补缴额</field>
+            <field name="code">SBERBackpay008</field>
+            <field name="english_name">Heating Fee Backpay</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">70</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay009-->
+        <record id="standard_payitem_SBERBackpay009" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay009" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">工会费汇缴额</field>
+            <field name="code">SBERBackpay009</field>
+            <field name="english_name">Labor Union Fee Backpay</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">71</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay010-->
+        <record id="standard_payitem_SBERBackpay010" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay010" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业补充养老补缴额</field>
+            <field name="code">SBERBackpay010</field>
+            <field name="english_name">Additional Pension Backpay by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">72</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBERBackpay011-->
+        <record id="standard_payitem_SBERBackpay011" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBERBackpay011" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业补充医疗补缴额</field>
+            <field name="code">SBERBackpay011</field>
+            <field name="english_name">Additional Medical Insurance Backpay by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">73</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFERBackpay001-->
+        <record id="standard_payitem_HFERBackpay001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFERBackpay001" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业公积金补缴额</field>
+            <field name="code">HFERBackpay001</field>
+            <field name="english_name">Housing FundBackpay by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">74</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFEBackpayR002-->
+        <record id="standard_payitem_HFEBackpayR002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFEBackpayR002" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业补充公积金补缴额</field>
+            <field name="code">HFEBackpayR002</field>
+            <field name="english_name">Additional Housing Fund Backpay by Employer </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">75</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEEBackPay001-->
+        <record id="standard_payitem_SBEEBackPay001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEEBackPay001" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人养老补缴额</field>
+            <field name="code">SBEEBackPay001</field>
+            <field name="english_name">Pension Backpay by Employee</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">76</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEEBackPay002-->
+        <record id="standard_payitem_SBEEBackPay002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEEBackPay002" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人医疗补缴额</field>
+            <field name="code">SBEEBackPay002</field>
+            <field name="english_name">Medical  Backpay  by Employee</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">77</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEEBackPay003-->
+        <record id="standard_payitem_SBEEBackPay003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEEBackPay003" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人失业补缴额</field>
+            <field name="code">SBEEBackPay003</field>
+            <field name="english_name">Unemployment Insurance Backpay by Employee</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">78</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEEBackPay004-->
+        <record id="standard_payitem_SBEEBackPay004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEEBackPay004" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人大病医疗补缴额</field>
+            <field name="code">SBEEBackPay004</field>
+            <field name="english_name">Critical Illness Insurance Backpay by Employee</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">79</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEEBackPay005-->
+        <record id="standard_payitem_SBEEBackPay005" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEEBackPay005" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人补充养老补缴额</field>
+            <field name="code">SBEEBackPay005</field>
+            <field name="english_name">Additional Pension Backpay by Employee</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">80</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBEEBackPay006-->
+        <record id="standard_payitem_SBEEBackPay006" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBEEBackPay006" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人补充医疗补缴额</field>
+            <field name="code">SBEEBackPay006</field>
+            <field name="english_name">Additional Medical Insurance Backpay by Employee</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">81</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFEEBackPay001-->
+        <record id="standard_payitem_HFEEBackPay001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFEEBackPay001" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人公积金补缴额</field>
+            <field name="code">HFEEBackPay001</field>
+            <field name="english_name">Housing Fund Backpay by Employee </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">82</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFEEBackPay002-->
+        <record id="standard_payitem_HFEEBackPay002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFEEBackPay002" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人补充公积金补缴额</field>
+            <field name="code">HFEEBackPay002</field>
+            <field name="english_name">Additional Housing FundBackpay by Employee</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">83</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBTotalEE-->
+        <record id="standard_payitem_SBTotalEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBTotalEE" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人社保合计</field>
+            <field name="code">SBTotalEE</field>
+            <field name="english_name">Social Benefit Total By Employee</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">84</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SBTotalER-->
+        <record id="standard_payitem_SBTotalER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SBTotalER" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业社保合计</field>
+            <field name="code">SBTotalER</field>
+            <field name="english_name">Social Benefit Total By Employer</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">85</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFTotalEE-->
+        <record id="standard_payitem_HFTotalEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFTotalEE" />
+            <field name="category" ref="payitem_category_5" />
+            <field name="name">个人公积金合计</field>
+            <field name="code">HFTotalEE</field>
+            <field name="english_name">Housing Fund Total By Employee</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">86</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- HFTotalER-->
+        <record id="standard_payitem_HFTotalER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_HFTotalER" />
+            <field name="category" ref="payitem_category_4" />
+            <field name="name">企业公积金合计</field>
+            <field name="code">HFTotalER</field>
+            <field name="english_name">Housing Fund Total By Employer</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">87</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- GrossSalary-->
+        <record id="standard_payitem_GrossSalary" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_GrossSalary" />
+            <field name="category" ref="payitem_category_6" />
+            <field name="name">应发工资</field>
+            <field name="code">GrossSalary</field>
+            <field name="english_name">Gross Salary </field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">88</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SalaryIncomebeforeTaxEE-->
+        <record id="standard_payitem_SalaryIncomebeforeTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SalaryIncomebeforeTaxEE" />
+            <field name="category" ref="payitem_category_12" />
+            <field name="name">应税工资</field>
+            <field name="code">SalaryIncomebeforeTaxEE</field>
+            <field name="english_name">Salary Income before Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">89</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SalaryIncomebeforeTaxER-->
+        <record id="standard_payitem_SalaryIncomebeforeTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SalaryIncomebeforeTaxER" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">公司承担应税</field>
+            <field name="code">SalaryIncomebeforeTaxER</field>
+            <field name="english_name">Salary Income before Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">90</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SalaryTaxEE-->
+        <record id="standard_payitem_SalaryTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SalaryTaxEE" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">员工承担个人所得税</field>
+            <field name="code">SalaryTaxEE</field>
+            <field name="english_name">Salary Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">91</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ActualSalaryIncomebeforeTax-->
+        <record id="standard_payitem_ActualSalaryIncomebeforeTax" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ActualSalaryIncomebeforeTax" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">实际应税</field>
+            <field name="code">ActualSalaryIncomebeforeTax</field>
+            <field name="english_name">Actual Salary Income before Tax</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">92</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SalaryTaxER-->
+        <record id="standard_payitem_SalaryTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SalaryTaxER" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">公司承担个人所得税</field>
+            <field name="code">SalaryTaxER</field>
+            <field name="english_name">Salary Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">93</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- TotalActualSalary-->
+        <record id="standard_payitem_TotalActualSalary" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_TotalActualSalary" />
+            <field name="category" ref="payitem_category_12" />
+            <field name="name">累积应税</field>
+            <field name="code">TotalActualSalary</field>
+            <field name="english_name">Total Actual Salary</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">94</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AnnualBonusbeforeTaxEE-->
+        <record id="standard_payitem_AnnualBonusbeforeTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AnnualBonusbeforeTaxEE" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">年终奖</field>
+            <field name="code">AnnualBonusbeforeTaxEE</field>
+            <field name="english_name">AnnualBonus before Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">95</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AnnualBonusbeforeTaxER-->
+        <record id="standard_payitem_AnnualBonusbeforeTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AnnualBonusbeforeTaxER" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">公司承担年终奖应税</field>
+            <field name="code">AnnualBonusbeforeTaxER</field>
+            <field name="english_name">AnnualBonus before Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">96</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ActualAnnualBonusebeforeTax-->
+        <record id="standard_payitem_ActualAnnualBonusebeforeTax" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ActualAnnualBonusebeforeTax" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">年终奖实际应税</field>
+            <field name="code">ActualAnnualBonusebeforeTax</field>
+            <field name="english_name">Actual AnnualBonus before Tax</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">97</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AnnualBonusTaxEE-->
+        <record id="standard_payitem_AnnualBonusTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AnnualBonusTaxEE" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">员工承担年终奖税</field>
+            <field name="code">AnnualBonusTaxEE</field>
+            <field name="english_name">Annual Bonus Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">98</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- AnnualBonusTaxER-->
+        <record id="standard_payitem_AnnualBonusTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AnnualBonusTaxER" />
+            <field name="category" ref="payitem_category_8" />
+            <field name="name">公司承担年终奖税</field>
+            <field name="code">AnnualBonusTaxER</field>
+            <field name="english_name">Annual Bonus Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">99</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ActualAnnualBonusTotal-->
+        <record id="standard_payitem_ActualAnnualBonusTotal" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ActualAnnualBonusTotal" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">年终奖累积应税</field>
+            <field name="code">ActualAnnualBonusTotal</field>
+            <field name="english_name">Total Actual Annual Bonus</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">100</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SCIncomebeforeTaxEE-->
+        <record id="standard_payitem_SCIncomebeforeTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SCIncomebeforeTaxEE" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">劳务报酬</field>
+            <field name="code">SCIncomebeforeTaxEE</field>
+            <field name="english_name">Service Charge before Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">101</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SCIncomebeforeTaxER-->
+        <record id="standard_payitem_SCIncomebeforeTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SCIncomebeforeTaxER" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">公司承担劳务报酬应税</field>
+            <field name="code">SCIncomebeforeTaxER</field>
+            <field name="english_name">Service Charge before Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">102</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ActualSCbeforeTax-->
+        <record id="standard_payitem_ActualSCbeforeTax" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ActualSCbeforeTax" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">劳务报酬实际应税</field>
+            <field name="code">ActualSCbeforeTax</field>
+            <field name="english_name">Actual SC before Tax</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">103</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SCTaxEE-->
+        <record id="standard_payitem_SCTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SCTaxEE" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">员工承担劳务所得税</field>
+            <field name="code">SCTaxEE</field>
+            <field name="english_name">Service Charge Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">104</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SCTaxER-->
+        <record id="standard_payitem_SCTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SCTaxER" />
+            <field name="category" ref="payitem_category_8" />
+            <field name="name">企业承担劳务所得税</field>
+            <field name="code">SCTaxER</field>
+            <field name="english_name">Service Charge Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">105</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SPIncomebeforeTaxEE-->
+        <record id="standard_payitem_SPIncomebeforeTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SPIncomebeforeTaxEE" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">离职补偿金</field>
+            <field name="code">SPIncomebeforeTaxEE</field>
+            <field name="english_name">Severance Payment  before Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">106</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SPIncomebeforeTaxER-->
+        <record id="standard_payitem_SPIncomebeforeTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SPIncomebeforeTaxER" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">公司承担离职补偿金应税</field>
+            <field name="code">SPIncomebeforeTaxER</field>
+            <field name="english_name">Severance Payment  before Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">107</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ActualSPbeforeTax-->
+        <record id="standard_payitem_ActualSPbeforeTax" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ActualSPbeforeTax" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">离职补偿金实际应税</field>
+            <field name="code">ActualSPbeforeTax</field>
+            <field name="english_name">Actual SP before Tax</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">108</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SPTaxEE-->
+        <record id="standard_payitem_SPTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SPTaxEE" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">个人承担的离职补偿金所得税</field>
+            <field name="code">SPTaxEE</field>
+            <field name="english_name">Severance Payment Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">109</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- SPaxER-->
+        <record id="standard_payitem_SPaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SPaxER" />
+            <field name="category" ref="payitem_category_8" />
+            <field name="name">公司承担的离职补偿金所得税</field>
+            <field name="code">SPaxER</field>
+            <field name="english_name">Severance Payment Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">110</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- StockIncomebeforeTaxEE-->
+        <record id="standard_payitem_StockIncomebeforeTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_StockIncomebeforeTaxEE" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">股权激励所得</field>
+            <field name="code">StockIncomebeforeTaxEE</field>
+            <field name="english_name">Stock Income before Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">111</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- StockIncomebeforeTaxER-->
+        <record id="standard_payitem_StockIncomebeforeTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_StockIncomebeforeTaxER" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">公司承担股权应税</field>
+            <field name="code">StockIncomebeforeTaxER</field>
+            <field name="english_name">Stock Income before Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">112</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- StockMonth-->
+        <record id="standard_payitem_StockMonth" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_StockMonth" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">规定月数</field>
+            <field name="code">StockMonth</field>
+            <field name="english_name">Stock Months  </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">113</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ActualStockIncomebeforeTax-->
+        <record id="standard_payitem_ActualStockIncomebeforeTax" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ActualStockIncomebeforeTax" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">股权实际应税</field>
+            <field name="code">ActualStockIncomebeforeTax</field>
+            <field name="english_name">Actual Stock Income before Tax</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">114</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- StockIncomeTaxEE-->
+        <record id="standard_payitem_StockIncomeTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_StockIncomeTaxEE" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">个人承担股权税</field>
+            <field name="code">StockIncomeTaxEE</field>
+            <field name="english_name">Stock Income Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">115</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- StockIncomeTaxER-->
+        <record id="standard_payitem_StockIncomeTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_StockIncomeTaxER" />
+            <field name="category" ref="payitem_category_8" />
+            <field name="name">公司承担股权税</field>
+            <field name="code">StockIncomeTaxER</field>
+            <field name="english_name">Stock Income  Tax  by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">116</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- IIncomebeforeTaxEE-->
+        <record id="standard_payitem_IIncomebeforeTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_IIncomebeforeTaxEE" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">偶然所得</field>
+            <field name="code">IIncomebeforeTaxEE</field>
+            <field name="english_name">Incidental Income   before Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">117</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- IIncomebeforeTaxER-->
+        <record id="standard_payitem_IIncomebeforeTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_IIncomebeforeTaxER" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">公司承担偶然所得应税</field>
+            <field name="code">IIncomebeforeTaxER</field>
+            <field name="english_name">Incidental Income   before Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">118</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- ActualIIncomebeforeTax-->
+        <record id="standard_payitem_ActualIIncomebeforeTax" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ActualIIncomebeforeTax" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">偶然所得实际应税</field>
+            <field name="code">ActualIIncomebeforeTax</field>
+            <field name="english_name">Actual Incidental Income before Tax</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">119</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- IncTaxEE-->
+        <record id="standard_payitem_IncTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_IncTaxEE" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">员工承担偶然所得税</field>
+            <field name="code">IncTaxEE</field>
+            <field name="english_name">Incidental Income Tax by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">120</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- IncTaxER-->
+        <record id="standard_payitem_IncTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_IncTaxER" />
+            <field name="category" ref="payitem_category_8" />
+            <field name="name">公司承担偶然所得税</field>
+            <field name="code">IncTaxER</field>
+            <field name="english_name">Incidental Income Tax by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">121</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- TotalTaxEE-->
+        <record id="standard_payitem_TotalTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_TotalTaxEE" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">员工承担的个税合计</field>
+            <field name="code">TotalTaxEE</field>
+            <field name="english_name">Total Tax Afforded by Employee</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">122</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- TotalTaxER-->
+        <record id="standard_payitem_TotalTaxER" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_TotalTaxER" />
+            <field name="category" ref="payitem_category_8" />
+            <field name="name">公司承担的个税合计</field>
+            <field name="code">TotalTaxER</field>
+            <field name="english_name">Total Tax Afforded by Employer</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">123</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- M001-->
+        <record id="standard_payitem_M001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_M001" />
+            <field name="category" ref="payitem_category_9" />
+            <field name="name">商业保险</field>
+            <field name="code">M001</field>
+            <field name="english_name">Commercial Insurance </field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">124</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- M002-->
+        <record id="standard_payitem_M002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_M002" />
+            <field name="category" ref="payitem_category_9" />
+            <field name="name">计税不发薪</field>
+            <field name="code">M002</field>
+            <field name="english_name">Unpaid Taxable Income</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">125</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- NETPAY-->
+        <record id="standard_payitem_NETPAY" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_NETPAY" />
+            <field name="category" ref="payitem_category_10" />
+            <field name="name">实发工资</field>
+            <field name="code">NETPAY</field>
+            <field name="english_name">Net Pay </field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">126</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="True" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!--     YTD IBT-->
+        <record id="standard_payitem_    YTD IBT" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_YTD_IBT" />
+            <field name="category" ref="payitem_category_11" />
+            <field name="name">本年应税累计</field>
+            <field name="code">    YTD IBT</field>
+            <field name="english_name">YTD for IncomebeforeTax</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">127</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    <!-- YTD-->
+        <record id="standard_payitem_YTD" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_YTD" />
+            <field name="category" ref="payitem_category_11" />
+            <field name="name">本年个税累计</field>
+            <field name="code">YTD</field>
+            <field name="english_name">YTD For IncTaxEE</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">128</field>
+            <field name="group_id" ref="standard_payroll_group_data_id" />
+            <field name="active" eval="False" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+        </record>
+
+    </data>
+</openerp>

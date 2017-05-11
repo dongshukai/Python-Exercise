@@ -1,0 +1,16 @@
+{
+  "payroll_engine": [
+    ["payroll_payitem_category", "payroll_setting.model_hr_payroll_payitem_category"],
+    ["payroll_payitem", "payroll_setting.model_hr_payroll_payitem"],
+    ["payroll_function", "payroll_setting.model_hr_payroll_function"],
+    ["payroll_group", "payroll_setting.model_hr_payroll_group"],
+    ["payroll_tax", "payroll_setting.model_hr_payroll_tax"],
+    ["reference_payitem", "payroll_setting.model_reference_payitem"],
+    ["referencable_model", "payroll_setting.model_referencable_model"],
+    ["payroll_meta_data", "payroll_setting.model_hr_payroll_meta_data"],
+    ["payroll_parameter", "payroll_setting.model_hr_payroll_parameter"],
+    ["payroll_year", "payroll_period.model_payroll_year"],
+    ["payroll_period", "payroll_period.model_payroll_period"],
+    ["payroll_payitem_sequence", "payroll_setting.model_hr_payroll_payitem_sequence"]
+  ]
+}

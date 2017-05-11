@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!--Payroll Year-->
+        <!--<record id="payroll_year" model="payroll.year">-->
+            <!--&lt;!&ndash;<field name="pay_group_id" ref="group_tax"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<field name="date_start">1900-01-01</field>&ndash;&gt;-->
+            <!--&lt;!&ndash;<field name="attendance_date_start">1900-01-01</field>&ndash;&gt;-->
+            <!--&lt;!&ndash;<field name="overtime_date_start">1900-01-01</field>&ndash;&gt;-->
+            <!--&lt;!&ndash;<field name="vacation_date_start">1900-01-01</field>&ndash;&gt;-->
+            <!--&lt;!&ndash;<field name="period">month</field>&ndash;&gt;-->
+        <!--&lt;!&ndash;</record>&ndash;&gt;-->
+
+        <function name="config_all" model="payroll.year"/>
+    </data>
+</openerp>

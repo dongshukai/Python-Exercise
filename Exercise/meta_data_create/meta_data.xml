@@ -1,0 +1,1631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- 电脑补贴-->
+        <record id="meta_BS002" model="hr.payroll.meta.data">
+            <field name="code">BS002</field>
+            <field name="name">电脑补贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 计薪天数-->
+        <record id="meta_BC003" model="hr.payroll.meta.data">
+            <field name="code">BC003</field>
+            <field name="name">计薪天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 应发小计-->
+        <record id="meta_BC004" model="hr.payroll.meta.data">
+            <field name="code">BC004</field>
+            <field name="name">应发小计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 个税-->
+        <record id="meta_BC005" model="hr.payroll.meta.data">
+            <field name="code">BC005</field>
+            <field name="name">个税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 紫竹服务费-->
+        <record id="meta_BC006" model="hr.payroll.meta.data">
+            <field name="code">BC006</field>
+            <field name="name">紫竹服务费</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 实发工资-->
+        <record id="meta_BC007" model="hr.payroll.meta.data">
+            <field name="code">BC007</field>
+            <field name="name">实发工资</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 合计支付-->
+        <record id="meta_BC008" model="hr.payroll.meta.data">
+            <field name="code">BC008</field>
+            <field name="name">合计支付</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 公司-->
+        <record id="meta_BS008" model="hr.payroll.meta.data">
+            <field name="code">BS008</field>
+            <field name="name">公司</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 成本-->
+        <record id="meta_BC009" model="hr.payroll.meta.data">
+            <field name="code">BC009</field>
+            <field name="name">成本</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 业务线-->
+        <record id="meta_BC010" model="hr.payroll.meta.data">
+            <field name="code">BC010</field>
+            <field name="name">业务线</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 员工性质-->
+        <record id="meta_BC011" model="hr.payroll.meta.data">
+            <field name="code">BC011</field>
+            <field name="name">员工性质</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 入职时间-->
+        <record id="meta_BC012" model="hr.payroll.meta.data">
+            <field name="code">BC012</field>
+            <field name="name">入职时间</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">date</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 离职日期-->
+        <record id="meta_BC013" model="hr.payroll.meta.data">
+            <field name="code">BC013</field>
+            <field name="name">离职日期</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">date</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 工资负责人-->
+        <record id="meta_BC014" model="hr.payroll.meta.data">
+            <field name="code">BC014</field>
+            <field name="name">工资负责人</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 备注-->
+        <record id="meta_BC015" model="hr.payroll.meta.data">
+            <field name="code">BC015</field>
+            <field name="name">备注</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 应发工资-->
+        <record id="meta_BC016" model="hr.payroll.meta.data">
+            <field name="code">BC016</field>
+            <field name="name">应发工资</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 岗位津贴-->
+        <record id="meta_BC017" model="hr.payroll.meta.data">
+            <field name="code">BC017</field>
+            <field name="name">岗位津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 全勤奖-->
+        <record id="meta_BC018" model="hr.payroll.meta.data">
+            <field name="code">BC018</field>
+            <field name="name">全勤奖</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 全勤奖调整-->
+        <record id="meta_BC019" model="hr.payroll.meta.data">
+            <field name="code">BC019</field>
+            <field name="name">全勤奖调整</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 绩效奖金-->
+        <record id="meta_BC020" model="hr.payroll.meta.data">
+            <field name="code">BC020</field>
+            <field name="name">绩效奖金</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 绩效奖金调整-->
+        <record id="meta_BC021" model="hr.payroll.meta.data">
+            <field name="code">BC021</field>
+            <field name="name">绩效奖金调整</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 季度奖金-->
+        <record id="meta_BC022" model="hr.payroll.meta.data">
+            <field name="code">BC022</field>
+            <field name="name">季度奖金</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_3"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 销售奖金-->
+        <record id="meta_BC023" model="hr.payroll.meta.data">
+            <field name="code">BC023</field>
+            <field name="name">销售奖金</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 加班费用总计-->
+        <record id="meta_BC024" model="hr.payroll.meta.data">
+            <field name="code">BC024</field>
+            <field name="name">加班费用总计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 事假天数-->
+        <record id="meta_BC025" model="hr.payroll.meta.data">
+            <field name="code">BC025</field>
+            <field name="name">事假天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 事假扣费-->
+        <record id="meta_BC026" model="hr.payroll.meta.data">
+            <field name="code">BC026</field>
+            <field name="name">事假扣费</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 应出勤天数-->
+        <record id="meta_BC027" model="hr.payroll.meta.data">
+            <field name="code">BC027</field>
+            <field name="name">应出勤天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 入离职调整天数-->
+        <record id="meta_BC028" model="hr.payroll.meta.data">
+            <field name="code">BC028</field>
+            <field name="name">入离职调整天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 入离职扣减-->
+        <record id="meta_BC029" model="hr.payroll.meta.data">
+            <field name="code">BC029</field>
+            <field name="name">入离职扣减</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 税前调整-->
+        <record id="meta_BC030" model="hr.payroll.meta.data">
+            <field name="code">BC030</field>
+            <field name="name">税前调整</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 当月调整-->
+        <record id="meta_BC031" model="hr.payroll.meta.data">
+            <field name="code">BC031</field>
+            <field name="name">当月调整</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 实习天数-->
+        <record id="meta_BC032" model="hr.payroll.meta.data">
+            <field name="code">BC032</field>
+            <field name="name">实习天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 公司福利总计-->
+        <record id="meta_BC033" model="hr.payroll.meta.data">
+            <field name="code">BC033</field>
+            <field name="name">公司福利总计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 个人补计缴-->
+        <record id="meta_BC035" model="hr.payroll.meta.data">
+            <field name="code">BC035</field>
+            <field name="name">个人补计缴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 个人福利总计-->
+        <record id="meta_BC036" model="hr.payroll.meta.data">
+            <field name="code">BC036</field>
+            <field name="name">个人福利总计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 税前工资-->
+        <record id="meta_BC037" model="hr.payroll.meta.data">
+            <field name="code">BC037</field>
+            <field name="name">税前工资</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 个人所得税合计-->
+        <record id="meta_BC038" model="hr.payroll.meta.data">
+            <field name="code">BC038</field>
+            <field name="name">个人所得税合计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 外服管理费-->
+        <record id="meta_BC039" model="hr.payroll.meta.data">
+            <field name="code">BC039</field>
+            <field name="name">外服管理费</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 人工成本总计-->
+        <record id="meta_BC040" model="hr.payroll.meta.data">
+            <field name="code">BC040</field>
+            <field name="name">人工成本总计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 岗位-->
+        <record id="meta_BC043" model="hr.payroll.meta.data">
+            <field name="code">BC043</field>
+            <field name="name">岗位</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 身份证号码-->
+        <record id="meta_BC044" model="hr.payroll.meta.data">
+            <field name="code">BC044</field>
+            <field name="name">身份证号码</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 银行账号-->
+        <record id="meta_BC045" model="hr.payroll.meta.data">
+            <field name="code">BC045</field>
+            <field name="name">银行账号</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 开户行-->
+        <record id="meta_BC046" model="hr.payroll.meta.data">
+            <field name="code">BC046</field>
+            <field name="name">开户行</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 本公司工龄-->
+        <record id="meta_BC047" model="hr.payroll.meta.data">
+            <field name="code">BC047</field>
+            <field name="name">本公司工龄</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 目标值-->
+        <record id="meta_TG001" model="hr.payroll.meta.data">
+            <field name="code">TG001</field>
+            <field name="name">目标值</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 职级-->
+        <record id="meta_A011" model="hr.payroll.meta.data">
+            <field name="code">A011</field>
+            <field name="name">职级</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 岗位津贴调整-->
+        <record id="meta_A012" model="hr.payroll.meta.data">
+            <field name="code">A012</field>
+            <field name="name">岗位津贴调整</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 实发岗位津贴-->
+        <record id="meta_A013" model="hr.payroll.meta.data">
+            <field name="code">A013</field>
+            <field name="name">实发岗位津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 离职天数-->
+        <record id="meta_LZTS001" model="hr.payroll.meta.data">
+            <field name="code">LZTS001</field>
+            <field name="name">离职天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 月度奖金比率-->
+        <record id="meta_BC048" model="hr.payroll.meta.data">
+            <field name="code">BC048</field>
+            <field name="name">月度奖金比率</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 月度奖金-->
+        <record id="meta_BC049" model="hr.payroll.meta.data">
+            <field name="code">BC049</field>
+            <field name="name">月度奖金</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 季度奖金比率-->
+        <record id="meta_BC050" model="hr.payroll.meta.data">
+            <field name="code">BC050</field>
+            <field name="name">季度奖金比率</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 奖金-->
+        <record id="meta_BC052" model="hr.payroll.meta.data">
+            <field name="code">BC052</field>
+            <field name="name">奖金</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 十三薪个调税-->
+        <record id="meta_BC056" model="hr.payroll.meta.data">
+            <field name="code">BC056</field>
+            <field name="name">十三薪个调税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 年终奖计提-->
+        <record id="meta_BC053" model="hr.payroll.meta.data">
+            <field name="code">BC053</field>
+            <field name="name">年终奖计提</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 十三薪-->
+        <record id="meta_BC055" model="hr.payroll.meta.data">
+            <field name="code">BC055</field>
+            <field name="name">十三薪</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 社保基数-->
+        <record id="meta_BC054" model="hr.payroll.meta.data">
+            <field name="code">BC054</field>
+            <field name="name">社保基数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 其他-->
+        <record id="meta_BC099" model="hr.payroll.meta.data">
+            <field name="code">BC099</field>
+            <field name="name">其他</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 公积金基数-->
+        <record id="meta_BC057" model="hr.payroll.meta.data">
+            <field name="code">BC057</field>
+            <field name="name">公积金基数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 调薪补差-->
+        <record id="meta_BC060" model="hr.payroll.meta.data">
+            <field name="code">BC060</field>
+            <field name="name">调薪补差</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 转正日期-->
+        <record id="meta_BC041" model="hr.payroll.meta.data">
+            <field name="code">BC041</field>
+            <field name="name">转正日期</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">date</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 本月入职离职-->
+        <record id="meta_MD0001" model="hr.payroll.meta.data">
+            <field name="code">MD0001</field>
+            <field name="name">本月入职离职</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 销售回款-->
+        <record id="meta_MD0002" model="hr.payroll.meta.data">
+            <field name="code">MD0002</field>
+            <field name="name">销售回款</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 业绩完成率-->
+        <record id="meta_MD0003" model="hr.payroll.meta.data">
+            <field name="code">MD0003</field>
+            <field name="name">业绩完成率</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 业绩达标率-->
+        <record id="meta_MD0004" model="hr.payroll.meta.data">
+            <field name="code">MD0004</field>
+            <field name="name">业绩达标率</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 订单数-->
+        <record id="meta_MD0005" model="hr.payroll.meta.data">
+            <field name="code">MD0005</field>
+            <field name="name">订单数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 绩效系数-->
+        <record id="meta_MD0006" model="hr.payroll.meta.data">
+            <field name="code">MD0006</field>
+            <field name="name">绩效系数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 人均订单数-->
+        <record id="meta_MD0007" model="hr.payroll.meta.data">
+            <field name="code">MD0007</field>
+            <field name="name">人均订单数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 人均销量-->
+        <record id="meta_MD0008" model="hr.payroll.meta.data">
+            <field name="code">MD0008</field>
+            <field name="name">人均销量</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 团队人数-->
+        <record id="meta_MD0009" model="hr.payroll.meta.data">
+            <field name="code">MD0009</field>
+            <field name="name">团队人数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 团队订单数-->
+        <record id="meta_MD0010" model="hr.payroll.meta.data">
+            <field name="code">MD0010</field>
+            <field name="name">团队订单数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 团队销量-->
+        <record id="meta_MD0011" model="hr.payroll.meta.data">
+            <field name="code">MD0011</field>
+            <field name="name">团队销量</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 个人绩效得分-->
+        <record id="meta_MD0012" model="hr.payroll.meta.data">
+            <field name="code">MD0012</field>
+            <field name="name">个人绩效得分</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 满意度得分-->
+        <record id="meta_MD0013" model="hr.payroll.meta.data">
+            <field name="code">MD0013</field>
+            <field name="name">满意度得分</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 销售提成-->
+        <record id="meta_MD0014" model="hr.payroll.meta.data">
+            <field name="code">MD0014</field>
+            <field name="name">销售提成</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 外包费用-->
+        <record id="meta_MD0015" model="hr.payroll.meta.data">
+            <field name="code">MD0015</field>
+            <field name="name">外包费用</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 底薪-->
+        <record id="meta_MD0016" model="hr.payroll.meta.data">
+            <field name="code">MD0016</field>
+            <field name="name">底薪</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 岗位工资-->
+        <record id="meta_MD0017" model="hr.payroll.meta.data">
+            <field name="code">MD0017</field>
+            <field name="name">岗位工资</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 职级工资-->
+        <record id="meta_MD0018" model="hr.payroll.meta.data">
+            <field name="code">MD0018</field>
+            <field name="name">职级工资</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 管理费-->
+        <record id="meta_MD0019" model="hr.payroll.meta.data">
+            <field name="code">MD0019</field>
+            <field name="name">管理费</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 捐赠-->
+        <record id="meta_MD0020" model="hr.payroll.meta.data">
+            <field name="code">MD0020</field>
+            <field name="name">捐赠</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 成本中心-->
+        <record id="meta_MD0021" model="hr.payroll.meta.data">
+            <field name="code">MD0021</field>
+            <field name="name">成本中心</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 工作城市-->
+        <record id="meta_MD0022" model="hr.payroll.meta.data">
+            <field name="code">MD0022</field>
+            <field name="name">工作城市</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- Swift Code-->
+        <record id="meta_MD0023" model="hr.payroll.meta.data">
+            <field name="code">MD0023</field>
+            <field name="name">Swift Code</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- IBAN Code-->
+        <record id="meta_MD0024" model="hr.payroll.meta.data">
+            <field name="code">MD0024</field>
+            <field name="name">IBAN Code</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- ABA Code-->
+        <record id="meta_MD0025" model="hr.payroll.meta.data">
+            <field name="code">MD0025</field>
+            <field name="name">ABA Code</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- Bank Address-->
+        <record id="meta_MD0026" model="hr.payroll.meta.data">
+            <field name="code">MD0026</field>
+            <field name="name">Bank Address</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- Bank type-->
+        <record id="meta_MD0027" model="hr.payroll.meta.data">
+            <field name="code">MD0027</field>
+            <field name="name">Bank type</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 个税申报账户名称-->
+        <record id="meta_MD0028" model="hr.payroll.meta.data">
+            <field name="code">MD0028</field>
+            <field name="name">个税申报账户名称</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 个税完税账户名称-->
+        <record id="meta_MD0029" model="hr.payroll.meta.data">
+            <field name="code">MD0029</field>
+            <field name="name">个税完税账户名称</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 境内职务-->
+        <record id="meta_MD0030" model="hr.payroll.meta.data">
+            <field name="code">MD0030</field>
+            <field name="name">境内职务</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 境外职务-->
+        <record id="meta_MD0031" model="hr.payroll.meta.data">
+            <field name="code">MD0031</field>
+            <field name="name">境外职务</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 支付地-->
+        <record id="meta_MD0032" model="hr.payroll.meta.data">
+            <field name="code">MD0032</field>
+            <field name="name">支付地</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 境外支付地-->
+        <record id="meta_MD0033" model="hr.payroll.meta.data">
+            <field name="code">MD0033</field>
+            <field name="name">境外支付地</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 护照有效期-->
+        <record id="meta_MD0034" model="hr.payroll.meta.data">
+            <field name="code">MD0034</field>
+            <field name="name">护照有效期</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">date</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 外籍人工作证号-->
+        <record id="meta_MD0035" model="hr.payroll.meta.data">
+            <field name="code">MD0035</field>
+            <field name="name">外籍人工作证号</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 外籍人工作证到期日-->
+        <record id="meta_MD0036" model="hr.payroll.meta.data">
+            <field name="code">MD0036</field>
+            <field name="name">外籍人工作证到期日</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">date</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 外籍人税务管理码-->
+        <record id="meta_MD0037" model="hr.payroll.meta.data">
+            <field name="code">MD0037</field>
+            <field name="name">外籍人税务管理码</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 外籍人税务管理码-->
+        <record id="meta_MD0038" model="hr.payroll.meta.data">
+            <field name="code">MD0038</field>
+            <field name="name">外籍人税务管理码</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 是否残疾烈属孤老-->
+        <record id="meta_MD0039" model="hr.payroll.meta.data">
+            <field name="code">MD0039</field>
+            <field name="name">是否残疾烈属孤老</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">bool</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 是否股东、投资者-->
+        <record id="meta_MD0040" model="hr.payroll.meta.data">
+            <field name="code">MD0040</field>
+            <field name="name">是否股东、投资者</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">bool</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 公司股本总额-->
+        <record id="meta_MD0041" model="hr.payroll.meta.data">
+            <field name="code">MD0041</field>
+            <field name="name">公司股本总额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 个人投资总额-->
+        <record id="meta_MD0042" model="hr.payroll.meta.data">
+            <field name="code">MD0042</field>
+            <field name="name">个人投资总额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 是否特定行业-->
+        <record id="meta_MD0043" model="hr.payroll.meta.data">
+            <field name="code">MD0043</field>
+            <field name="name">是否特定行业</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">bool</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 来华时间-->
+        <record id="meta_MD0044" model="hr.payroll.meta.data">
+            <field name="code">MD0044</field>
+            <field name="name">来华时间</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">date</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 任职期限-->
+        <record id="meta_MD0045" model="hr.payroll.meta.data">
+            <field name="code">MD0045</field>
+            <field name="name">任职期限</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">date</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 预计离境时间-->
+        <record id="meta_MD0046" model="hr.payroll.meta.data">
+            <field name="code">MD0046</field>
+            <field name="name">预计离境时间</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">date</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 预计离境地点-->
+        <record id="meta_MD0047" model="hr.payroll.meta.data">
+            <field name="code">MD0047</field>
+            <field name="name">预计离境地点</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 代购外汇材料提交日-->
+        <record id="meta_MD0048" model="hr.payroll.meta.data">
+            <field name="code">MD0048</field>
+            <field name="name">代购外汇材料提交日</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">date</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 雇主负担比例(或定额)-->
+        <record id="meta_MD0049" model="hr.payroll.meta.data">
+            <field name="code">MD0049</field>
+            <field name="name">雇主负担比例(或定额)</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 异地职业代码-->
+        <record id="meta_MD0050" model="hr.payroll.meta.data">
+            <field name="code">MD0050</field>
+            <field name="name">异地职业代码</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 异地职务代码-->
+        <record id="meta_MD0051" model="hr.payroll.meta.data">
+            <field name="code">MD0051</field>
+            <field name="name">异地职务代码</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 税务管理码-->
+        <record id="meta_MD0052" model="hr.payroll.meta.data">
+            <field name="code">MD0052</field>
+            <field name="name">税务管理码</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 税金负担方式-->
+        <record id="meta_MD0053" model="hr.payroll.meta.data">
+            <field name="code">MD0053</field>
+            <field name="name">税金负担方式</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 所得来源地-->
+        <record id="meta_MD0054" model="hr.payroll.meta.data">
+            <field name="code">MD0054</field>
+            <field name="name">所得来源地</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">text</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <!-- 是否在华居住满五年-->
+        <record id="meta_MD0055" model="hr.payroll.meta.data">
+            <field name="code">MD0055</field>
+            <field name="name">是否在华居住满五年</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="cumulative_item" eval="False"/>
+            <field name="value_type">bool</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref=""/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+    </data>
+</openerp>
+
+

@@ -1,0 +1,315 @@
+<w:body xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mo="http://schemas.microsoft.com/office/mac/office/2008/main" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="urn:schemas-microsoft-com:mac:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+  <w:p w14:paraId="11DD4551" w14:textId="3B4F980E" w:rsidR="001211A4" w:rsidRPr="001211A4" w:rsidRDefault="00681ED2" w:rsidP="001211A4">
+    <w:pPr>
+      <w:tabs>
+        <w:tab w:val="left" w:pos="5760"/>
+      </w:tabs>
+      <w:snapToGrid w:val="0"/>
+      <w:rPr>
+        <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsia="宋体" w:hAnsiTheme="minorHAnsi" w:cs="Arial Unicode MS" w:hint="eastAsia"/>
+        <w:sz w:val="21"/>
+        <w:szCs w:val="22"/>
+        <w:lang w:eastAsia="zh-CN"/>
+      </w:rPr>
+    </w:pPr>
+    <w:r w:rsidRPr="007E19F0">
+      <w:rPr>
+        <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsia="宋体" w:hAnsiTheme="minorHAnsi" w:cs="Arial Unicode MS"/>
+        <w:bCs/>
+        <w:noProof/>
+        <w:sz w:val="21"/>
+        <w:szCs w:val="22"/>
+        <w:lang w:eastAsia="zh-CN"/>
+      </w:rPr>
+      <mc:AlternateContent>
+        <mc:Choice Requires="wps">
+          <w:drawing>
+            <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251661312" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="78E75411" wp14:editId="40D4E09B">
+              <wp:simplePos x="0" y="0"/>
+              <wp:positionH relativeFrom="column">
+                <wp:posOffset>0</wp:posOffset>
+              </wp:positionH>
+              <wp:positionV relativeFrom="paragraph">
+                <wp:posOffset>635000</wp:posOffset>
+              </wp:positionV>
+              <wp:extent cx="571500" cy="457200"/>
+              <wp:effectExtent l="0" t="0" r="38100" b="25400"/>
+              <wp:wrapNone/>
+              <wp:docPr id="2" name="Oval 2"/>
+              <wp:cNvGraphicFramePr>
+                <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"/>
+              </wp:cNvGraphicFramePr>
+              <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                <a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+                  <wps:wsp>
+                    <wps:cNvSpPr>
+                      <a:spLocks noChangeArrowheads="1"/>
+                    </wps:cNvSpPr>
+                    <wps:spPr bwMode="auto">
+                      <a:xfrm>
+                        <a:off x="0" y="0"/>
+                        <a:ext cx="571500" cy="457200"/>
+                      </a:xfrm>
+                      <a:prstGeom prst="ellipse">
+                        <a:avLst/>
+                      </a:prstGeom>
+                      <a:solidFill>
+                        <a:srgbClr val="FFFFFF"/>
+                      </a:solidFill>
+                      <a:ln w="9525">
+                        <a:solidFill>
+                          <a:srgbClr val="000000"/>
+                        </a:solidFill>
+                        <a:round/>
+                        <a:headEnd/>
+                        <a:tailEnd/>
+                      </a:ln>
+                    </wps:spPr>
+                    <wps:txbx>
+                      <w:txbxContent>
+                        <w:p w14:paraId="1F84F08A" w14:textId="77777777" w:rsidR="00681ED2" w:rsidRDefault="00681ED2" w:rsidP="00681ED2">
+                          <w:pPr>
+                            <w:snapToGrid w:val="0"/>
+                            <w:jc w:val="center"/>
+                            <w:rPr>
+                              <w:b/>
+                              <w:bCs/>
+                              <w:sz w:val="22"/>
+                            </w:rPr>
+                          </w:pPr>
+                          <w:r w:rsidRPr="00B25095">
+                            <w:rPr>
+                              <w:rFonts w:eastAsia="宋体"/>
+                              <w:b/>
+                              <w:bCs/>
+                              <w:sz w:val="22"/>
+                              <w:lang w:eastAsia="zh-CN"/>
+                            </w:rPr>
+                            <w:t>s.v.</w:t>
+                          </w:r>
+                        </w:p>
+                        <w:p w14:paraId="4A0C97AD" w14:textId="77777777" w:rsidR="00681ED2" w:rsidRDefault="00681ED2" w:rsidP="00681ED2">
+                          <w:pPr>
+                            <w:snapToGrid w:val="0"/>
+                          </w:pPr>
+                        </w:p>
+                      </w:txbxContent>
+                    </wps:txbx>
+                    <wps:bodyPr rot="0" vert="horz" wrap="square" lIns="91440" tIns="45720" rIns="91440" bIns="45720" anchor="t" anchorCtr="0" upright="1">
+                      <a:noAutofit/>
+                    </wps:bodyPr>
+                  </wps:wsp>
+                </a:graphicData>
+              </a:graphic>
+              <wp14:sizeRelH relativeFrom="page">
+                <wp14:pctWidth>0</wp14:pctWidth>
+              </wp14:sizeRelH>
+              <wp14:sizeRelV relativeFrom="page">
+                <wp14:pctHeight>0</wp14:pctHeight>
+              </wp14:sizeRelV>
+            </wp:anchor>
+          </w:drawing>
+        </mc:Choice>
+        <mc:Fallback>
+          <w:pict>
+            <v:oval id="Oval 2" o:spid="_x0000_s1026" style="position:absolute;margin-left:0;margin-top:50pt;width:45pt;height:36pt;z-index:251661312;visibility:visible;mso-wrap-style:square;mso-width-percent:0;mso-height-percent:0;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;mso-position-horizontal-relative:text;mso-position-vertical:absolute;mso-position-vertical-relative:text;mso-width-percent:0;mso-height-percent:0;mso-width-relative:page;mso-height-relative:page;v-text-anchor:top" o:gfxdata="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&#10;AAAEAAQA8wAAAHwFAAAAAA==&#10;">
+              <v:textbox>
+                <w:txbxContent>
+                  <w:p w14:paraId="1F84F08A" w14:textId="77777777" w:rsidR="00681ED2" w:rsidRDefault="00681ED2" w:rsidP="00681ED2">
+                    <w:pPr>
+                      <w:snapToGrid w:val="0"/>
+                      <w:jc w:val="center"/>
+                      <w:rPr>
+                        <w:b/>
+                        <w:bCs/>
+                        <w:sz w:val="22"/>
+                      </w:rPr>
+                    </w:pPr>
+                    <w:r w:rsidRPr="00B25095">
+                      <w:rPr>
+                        <w:rFonts w:eastAsia="宋体"/>
+                        <w:b/>
+                        <w:bCs/>
+                        <w:sz w:val="22"/>
+                        <w:lang w:eastAsia="zh-CN"/>
+                      </w:rPr>
+                      <w:t>s.v.</w:t>
+                    </w:r>
+                  </w:p>
+                  <w:p w14:paraId="4A0C97AD" w14:textId="77777777" w:rsidR="00681ED2" w:rsidRDefault="00681ED2" w:rsidP="00681ED2">
+                    <w:pPr>
+                      <w:snapToGrid w:val="0"/>
+                    </w:pPr>
+                  </w:p>
+                </w:txbxContent>
+              </v:textbox>
+            </v:oval>
+          </w:pict>
+        </mc:Fallback>
+      </mc:AlternateContent>
+    </w:r>
+    <w:r w:rsidR="001211A4" w:rsidRPr="007E19F0">
+      <w:rPr>
+        <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsia="宋体" w:hAnsiTheme="minorHAnsi" w:cs="Arial Unicode MS"/>
+        <w:bCs/>
+        <w:noProof/>
+        <w:sz w:val="21"/>
+        <w:szCs w:val="22"/>
+        <w:lang w:eastAsia="zh-CN"/>
+      </w:rPr>
+      <mc:AlternateContent>
+        <mc:Choice Requires="wps">
+          <w:drawing>
+            <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251659264" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="70B8EFFE" wp14:editId="01DBCCA0">
+              <wp:simplePos x="0" y="0"/>
+              <wp:positionH relativeFrom="column">
+                <wp:posOffset>9344025</wp:posOffset>
+              </wp:positionH>
+              <wp:positionV relativeFrom="paragraph">
+                <wp:posOffset>36195</wp:posOffset>
+              </wp:positionV>
+              <wp:extent cx="571500" cy="457200"/>
+              <wp:effectExtent l="0" t="0" r="19050" b="19050"/>
+              <wp:wrapNone/>
+              <wp:docPr id="1" name="Oval 2"/>
+              <wp:cNvGraphicFramePr>
+                <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"/>
+              </wp:cNvGraphicFramePr>
+              <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                <a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+                  <wps:wsp>
+                    <wps:cNvSpPr>
+                      <a:spLocks noChangeArrowheads="1"/>
+                    </wps:cNvSpPr>
+                    <wps:spPr bwMode="auto">
+                      <a:xfrm>
+                        <a:off x="0" y="0"/>
+                        <a:ext cx="571500" cy="457200"/>
+                      </a:xfrm>
+                      <a:prstGeom prst="ellipse">
+                        <a:avLst/>
+                      </a:prstGeom>
+                      <a:solidFill>
+                        <a:srgbClr val="FFFFFF"/>
+                      </a:solidFill>
+                      <a:ln w="9525">
+                        <a:solidFill>
+                          <a:srgbClr val="000000"/>
+                        </a:solidFill>
+                        <a:round/>
+                        <a:headEnd/>
+                        <a:tailEnd/>
+                      </a:ln>
+                    </wps:spPr>
+                    <wps:txbx>
+                      <w:txbxContent>
+                        <w:p w14:paraId="29D5953E" w14:textId="77777777" w:rsidR="001211A4" w:rsidRDefault="001211A4" w:rsidP="001211A4">
+                          <w:pPr>
+                            <w:snapToGrid w:val="0"/>
+                            <w:jc w:val="center"/>
+                            <w:rPr>
+                              <w:b/>
+                              <w:bCs/>
+                              <w:sz w:val="22"/>
+                            </w:rPr>
+                          </w:pPr>
+                          <w:r w:rsidRPr="00B25095">
+                            <w:rPr>
+                              <w:rFonts w:eastAsia="宋体"/>
+                              <w:b/>
+                              <w:bCs/>
+                              <w:sz w:val="22"/>
+                              <w:lang w:eastAsia="zh-CN"/>
+                            </w:rPr>
+                            <w:t>s.v.</w:t>
+                          </w:r>
+                        </w:p>
+                        <w:p w14:paraId="01CB3CFA" w14:textId="77777777" w:rsidR="001211A4" w:rsidRDefault="001211A4" w:rsidP="001211A4">
+                          <w:pPr>
+                            <w:snapToGrid w:val="0"/>
+                          </w:pPr>
+                        </w:p>
+                      </w:txbxContent>
+                    </wps:txbx>
+                    <wps:bodyPr rot="0" vert="horz" wrap="square" lIns="91440" tIns="45720" rIns="91440" bIns="45720" anchor="t" anchorCtr="0" upright="1">
+                      <a:noAutofit/>
+                    </wps:bodyPr>
+                  </wps:wsp>
+                </a:graphicData>
+              </a:graphic>
+              <wp14:sizeRelH relativeFrom="page">
+                <wp14:pctWidth>0</wp14:pctWidth>
+              </wp14:sizeRelH>
+              <wp14:sizeRelV relativeFrom="page">
+                <wp14:pctHeight>0</wp14:pctHeight>
+              </wp14:sizeRelV>
+            </wp:anchor>
+          </w:drawing>
+        </mc:Choice>
+        <mc:Fallback>
+          <w:pict>
+            <v:oval id="_x0000_s1027" style="position:absolute;margin-left:735.75pt;margin-top:2.85pt;width:45pt;height:36pt;z-index:251659264;visibility:visible;mso-wrap-style:square;mso-width-percent:0;mso-height-percent:0;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;mso-position-horizontal-relative:text;mso-position-vertical:absolute;mso-position-vertical-relative:text;mso-width-percent:0;mso-height-percent:0;mso-width-relative:page;mso-height-relative:page;v-text-anchor:top" o:gfxdata="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&#10;AAAEAAQA8wAAAHwFAAAAAA==&#10;">
+              <v:textbox>
+                <w:txbxContent>
+                  <w:p w14:paraId="29D5953E" w14:textId="77777777" w:rsidR="001211A4" w:rsidRDefault="001211A4" w:rsidP="001211A4">
+                    <w:pPr>
+                      <w:snapToGrid w:val="0"/>
+                      <w:jc w:val="center"/>
+                      <w:rPr>
+                        <w:b/>
+                        <w:bCs/>
+                        <w:sz w:val="22"/>
+                      </w:rPr>
+                    </w:pPr>
+                    <w:r w:rsidRPr="00B25095">
+                      <w:rPr>
+                        <w:rFonts w:eastAsia="宋体"/>
+                        <w:b/>
+                        <w:bCs/>
+                        <w:sz w:val="22"/>
+                        <w:lang w:eastAsia="zh-CN"/>
+                      </w:rPr>
+                      <w:t>s.v.</w:t>
+                    </w:r>
+                  </w:p>
+                  <w:p w14:paraId="01CB3CFA" w14:textId="77777777" w:rsidR="001211A4" w:rsidRDefault="001211A4" w:rsidP="001211A4">
+                    <w:pPr>
+                      <w:snapToGrid w:val="0"/>
+                    </w:pPr>
+                  </w:p>
+                </w:txbxContent>
+              </v:textbox>
+            </v:oval>
+          </w:pict>
+        </mc:Fallback>
+      </mc:AlternateContent>
+    </w:r>
+    <w:r w:rsidR="00EB38DC">
+      <w:rPr>
+        <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsia="宋体" w:hAnsiTheme="minorHAnsi" w:cs="Arial Unicode MS" w:hint="eastAsia"/>
+        <w:sz w:val="21"/>
+        <w:szCs w:val="22"/>
+        <w:lang w:eastAsia="zh-CN"/>
+      </w:rPr>
+      <w:t>######################</w:t>
+    </w:r>
+    <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+    <w:bookmarkEnd w:id="0"/>
+    <w:r w:rsidR="00EB38DC">
+      <w:rPr>
+        <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsia="宋体" w:hAnsiTheme="minorHAnsi" w:cs="Arial Unicode MS" w:hint="eastAsia"/>
+        <w:sz w:val="21"/>
+        <w:szCs w:val="22"/>
+        <w:lang w:eastAsia="zh-CN"/>
+      </w:rPr>
+      <w:t>###########################################################################################</w:t>
+    </w:r>
+  </w:p>
+  <w:sectPr w:rsidR="001211A4" w:rsidRPr="001211A4" w:rsidSect="00901379">
+    <w:footerReference w:type="default" r:id="rId7"/>
+    <w:pgSz w:w="16838" w:h="11906" w:orient="landscape"/>
+    <w:pgMar w:top="720" w:right="720" w:bottom="568" w:left="720" w:header="851" w:footer="0" w:gutter="0"/>
+    <w:cols w:space="425"/>
+    <w:docGrid w:type="lines" w:linePitch="360"/>
+  </w:sectPr>
+</w:body>

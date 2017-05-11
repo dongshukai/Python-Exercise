@@ -1,0 +1,787 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data noupdate="1">
+
+      <record id="payitem_base_salary" model="hr.payroll.payitem">
+        <field name="name">基本工资</field>
+        <field name="code">base_salary</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="source">input</field>
+        <field name="default_value">3000</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record id="payitem_all_allowance" model="hr.payroll.payitem">
+        <field name="name">所有津贴</field>
+        <field name="code">all_allowance</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record id="payitem_net_salary" model="hr.payroll.payitem">
+        <field name="name">实发工资</field>
+        <field name="code">net_salary</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+
+      <record model="hr.payroll.payitem" id="payitem_department">
+        <field name="name">部门</field>
+        <field name="code">department</field>
+        <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">char</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_department_code">
+        <field name="name">部门编码</field>
+        <field name="code">DEP1</field>
+        <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">char</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_entry_date">
+      <field name="name">入职日期</field>
+      <field name="code">entry_date</field>
+      <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">date</field>
+    </record>
+
+      <record model="hr.payroll.payitem" id="payitem_department">
+      <field name="name">部门</field>
+      <field name="code">department</field>
+      <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">char</field>
+    </record>
+
+      <record model="hr.payroll.payitem" id="payitem_position">
+      <field name="name">岗位</field>
+      <field name="code">position</field>
+      <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">char</field>
+    </record>
+
+      <record model="hr.payroll.payitem" id="payitem_position_salary">
+        <field name="name">职位工资</field>
+        <field name="code">position_salary</field>
+        <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_firm_leader_allowance">
+        <field name="name">事务所长补贴</field>
+        <field name="code">firm_leader_allowance</field>
+        <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_group_leader_allowance">
+        <field name="name">组长补贴</field>
+        <field name="code">group_leader_allowance</field>
+        <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_central_leader_allowance">
+        <field name="name">中心长补贴</field>
+        <field name="code">central_leader_allowance</field>
+        <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_field_worker_allowance">
+        <field name="name">外勤补贴</field>
+        <field name="code">field_worker_allowance</field>
+        <field name="source">input</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="default_value">1</field>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_technique_allowance">
+        <field name="name">技能补贴</field>
+        <field name="code">technique_allowance</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_PA_allowance">
+        <field name="name">PA专员津贴</field>
+        <field name="code">PA_allowance</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_semi_conductor_online_conference_allowance">
+        <field name="name">半导体/网络会议系统技术津贴</field>
+        <field name="code">semi_conductor_online_conference_allowance</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+    </record>
+
+      <record model="hr.payroll.payitem" id="payitem_performer_technique_allowance">
+        <field name="name">演奏员技能津贴</field>
+        <field name="code">performer_technique_allowance</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_music_popularize_allowance">
+        <field name="name">音乐普及津贴</field>
+        <field name="code">music_popularize_allowance</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_start_time">
+        <field name="name">开始时间</field>
+        <field name="code">start_time</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">time</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_end_time">
+        <field name="name">结束时间</field>
+        <field name="code">end_time</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">time</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_start_date">
+        <field name="name">开始日期</field>
+        <field name="code">start_date</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">date</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_end_date">
+        <field name="name">结束日期</field>
+        <field name="code">end_date</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">date</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_start_datetime">
+        <field name="name">开始日期时间</field>
+        <field name="code">start_datetime</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">datetime</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_end_datetime">
+        <field name="name">结束日期时间</field>
+        <field name="code">end_datetime</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">datetime</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_housing_allowance">
+        <field name="name">房屋补贴</field>
+        <field name="code">housing_allowance</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_salary_adjusted">
+        <field name="name">工资调整</field>
+        <field name="code">salary_adjusted</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_gross_amount">
+        <field name="name">合计</field>
+        <field name="code">gross_amount</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_meal_allowance">
+        <field name="name">饭贴</field>
+        <field name="code">meal_allowance</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_transport_allowance">
+        <field name="name">交通补贴</field>
+        <field name="code">transport_allowance</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_overtime_fee">
+        <field name="name">加班费</field>
+        <field name="code">overtime_fee</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_attendance_deduction">
+        <field name="name">考勤扣除</field>
+        <field name="code">attendance_deduction</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_normal_bonus">
+        <field name="name">奖金</field>
+        <field name="code">normal_bonus</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_supplement_salary">
+        <field name="name">工资补差</field>
+        <field name="code">supplement_salary</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_gross_personal_insurance">
+        <field name="name">个人四金合计</field>
+        <field name="code">gross_personal_insurance</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_supplement_insurance">
+        <field name="name">补交保险</field>
+        <field name="code">supplement_insurance</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_other_deductions">
+        <field name="name">其它扣款</field>
+        <field name="code">other_deductions</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_taxable_salary">
+        <field name="name">计税工资</field>
+        <field name="code">taxable_salary</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_deducted_expense">
+        <field name="name">减除费用</field>
+        <field name="code">deducted_expense</field>
+        <field name="source">formula</field>
+        <field name="default_value">2000</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_income_tax_rate">
+        <field name="name">所得税率</field>
+        <field name="code">income_tax_rate</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_deduction_amount">
+        <field name="name">扣除项</field>
+        <field name="code">deduction_amount</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_income_tax">
+        <field name="name">个人所得税</field>
+        <field name="code">income_tax</field>
+        <field name="source">formula</field>
+        <field name="default_value">100</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_income_tax_foreign">
+        <field name="name">个人所得税(外籍)</field>
+        <field name="code">income_tax_foreign</field>
+        <field name="source">formula</field>
+        <field name="default_value">100</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_labour_fee">
+        <field name="name">工会会费</field>
+        <field name="code">labour_fee</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_annual_bonus">
+        <field name="name">年终奖</field>
+        <field name="code">annual_bonus</field>
+        <field name="source">input</field>
+        <field name="default_value">12000</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_annual_bonus_tax_rate">
+        <field name="name">年终奖税率</field>
+        <field name="code">annual_bonus_tax_rate</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_annual_bonus_deduction">
+        <field name="name">年终奖扣除数</field>
+        <field name="code">annual_bonus_deduction</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_annual_bonus_tax">
+        <field name="name">年终奖税</field>
+        <field name="code">annual_bonus_tax</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_annual_bonus_tax_foreign">
+        <field name="name">年终奖税(外籍)</field>
+        <field name="code">annual_bonus_tax_foreign</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_one_child_fee">
+        <field name="name">独生子女费</field>
+        <field name="code">one_child_fee</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_after_tax_adjustment">
+        <field name="name">税后调整</field>
+        <field name="code">after_tax_adjustment</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_monthly_fee">
+        <field name="name">本月服务费</field>
+        <field name="code">monthly_fee</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+      <record model="hr.payroll.payitem" id="payitem_overtime_A">
+        <field name="name">加班A</field>
+        <field name="code">overtime_A</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+     <record model="hr.payroll.payitem" id="payitem_overtime_B">
+        <field name="name">加班B</field>
+        <field name="code">overtime_B</field>
+        <field name="source">input</field>
+       <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+     <record model="hr.payroll.payitem" id="payitem_overtime_C">
+        <field name="name">加班C</field>
+        <field name="code">overtime_C</field>
+        <field name="source">input</field>
+       <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+     <record model="hr.payroll.payitem" id="payitem_arrive_late_count">
+        <field name="name">迟到次数</field>
+        <field name="code">arrive_late_times</field>
+        <field name="source">input</field>
+       <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_leave_early_count">
+        <field name="name">早退次数</field>
+        <field name="code">leave_early_times</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_late_early_times">
+        <field name="name">迟到早退(分钟)</field>
+        <field name="code">late_early_times</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_attendance_deduction">
+        <field name="name">考勤扣除</field>
+        <field name="code">absence_deduction</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_absence_days">
+        <field name="name">缺勤(天)</field>
+        <field name="code">absence_days</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_next_month_off">
+        <field name="name">下月调休(天)</field>
+        <field name="code">next_month_off</field>
+        <field name="source">formula</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_last_month_off">
+        <field name="name">上月调休(天)</field>
+        <field name="code">last_month_off</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_current_month_off">
+        <field name="name">本月调休(天)</field>
+        <field name="code">current_month_off</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_transport_allowance">
+        <field name="name">交通补贴</field>
+        <field name="code">transport_allowance</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_meal_allowance">
+        <field name="name">饭贴</field>
+        <field name="code">meal_allowance</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_current_month_sick_leave_deduction">
+        <field name="name">本月病假扣除天数</field>
+        <field name="code">current_month_sick_leave_deduction</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+    </record>
+
+    <record model="hr.payroll.payitem" id="payitem_accumulated_sick_leave_deduction">
+        <field name="name">累计病假扣除(天)</field>
+        <field name="code">accumulated_sick_leave_deduction</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_sick_leave_deduction_factor">
+        <field name="name">病假扣除系数</field>
+        <field name="code">sick_leave_deduction_factor</field>
+        <field name="source">formula</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_sick_leave_deduction">
+        <field name="name">病假扣除</field>
+        <field name="code">sick_leave_deduction</field>
+        <field name="source">formula</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+    </record>
+
+    <record model="hr.payroll.payitem" id="payitem_healing_days">
+        <field name="name">医疗期</field>
+        <field name="code">healing_days</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+    </record>
+
+    <record model="hr.payroll.payitem" id="payitem_in_service_time">
+        <field name="name">累计工龄</field>
+        <field name="code">in_service_time</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+    </record>
+
+    <record model="hr.payroll.payitem" id="payitem_sick_leave_days">
+        <field name="name">病假天数</field>
+        <field name="code">sick_leave_days</field>
+        <field name="source">input</field>
+        <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+    </record>
+
+     <record model="hr.payroll.payitem" id="payitem_prenatal_exam_leave">
+        <field name="name">产前检查(天)</field>
+        <field name="code">prenatal_exam_leave</field>
+        <field name="source">input</field>
+       <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+     <record model="hr.payroll.payitem" id="payitem_marital_leave">
+        <field name="name">婚假</field>
+        <field name="code">martial_leave</field>
+        <field name="source">input</field>
+       <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_casual_leave_deduction">
+        <field name="name">事假扣除</field>
+        <field name="code">casual_leave_deduction</field>
+        <field name="source">input</field>
+       <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_funeral_leave">
+        <field name="name">丧假</field>
+        <field name="code">funeral_leave</field>
+        <field name="source">input</field>
+      <field name="default_value">1</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+      </record>
+
+    <record model="hr.payroll.payitem" id="payitem_labor_income">
+        <field name="name">劳务报酬</field>
+        <field name="code">labor_income</field>
+        <field name="source">input</field>
+        <field name="default_value">6000</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">hr.payslip.payitem.input</field>
+        <field name="value_type">float</field>
+    </record>
+
+    <record model="hr.payroll.payitem" id="payitem_labor_income_tax">
+        <field name="name">劳务税</field>
+        <field name="code">labor_income_tax</field>
+        <field name="source">formula</field>
+        <field name="default_value">6000</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+    </record>
+
+    <record model="hr.payroll.payitem" id="payitem_dimission_compensation">
+        <field name="name">离职补偿金</field>
+        <field name="code">dimission_compensation</field>
+        <field name="source">formula</field>
+        <field name="default_value">6000</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="src_model">formula</field>
+        <field name="value_type">float</field>
+    </record>
+
+  </data>
+</openerp>

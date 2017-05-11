@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+<!-- Payroll Engine-->
+        <record model="ir.module.category" id="module_payroll_engine">
+            <field name="name">Payroll Engine</field>
+            <field name="sequence">5</field>
+        </record>
+
+        <record id="menu_payroll_payitem_category_read_group" model="res.groups">
+            <field name="name">Menu Payroll Payitem Category Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_payitem_category_read_access" model="ir.model.access">
+            <field name="name">Payroll Payitem Category Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_payitem_category"/>
+            <field name="group_id" ref="menu_payroll_payitem_category_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_payitem_category_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Payitem Category Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_payitem_category_manager_access" model="ir.model.access">
+            <field name="name">Payroll Payitem Category Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_payitem_category"/>
+            <field name="group_id" ref="menu_payroll_payitem_category_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_payroll_payitem_read_group" model="res.groups">
+            <field name="name">Menu Payroll Payitem Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_payitem_read_access" model="ir.model.access">
+            <field name="name">Payroll Payitem Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_payitem"/>
+            <field name="group_id" ref="menu_payroll_payitem_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_payitem_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Payitem Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_payitem_manager_access" model="ir.model.access">
+            <field name="name">Payroll Payitem Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_payitem"/>
+            <field name="group_id" ref="menu_payroll_payitem_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_payroll_function_read_group" model="res.groups">
+            <field name="name">Menu Payroll Function Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_function_read_access" model="ir.model.access">
+            <field name="name">Payroll Function Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_function"/>
+            <field name="group_id" ref="menu_payroll_function_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_function_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Function Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_function_manager_access" model="ir.model.access">
+            <field name="name">Payroll Function Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_function"/>
+            <field name="group_id" ref="menu_payroll_function_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_payroll_group_read_group" model="res.groups">
+            <field name="name">Menu Payroll Group Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_group_read_access" model="ir.model.access">
+            <field name="name">Payroll Group Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_group"/>
+            <field name="group_id" ref="menu_payroll_group_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_group_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Group Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_group_manager_access" model="ir.model.access">
+            <field name="name">Payroll Group Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_group"/>
+            <field name="group_id" ref="menu_payroll_group_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_payroll_tax_read_group" model="res.groups">
+            <field name="name">Menu Payroll Tax Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_tax_read_access" model="ir.model.access">
+            <field name="name">Payroll Tax Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_tax"/>
+            <field name="group_id" ref="menu_payroll_tax_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_tax_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Tax Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_tax_manager_access" model="ir.model.access">
+            <field name="name">Payroll Tax Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_tax"/>
+            <field name="group_id" ref="menu_payroll_tax_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_reference_payitem_read_group" model="res.groups">
+            <field name="name">Menu Reference Payitem Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_reference_payitem_read_access" model="ir.model.access">
+            <field name="name">Reference Payitem Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_reference_payitem"/>
+            <field name="group_id" ref="menu_reference_payitem_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_reference_payitem_manager_group" model="res.groups">
+            <field name="name">Menu Reference Payitem Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_reference_payitem_manager_access" model="ir.model.access">
+            <field name="name">Reference Payitem Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_reference_payitem"/>
+            <field name="group_id" ref="menu_reference_payitem_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_referencable_model_read_group" model="res.groups">
+            <field name="name">Menu Referencable Model Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_referencable_model_read_access" model="ir.model.access">
+            <field name="name">Referencable Model Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_referencable_model"/>
+            <field name="group_id" ref="menu_referencable_model_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_referencable_model_manager_group" model="res.groups">
+            <field name="name">Menu Referencable Model Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_referencable_model_manager_access" model="ir.model.access">
+            <field name="name">Referencable Model Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_referencable_model"/>
+            <field name="group_id" ref="menu_referencable_model_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_payroll_meta_data_read_group" model="res.groups">
+            <field name="name">Menu Payroll Meta Data Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_meta_data_read_access" model="ir.model.access">
+            <field name="name">Payroll Meta Data Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_meta_data"/>
+            <field name="group_id" ref="menu_payroll_meta_data_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_meta_data_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Meta Data Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_meta_data_manager_access" model="ir.model.access">
+            <field name="name">Payroll Meta Data Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_meta_data"/>
+            <field name="group_id" ref="menu_payroll_meta_data_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_payroll_parameter_read_group" model="res.groups">
+            <field name="name">Menu Payroll Parameter Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_parameter_read_access" model="ir.model.access">
+            <field name="name">Payroll Parameter Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_parameter"/>
+            <field name="group_id" ref="menu_payroll_parameter_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_parameter_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Parameter Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_parameter_manager_access" model="ir.model.access">
+            <field name="name">Payroll Parameter Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_parameter"/>
+            <field name="group_id" ref="menu_payroll_parameter_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_payroll_year_read_group" model="res.groups">
+            <field name="name">Menu Payroll Year Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_year_read_access" model="ir.model.access">
+            <field name="name">Payroll Year Read Access</field>
+            <field name="model_id" ref="payroll_period.model_payroll_year"/>
+            <field name="group_id" ref="menu_payroll_year_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_year_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Year Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_year_manager_access" model="ir.model.access">
+            <field name="name">Payroll Year Manager Access</field>
+            <field name="model_id" ref="payroll_period.model_payroll_year"/>
+            <field name="group_id" ref="menu_payroll_year_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_payroll_period_read_group" model="res.groups">
+            <field name="name">Menu Payroll Period Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_period_read_access" model="ir.model.access">
+            <field name="name">Payroll Period Read Access</field>
+            <field name="model_id" ref="payroll_period.model_payroll_period"/>
+            <field name="group_id" ref="menu_payroll_period_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_period_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Period Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_period_manager_access" model="ir.model.access">
+            <field name="name">Payroll Period Manager Access</field>
+            <field name="model_id" ref="payroll_period.model_payroll_period"/>
+            <field name="group_id" ref="menu_payroll_period_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="menu_payroll_payitem_sequence_read_group" model="res.groups">
+            <field name="name">Menu Payroll Payitem Sequence Read Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+        </record>
+
+        <record id="group_payroll_payitem_sequence_read_access" model="ir.model.access">
+            <field name="name">Payroll Payitem Sequence Read Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_payitem_sequence"/>
+            <field name="group_id" ref="menu_payroll_payitem_sequence_read_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="menu_payroll_payitem_sequence_manager_group" model="res.groups">
+            <field name="name">Menu Payroll Payitem Sequence Manager Group</field>
+            <field name="category_id" ref="module_payroll_engine"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_payroll_payitem_sequence_manager_access" model="ir.model.access">
+            <field name="name">Payroll Payitem Sequence Manager Access</field>
+            <field name="model_id" ref="payroll_setting.model_hr_payroll_payitem_sequence"/>
+            <field name="group_id" ref="menu_payroll_payitem_sequence_manager_group"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+    </data>
+</openerp>

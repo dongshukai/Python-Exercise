@@ -1,0 +1,4 @@
+{
+  "model_name_id_dict": {"hr.payroll.payitem": {"基本工资": "payitem_base_salary"}},
+  "model_code_id_dict": {"hr.payroll.payitem": {"BS001": "payitem_base_salary"}}
+}

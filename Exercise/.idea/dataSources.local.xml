@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - ciic-0310@localhost" uuid="420d3306-34e8-48d0-b9d6-380e02e836c9">
+      <secret-storage>master_key</secret-storage>
+      <user-name>dongsk</user-name>
+      <schema-pattern>ciic-0310.pg_catalog ciic-0310.public</schema-pattern>
+      <default-schemas>ciic-0310.public</default-schemas>
+    </data-source>
+  </component>
+</project>

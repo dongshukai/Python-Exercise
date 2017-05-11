@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <!-- hr payslip group -->
+		<record model="ir.rule" id="ir_rule_payslip_group">
+            <field name="name">Ir Rule Payslip Group</field>
+            <field name="model_id" ref="model_hr_payslip_group"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payslip payitem -->
+		<record model="ir.rule" id="ir_rule_payslip_payitem">
+            <field name="name">Ir Rule Payslip Payitem</field>
+            <field name="model_id" ref="model_hr_payslip_payitem"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payslip payitem import -->
+		<record model="ir.rule" id="ir_rule_payslip_payitem_import">
+            <field name="name">Ir Rule Payslip Payitem Import</field>
+            <field name="model_id" ref="model_hr_payslip_payitem_import"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payslip payitem input -->
+		<record model="ir.rule" id="ir_rule_payslip_payitem_input">
+            <field name="name">Ir Rule Payslip Payitem Input</field>
+            <field name="model_id" ref="model_hr_payslip_payitem_input"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payslip function -->
+		<record model="ir.rule" id="ir_rule_payslip_function">
+            <field name="name">Ir Rule Payslip Function</field>
+            <field name="model_id" ref="model_hr_payslip_function"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payslip parameter -->
+		<record model="ir.rule" id="ir_rule_payslip_parameter">
+            <field name="name">Ir Rule Payslip Parameter</field>
+            <field name="model_id" ref="model_hr_payslip_parameter"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payslip period result -->
+		<record model="ir.rule" id="ir_rule_payslip_period_result">
+            <field name="name">Ir Rule Payslip Period Result</field>
+            <field name="model_id" ref="model_hr_payslip_period_result"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payslip rule result -->
+		<record model="ir.rule" id="ir_rule_payslip_rule_result">
+            <field name="name">Ir Rule Payslip Rule Result</field>
+            <field name="model_id" ref="model_hr_payslip_rule_result"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payslip tax -->
+		<record model="ir.rule" id="ir_rule_payslip_tax">
+            <field name="name">Ir Rule Payslip Tax</field>
+            <field name="model_id" ref="model_hr_payslip_tax"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- payroll single calculate -->
+		<record model="ir.rule" id="ir_rule_payroll_single_calculate">
+            <field name="name">Ir Rule Payroll Single Calculate</field>
+            <field name="model_id" ref="model_payroll_single_calculate"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payroll iit flow -->
+		<record model="ir.rule" id="ir_rule_payroll_iit_flow">
+            <field name="name">Ir Rule Payroll Iit Flow</field>
+            <field name="model_id" ref="model_hr_payroll_iit_flow"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <!-- hr payroll personal account -->
+		<record model="ir.rule" id="ir_rule_payroll_personal_account">
+            <field name="name">Ir Rule Payroll Personal Account</field>
+            <field name="model_id" ref="model_hr_payroll_personal_account"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+    </data>
+</openerp>

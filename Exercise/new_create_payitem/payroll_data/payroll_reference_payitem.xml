@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- 员工服务年限-->
+        <record model="reference.payitem" id="ref_hr_employee_company_working_age">
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="name">员工服务年限</field>
+            <field name="code">ref_service_year</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_company_working_age"/>
+            <field name="value_type">float</field>
+            <field name="reference_model_name">hr.employee</field>
+        </record>
+
+        <!-- Employee Department-->
+        <record id="ref_hr_employee_department" model="reference.payitem">
+            <field name="name">部门</field>
+            <field name="code">ref_departmentcode</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_department_id"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">hr.department</field>
+            <field name="ref_field_key" ref="hr_base.field_hr_department_department_code"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee Job-->
+        <record id="ref_hr_employee_job" model="reference.payitem">
+            <field name="name">岗位</field>
+            <field name="code">ref_positioncode</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_job_id"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">hr.job</field>
+            <field name="ref_field_key" ref="hr_base.field_hr_job_job_code"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee Function-->
+        <record id="ref_hr_employee_function" model="reference.payitem">
+            <field name="name">职能</field>
+            <field name="code">ref_functioncode</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_function_id"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">hr.function</field>
+            <field name="ref_field_key" ref="hr_base.field_hr_function_code"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee Number-->
+        <record id="ref_hr_employee_number" model="reference.payitem">
+            <field name="name">员工编号</field>
+            <field name="code">ref_employeecode</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_employee_number"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee location-->
+        <record id="ref_hr_employee_location" model="reference.payitem">
+            <field name="name">地区</field>
+            <field name="code">ref_locationname</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_location_id"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">hr.function</field>
+            <field name="ref_field_key" ref="hr_base.field_hr_location_code"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee employee_manager-->
+        <record id="ref_hr_employee_employee_manager" model="reference.payitem">
+            <field name="name">汇报上级</field>
+            <field name="code">ref_manager</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_parent_id"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">hr.employee</field>
+            <field name="ref_field_key" ref="hr_base.field_hr_employee_employee_number"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee work_activity-->
+        <record id="ref_hr_employee_status" model="reference.payitem">
+            <field name="name">员工状态</field>
+            <field name="code">ref_status</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_work_activity"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee hireday-->
+        <record id="ref_hr_employee_hireday" model="reference.payitem">
+            <field name="name">雇佣日期</field>
+            <field name="code">ref_hireday</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_hiredate"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">date</field>
+        </record>
+
+        <!-- Employee socialhireday-->
+        <record id="ref_hr_employee_socialhireday" model="reference.payitem">
+            <field name="name">社会工作日期</field>
+            <field name="code">ref_socialhireday</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_social_work_start_date"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">date</field>
+        </record>
+
+        <!-- Employee level-->
+        <record id="ref_hr_employee_level" model="reference.payitem">
+            <field name="name">级别</field>
+            <field name="code">ref_level</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_employee_now_rank"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">employee.rank</field>
+            <field name="ref_field_key" ref="hr_base.field_employee_rank_name"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee grade-->
+        <record id="ref_hr_employee_grade" model="reference.payitem">
+            <field name="name">职级</field>
+            <field name="code">ref_grade</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_employee_grade_id"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">employee.grade</field>
+            <field name="ref_field_key" ref="hr_base.field_employee_grade_name"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee employee_type-->
+        <record id="ref_hr_employee_type" model="reference.payitem">
+            <field name="name">员工类型</field>
+            <field name="code">ref_employeetype</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_employee_type_rep"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">hr.employee.type</field>
+            <field name="ref_field_key" ref="hr_base.field_hr_employee_type_name"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee employee_group-->
+        <record id="ref_hr_employee_group" model="reference.payitem">
+            <field name="name">员工分组</field>
+            <field name="code">ref_employeegroup</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_employee_group_rep"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">hr.employee.group</field>
+            <field name="ref_field_key" ref="hr_base.field_hr_employee_group_name"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee gender-->
+        <record id="ref_hr_employee_gender" model="reference.payitem">
+            <field name="name">性别</field>
+            <field name="code">ref_gender</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_gender"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee birthday-->
+        <record id="ref_hr_employee_birthday" model="reference.payitem">
+            <field name="name">出生日期</field>
+            <field name="code">ref_birthday</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_birthday"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+        <!-- Employee nationality-->
+        <record id="ref_hr_employee_nationality" model="reference.payitem">
+            <field name="name">国籍</field>
+            <field name="code">ref_nationality</field>
+            <field name="ref_model_config_id" ref="payroll_setting.ref_hr_employee_model"/>
+            <field name="reference_model_name">hr.employee</field>
+            <field name="ref_get_value_field" ref="hr_base.field_hr_employee_country_id"/>
+            <field name="ref_get_value_field_ttype">many2one</field>
+            <field name="ref_reference_model_name">res.country</field>
+            <field name="ref_field_key" ref="base.field_res_country_name"/>
+            <field name="ref_fixed_payitem" eval="True"/>
+            <field name="value_type">char</field>
+        </record>
+
+
+    </data>
+</openerp>

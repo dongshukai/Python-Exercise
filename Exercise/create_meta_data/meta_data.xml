@@ -1,0 +1,1554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <record id="meta_BS001" model="hr.payroll.meta.data">
+            <field name="code">BS001</field>
+            <field name="name">基本工资</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ABS001" model="hr.payroll.meta.data">
+            <field name="code">ABS001</field>
+            <field name="name">实际基本工资</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_FS001" model="hr.payroll.meta.data">
+            <field name="code">FS001</field>
+            <field name="name">固定项1</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AFS001" model="hr.payroll.meta.data">
+            <field name="code">AFS001</field>
+            <field name="name">实际固定项1</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_FS002" model="hr.payroll.meta.data">
+            <field name="code">FS002</field>
+            <field name="name">固定项2</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AFS003" model="hr.payroll.meta.data">
+            <field name="code">AFS003</field>
+            <field name="name">实际固定项2</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A001" model="hr.payroll.meta.data">
+            <field name="code">A001</field>
+            <field name="name">房贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AA001" model="hr.payroll.meta.data">
+            <field name="code">AA001</field>
+            <field name="name">实际房贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A002" model="hr.payroll.meta.data">
+            <field name="code">A002</field>
+            <field name="name">餐贴 </field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AA002" model="hr.payroll.meta.data">
+            <field name="code">AA002</field>
+            <field name="name">实际餐贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A003" model="hr.payroll.meta.data">
+            <field name="code">A003</field>
+            <field name="name">交通津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AA003" model="hr.payroll.meta.data">
+            <field name="code">AA003</field>
+            <field name="name">实际交通津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A004" model="hr.payroll.meta.data">
+            <field name="code">A004</field>
+            <field name="name">车贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AA004" model="hr.payroll.meta.data">
+            <field name="code">AA004</field>
+            <field name="name">实际车贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A005" model="hr.payroll.meta.data">
+            <field name="code">A005</field>
+            <field name="name">独生子女津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A006" model="hr.payroll.meta.data">
+            <field name="code">A006</field>
+            <field name="name">夜班津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A007" model="hr.payroll.meta.data">
+            <field name="code">A007</field>
+            <field name="name">轮班津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A008" model="hr.payroll.meta.data">
+            <field name="code">A008</field>
+            <field name="name">高温补贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A009" model="hr.payroll.meta.data">
+            <field name="code">A009</field>
+            <field name="name">其他补贴1</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_A010" model="hr.payroll.meta.data">
+            <field name="code">A010</field>
+            <field name="name">其他补贴2</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ATT001" model="hr.payroll.meta.data">
+            <field name="code">ATT001</field>
+            <field name="name">平时加班小时数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ATT002" model="hr.payroll.meta.data">
+            <field name="code">ATT002</field>
+            <field name="name">周末加班小时数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ATT003" model="hr.payroll.meta.data">
+            <field name="code">ATT003</field>
+            <field name="name">节假日加班小时数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ATT004" model="hr.payroll.meta.data">
+            <field name="code">ATT004</field>
+            <field name="name">其他类型的加班小时</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_OTA001" model="hr.payroll.meta.data">
+            <field name="code">OTA001</field>
+            <field name="name">平时加班津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_OTA002" model="hr.payroll.meta.data">
+            <field name="code">OTA002</field>
+            <field name="name">周末加班津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_OTA003" model="hr.payroll.meta.data">
+            <field name="code">OTA003</field>
+            <field name="name">假日加班津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_OTA004" model="hr.payroll.meta.data">
+            <field name="code">OTA004</field>
+            <field name="name">其他加班津贴</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ATT005" model="hr.payroll.meta.data">
+            <field name="code">ATT005</field>
+            <field name="name">短病假天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ATT006" model="hr.payroll.meta.data">
+            <field name="code">ATT006</field>
+            <field name="name">旷工天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ATT007" model="hr.payroll.meta.data">
+            <field name="code">ATT007</field>
+            <field name="name">无薪假天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ATT008" model="hr.payroll.meta.data">
+            <field name="code">ATT008</field>
+            <field name="name">其他假天数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_LVD001" model="hr.payroll.meta.data">
+            <field name="code">LVD001</field>
+            <field name="name">短病假扣款</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_3"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_LVD002" model="hr.payroll.meta.data">
+            <field name="code">LVD002</field>
+            <field name="name">旷工扣款</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_3"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_LVD003" model="hr.payroll.meta.data">
+            <field name="code">LVD003</field>
+            <field name="name">无薪假扣款</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_3"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_LVD004" model="hr.payroll.meta.data">
+            <field name="code">LVD004</field>
+            <field name="name">其他假期扣款</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_3"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_LV001" model="hr.payroll.meta.data">
+            <field name="code">LV001</field>
+            <field name="name">产假工资 </field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_LV002" model="hr.payroll.meta.data">
+            <field name="code">LV002</field>
+            <field name="name">长病假工资 </field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_F001" model="hr.payroll.meta.data">
+            <field name="code">F001</field>
+            <field name="name">法定年假余额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_F002" model="hr.payroll.meta.data">
+            <field name="code">F002</field>
+            <field name="name">公司年假余额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_F003" model="hr.payroll.meta.data">
+            <field name="code">F003</field>
+            <field name="name">法定年假折现</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_F004" model="hr.payroll.meta.data">
+            <field name="code">F004</field>
+            <field name="name">公司年假折现</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER001" model="hr.payroll.meta.data">
+            <field name="code">SBER001</field>
+            <field name="name">企业养老汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER002" model="hr.payroll.meta.data">
+            <field name="code">SBER002</field>
+            <field name="name">企业医疗汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER003" model="hr.payroll.meta.data">
+            <field name="code">SBER003</field>
+            <field name="name">企业失业汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER004" model="hr.payroll.meta.data">
+            <field name="code">SBER004</field>
+            <field name="name">企业大病医疗汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER005" model="hr.payroll.meta.data">
+            <field name="code">SBER005</field>
+            <field name="name">工伤保险汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER006" model="hr.payroll.meta.data">
+            <field name="code">SBER006</field>
+            <field name="name">生育保险汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER007" model="hr.payroll.meta.data">
+            <field name="code">SBER007</field>
+            <field name="name">残保金汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER008" model="hr.payroll.meta.data">
+            <field name="code">SBER008</field>
+            <field name="name">采暖费汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER009" model="hr.payroll.meta.data">
+            <field name="code">SBER009</field>
+            <field name="name">工会费汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER010" model="hr.payroll.meta.data">
+            <field name="code">SBER010</field>
+            <field name="name">企业补充养老汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBER011" model="hr.payroll.meta.data">
+            <field name="code">SBER011</field>
+            <field name="name">企业补充医疗汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFER001" model="hr.payroll.meta.data">
+            <field name="code">HFER001</field>
+            <field name="name">企业公积金汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFER002" model="hr.payroll.meta.data">
+            <field name="code">HFER002</field>
+            <field name="name">企业补充公积金汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEE001" model="hr.payroll.meta.data">
+            <field name="code">SBEE001</field>
+            <field name="name">个人养老汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEE002" model="hr.payroll.meta.data">
+            <field name="code">SBEE002</field>
+            <field name="name">个人医疗汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEE003" model="hr.payroll.meta.data">
+            <field name="code">SBEE003</field>
+            <field name="name">个人失业汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEE004" model="hr.payroll.meta.data">
+            <field name="code">SBEE004</field>
+            <field name="name">个人大病医疗汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEE005" model="hr.payroll.meta.data">
+            <field name="code">SBEE005</field>
+            <field name="name">个人补充养老汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEE006" model="hr.payroll.meta.data">
+            <field name="code">SBEE006</field>
+            <field name="name">个人补充医疗汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFEE001" model="hr.payroll.meta.data">
+            <field name="code">HFEE001</field>
+            <field name="name">个人公积金汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFEE002" model="hr.payroll.meta.data">
+            <field name="code">HFEE002</field>
+            <field name="name">个人补充公积金汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay001" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay001</field>
+            <field name="name">企业养老补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay002" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay002</field>
+            <field name="name">企业医疗补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay003" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay003</field>
+            <field name="name">企业失业补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay004" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay004</field>
+            <field name="name">企业大病医疗补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay005" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay005</field>
+            <field name="name">工伤保险补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay006" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay006</field>
+            <field name="name">生育保险补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay007" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay007</field>
+            <field name="name">残保金补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay008" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay008</field>
+            <field name="name">采暖费补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay009" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay009</field>
+            <field name="name">工会费汇缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay010" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay010</field>
+            <field name="name">企业补充养老补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBERBackpay011" model="hr.payroll.meta.data">
+            <field name="code">SBERBackpay011</field>
+            <field name="name">企业补充医疗补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFERBackpay001" model="hr.payroll.meta.data">
+            <field name="code">HFERBackpay001</field>
+            <field name="name">企业公积金补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFEBackpayR002" model="hr.payroll.meta.data">
+            <field name="code">HFEBackpayR002</field>
+            <field name="name">企业补充公积金补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEEBackPay001" model="hr.payroll.meta.data">
+            <field name="code">SBEEBackPay001</field>
+            <field name="name">个人养老补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEEBackPay002" model="hr.payroll.meta.data">
+            <field name="code">SBEEBackPay002</field>
+            <field name="name">个人医疗补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEEBackPay003" model="hr.payroll.meta.data">
+            <field name="code">SBEEBackPay003</field>
+            <field name="name">个人失业补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEEBackPay004" model="hr.payroll.meta.data">
+            <field name="code">SBEEBackPay004</field>
+            <field name="name">个人大病医疗补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEEBackPay005" model="hr.payroll.meta.data">
+            <field name="code">SBEEBackPay005</field>
+            <field name="name">个人补充养老补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBEEBackPay006" model="hr.payroll.meta.data">
+            <field name="code">SBEEBackPay006</field>
+            <field name="name">个人补充医疗补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFEEBackPay001" model="hr.payroll.meta.data">
+            <field name="code">HFEEBackPay001</field>
+            <field name="name">个人公积金补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFEEBackPay002" model="hr.payroll.meta.data">
+            <field name="code">HFEEBackPay002</field>
+            <field name="name">个人补充公积金补缴额</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBTotalEE" model="hr.payroll.meta.data">
+            <field name="code">SBTotalEE</field>
+            <field name="name">个人社保合计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SBTotalER" model="hr.payroll.meta.data">
+            <field name="code">SBTotalER</field>
+            <field name="name">企业社保合计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFTotalEE" model="hr.payroll.meta.data">
+            <field name="code">HFTotalEE</field>
+            <field name="name">个人公积金合计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_5"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_HFTotalER" model="hr.payroll.meta.data">
+            <field name="code">HFTotalER</field>
+            <field name="name">企业公积金合计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_4"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_GrossSalary" model="hr.payroll.meta.data">
+            <field name="code">GrossSalary</field>
+            <field name="name">meta_data_category_6</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_6"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SalaryIncomebeforeTaxEE" model="hr.payroll.meta.data">
+            <field name="code">SalaryIncomebeforeTaxEE</field>
+            <field name="name">meta_data_category_12</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_12"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SalaryIncomebeforeTaxER" model="hr.payroll.meta.data">
+            <field name="code">SalaryIncomebeforeTaxER</field>
+            <field name="name">公司承担应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SalaryTaxEE" model="hr.payroll.meta.data">
+            <field name="code">SalaryTaxEE</field>
+            <field name="name">员工承担个人所得税</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ActualSalaryIncomebeforeTax" model="hr.payroll.meta.data">
+            <field name="code">ActualSalaryIncomebeforeTax</field>
+            <field name="name">实际应税</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SalaryTaxER" model="hr.payroll.meta.data">
+            <field name="code">SalaryTaxER</field>
+            <field name="name">公司承担个人所得税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_TotalActualSalary" model="hr.payroll.meta.data">
+            <field name="code">TotalActualSalary</field>
+            <field name="name">累积应税</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_12"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AnnualBonusbeforeTaxEE" model="hr.payroll.meta.data">
+            <field name="code">AnnualBonusbeforeTaxEE</field>
+            <field name="name">年终奖</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AnnualBonusbeforeTaxER" model="hr.payroll.meta.data">
+            <field name="code">AnnualBonusbeforeTaxER</field>
+            <field name="name">公司承担年终奖应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ActualAnnualBonusebeforeTax" model="hr.payroll.meta.data">
+            <field name="code">ActualAnnualBonusebeforeTax</field>
+            <field name="name">年终奖实际应税</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AnnualBonusTaxEE" model="hr.payroll.meta.data">
+            <field name="code">AnnualBonusTaxEE</field>
+            <field name="name">员工承担年终奖税</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_AnnualBonusTaxER" model="hr.payroll.meta.data">
+            <field name="code">AnnualBonusTaxER</field>
+            <field name="name">公司承担年终奖税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_8"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ActualAnnualBonusTotal" model="hr.payroll.meta.data">
+            <field name="code">ActualAnnualBonusTotal</field>
+            <field name="name">年终奖累积应税</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SCIncomebeforeTaxEE" model="hr.payroll.meta.data">
+            <field name="code">SCIncomebeforeTaxEE</field>
+            <field name="name">劳务报酬</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SCIncomebeforeTaxER" model="hr.payroll.meta.data">
+            <field name="code">SCIncomebeforeTaxER</field>
+            <field name="name">公司承担劳务报酬应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ActualSCbeforeTax" model="hr.payroll.meta.data">
+            <field name="code">ActualSCbeforeTax</field>
+            <field name="name">劳务报酬实际应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SCTaxEE" model="hr.payroll.meta.data">
+            <field name="code">SCTaxEE</field>
+            <field name="name">员工承担劳务所得税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SCTaxER" model="hr.payroll.meta.data">
+            <field name="code">SCTaxER</field>
+            <field name="name">企业承担劳务所得税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_8"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SPIncomebeforeTaxEE" model="hr.payroll.meta.data">
+            <field name="code">SPIncomebeforeTaxEE</field>
+            <field name="name">离职补偿金</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SPIncomebeforeTaxER" model="hr.payroll.meta.data">
+            <field name="code">SPIncomebeforeTaxER</field>
+            <field name="name">公司承担离职补偿金应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ActualSPbeforeTax" model="hr.payroll.meta.data">
+            <field name="code">ActualSPbeforeTax</field>
+            <field name="name">离职补偿金实际应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SPTaxEE" model="hr.payroll.meta.data">
+            <field name="code">SPTaxEE</field>
+            <field name="name">个人承担的离职补偿金所得税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_SPaxER" model="hr.payroll.meta.data">
+            <field name="code">SPaxER</field>
+            <field name="name">公司承担的离职补偿金所得税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_8"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_StockIncomebeforeTaxEE" model="hr.payroll.meta.data">
+            <field name="code">StockIncomebeforeTaxEE</field>
+            <field name="name">股权激励所得</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_StockIncomebeforeTaxER" model="hr.payroll.meta.data">
+            <field name="code">StockIncomebeforeTaxER</field>
+            <field name="name">公司承担股权应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_StockMonth" model="hr.payroll.meta.data">
+            <field name="code">StockMonth</field>
+            <field name="name">规定月数</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ActualStockIncomebeforeTax" model="hr.payroll.meta.data">
+            <field name="code">ActualStockIncomebeforeTax</field>
+            <field name="name">股权实际应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_StockIncomeTaxEE" model="hr.payroll.meta.data">
+            <field name="code">StockIncomeTaxEE</field>
+            <field name="name">个人承担股权税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_StockIncomeTaxER" model="hr.payroll.meta.data">
+            <field name="code">StockIncomeTaxER</field>
+            <field name="name">公司承担股权税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_8"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_IIncomebeforeTaxEE" model="hr.payroll.meta.data">
+            <field name="code">IIncomebeforeTaxEE</field>
+            <field name="name">偶然所得</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_2"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_IIncomebeforeTaxER" model="hr.payroll.meta.data">
+            <field name="code">IIncomebeforeTaxER</field>
+            <field name="name">公司承担偶然所得应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_ActualIIncomebeforeTax" model="hr.payroll.meta.data">
+            <field name="code">ActualIIncomebeforeTax</field>
+            <field name="name">偶然所得实际应税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_1"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_IncTaxEE" model="hr.payroll.meta.data">
+            <field name="code">IncTaxEE</field>
+            <field name="name">员工承担偶然所得税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_IncTaxER" model="hr.payroll.meta.data">
+            <field name="code">IncTaxER</field>
+            <field name="name">公司承担偶然所得税</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_8"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_TotalTaxEE" model="hr.payroll.meta.data">
+            <field name="code">TotalTaxEE</field>
+            <field name="name">员工承担的个税合计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_7"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_TotalTaxER" model="hr.payroll.meta.data">
+            <field name="code">TotalTaxER</field>
+            <field name="name">公司承担的个税合计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="True"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_8"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_M001" model="hr.payroll.meta.data">
+            <field name="code">M001</field>
+            <field name="name">商业保险</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_9"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_M002" model="hr.payroll.meta.data">
+            <field name="code">M002</field>
+            <field name="name">meta_data_category_9</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_9"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_NETPAY" model="hr.payroll.meta.data">
+            <field name="code">NETPAY</field>
+            <field name="name">meta_data_category_10</field>
+            <field name="is_necessary" eval="True"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_10"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_    YTD IBT" model="hr.payroll.meta.data">
+            <field name="code">    YTD IBT</field>
+            <field name="name">本年应税累计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_11"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+        <record id="meta_YTD" model="hr.payroll.meta.data">
+            <field name="code">YTD</field>
+            <field name="name">本年个税累计</field>
+            <field name="is_necessary" eval="False"/>
+            <field name="is_only" eval="False"/>
+            <field name="value_type">float</field>
+            <field name="active" eval="True"/>
+            <field name="category_id" ref="payroll_setting.meta_data_category_11"/>
+            <field name="description"></field>
+            <field name="parent_id" ref=""/>
+        </record>
+
+    </data>
+</openerp>

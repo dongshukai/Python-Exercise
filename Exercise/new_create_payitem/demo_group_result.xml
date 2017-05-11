@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="demo_group_data_id" model="hr.payroll.group">
+            <field name="name">测试数据组</field>
+            <field name="code">Test_Group</field>
+            <field name="is_standard_group" eval="False"/>
+        </record>
+
+        
+    <!-- BS001-->
+        <record id="demo_payitem_BS001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_BS001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">基本工资</field>
+            <field name="code">BS001</field>
+            <field name="source">reference</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">0</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- ABS001-->
+        <record id="demo_payitem_ABS001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ABS001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">实际基本工资</field>
+            <field name="code">ABS001</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">if F_IsNew()==True:
+    result=BS001/21.75*F_GetNewHireDays()
+else:
+    result=BS001</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">1</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- reverse_after_tax_payment_adjust-->
+        <record id="demo_payitem_reverse_after_tax_payment_adjust" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_reverse_after_tax_payment_adjust" />
+            <field name="category" ref="" />
+            <field name="name">倒算税后发放调整</field>
+            <field name="code">reverse_after_tax_payment_adjust</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = A009</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- reverse_after_tax_unpayment-->
+        <record id="demo_payitem_reverse_after_tax_unpayment" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_reverse_after_tax_unpayment" />
+            <field name="category" ref="" />
+            <field name="name">计税倒算不发税后</field>
+            <field name="code">reverse_after_tax_unpayment</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- after_tax_unpayment_adjust-->
+        <record id="demo_payitem_after_tax_unpayment_adjust" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_after_tax_unpayment_adjust" />
+            <field name="category" ref="" />
+            <field name="name">税后不发调整 </field>
+            <field name="code">after_tax_unpayment_adjust</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- reverse_after_tax_payment-->
+        <record id="demo_payitem_reverse_after_tax_payment" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_reverse_after_tax_payment" />
+            <field name="category" ref="" />
+            <field name="name">计税倒算发放税后</field>
+            <field name="code">reverse_after_tax_payment</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- after_tax_payment_adjust-->
+        <record id="demo_payitem_after_tax_payment_adjust" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_after_tax_payment_adjust" />
+            <field name="category" ref="" />
+            <field name="name">税后发放调整</field>
+            <field name="code">after_tax_payment_adjust</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- reverse_after_tax_unpayment_adjust-->
+        <record id="demo_payitem_reverse_after_tax_unpayment_adjust" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_reverse_after_tax_unpayment_adjust" />
+            <field name="category" ref="" />
+            <field name="name">倒算税后不发调整</field>
+            <field name="code">reverse_after_tax_unpayment_adjust</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- pre_tax_unpayment_adjustment-->
+        <record id="demo_payitem_pre_tax_unpayment_adjustment" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_pre_tax_unpayment_adjustment" />
+            <field name="category" ref="" />
+            <field name="name">税前不发调整</field>
+            <field name="code">pre_tax_unpayment_adjustment</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- normal_pre_tax_unpayment-->
+        <record id="demo_payitem_normal_pre_tax_unpayment" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_normal_pre_tax_unpayment" />
+            <field name="category" ref="" />
+            <field name="name">计税正算不发税前</field>
+            <field name="code">normal_pre_tax_unpayment</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = A004</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- normal_pre_tax_payment-->
+        <record id="demo_payitem_normal_pre_tax_payment" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_normal_pre_tax_payment" />
+            <field name="category" ref="" />
+            <field name="name">计税正算发放税前</field>
+            <field name="code">normal_pre_tax_payment</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = ABS001+OTA001+OTA002+OTA003</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- pre_tax_payment_adjustment-->
+        <record id="demo_payitem_pre_tax_payment_adjustment" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_pre_tax_payment_adjustment" />
+            <field name="category" ref="" />
+            <field name="name">税前发放调整</field>
+            <field name="code">pre_tax_payment_adjustment</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- tax_differ_adjust-->
+        <record id="demo_payitem_tax_differ_adjust" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_tax_differ_adjust" />
+            <field name="category" ref="" />
+            <field name="name">税金调整</field>
+            <field name="code">tax_differ_adjust</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- after_tax_total-->
+        <record id="demo_payitem_after_tax_total" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_after_tax_total" />
+            <field name="category" ref="" />
+            <field name="name">总税后</field>
+            <field name="code">after_tax_total</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = after_tax_reverse+after_tax_normal</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- tax_total-->
+        <record id="demo_payitem_tax_total" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_tax_total" />
+            <field name="category" ref="" />
+            <field name="name">总税金</field>
+            <field name="code">tax_total</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = before_tax_total-after_tax_total</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- before_tax_total-->
+        <record id="demo_payitem_before_tax_total" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_before_tax_total" />
+            <field name="category" ref="" />
+            <field name="name">总税前</field>
+            <field name="code">before_tax_total</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = func_inverse_tax(after_tax_total)</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- after_tax_normal-->
+        <record id="demo_payitem_after_tax_normal" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_after_tax_normal" />
+            <field name="category" ref="" />
+            <field name="name">正算税后</field>
+            <field name="code">after_tax_normal</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = before_tax_normal-tax_normal</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- before_tax_reverse-->
+        <record id="demo_payitem_before_tax_reverse" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_before_tax_reverse" />
+            <field name="category" ref="" />
+            <field name="name">倒算税前</field>
+            <field name="code">before_tax_reverse</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = before_tax_total-before_tax_normal</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- tax_normal-->
+        <record id="demo_payitem_tax_normal" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_tax_normal" />
+            <field name="category" ref="" />
+            <field name="name">正算税金</field>
+            <field name="code">tax_normal</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = func_income_tax_domestic(before_tax_normal)</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- after_tax_reverse-->
+        <record id="demo_payitem_after_tax_reverse" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_after_tax_reverse" />
+            <field name="category" ref="" />
+            <field name="name">倒算税后</field>
+            <field name="code">after_tax_reverse</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = reverse_after_tax_unpayment_adjust+reverse_after_tax_unpayment+reverse_after_tax_payment_adjust+reverse_after_tax_payment</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- before_tax_normal-->
+        <record id="demo_payitem_before_tax_normal" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_before_tax_normal" />
+            <field name="category" ref="" />
+            <field name="name">正算税前</field>
+            <field name="code">before_tax_normal</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = pre_tax_payment_adjustment+normal_pre_tax_unpayment+pre_tax_unpayment_adjustment+normal_pre_tax_payment</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- tax_reverse-->
+        <record id="demo_payitem_tax_reverse" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_tax_reverse" />
+            <field name="category" ref="" />
+            <field name="name">倒算税金</field>
+            <field name="code">tax_reverse</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = tax_total-tax_normal</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- A004-->
+        <record id="demo_payitem_A004" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A004" />
+            <field name="category" ref="" />
+            <field name="name">车贴</field>
+            <field name="code">A004</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- A009-->
+        <record id="demo_payitem_A009" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_A009" />
+            <field name="category" ref="" />
+            <field name="name">其他补贴1</field>
+            <field name="code">A009</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- final_report_tax-->
+        <record id="demo_payitem_final_report_tax" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_final_report_tax" />
+            <field name="category" ref="" />
+            <field name="name">最终税金</field>
+            <field name="code">final_report_tax</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = tax_total+tax_differ_adjust</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- final_aft_tax-->
+        <record id="demo_payitem_final_aft_tax" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_final_aft_tax" />
+            <field name="category" ref="" />
+            <field name="name">最终税后</field>
+            <field name="code">final_aft_tax</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = after_tax_total+after_tax_unpayment_adjust+after_tax_payment_adjust</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- total_ciic_income-->
+        <record id="demo_payitem_total_ciic_income" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_total_ciic_income" />
+            <field name="category" ref="" />
+            <field name="name">中智实收</field>
+            <field name="code">total_ciic_income</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = NETPAY+final_report_tax</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">5</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- ATT001-->
+        <record id="demo_payitem_ATT001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT001" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">平时加班小时数</field>
+            <field name="code">ATT001</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">20</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- ATT002-->
+        <record id="demo_payitem_ATT002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT002" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">周末加班小时数</field>
+            <field name="code">ATT002</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">21</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- ATT003-->
+        <record id="demo_payitem_ATT003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_ATT003" />
+            <field name="category" ref="payitem_category_2" />
+            <field name="name">节假日加班小时数</field>
+            <field name="code">ATT003</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">22</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- OTA001-->
+        <record id="demo_payitem_OTA001" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_OTA001" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">平时加班津贴</field>
+            <field name="code">OTA001</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = BS001/21.75/8*ATT001</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">24</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- OTA002-->
+        <record id="demo_payitem_OTA002" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_OTA002" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">周末加班津贴</field>
+            <field name="code">OTA002</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result=BS001/21.75/8*ATT002*2</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">25</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- OTA003-->
+        <record id="demo_payitem_OTA003" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_OTA003" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">假日加班津贴</field>
+            <field name="code">OTA003</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = BS001/21.75/8*ATT003*3</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">26</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- SalaryIncomebeforeTaxEE-->
+        <record id="demo_payitem_SalaryIncomebeforeTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_SalaryIncomebeforeTaxEE" />
+            <field name="category" ref="payitem_category_12" />
+            <field name="name">应税工资</field>
+            <field name="code">SalaryIncomebeforeTaxEE</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = normal_pre_tax_payment+normal_pre_tax_unpayment</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">89</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- AnnualBonusbeforeTaxEE-->
+        <record id="demo_payitem_AnnualBonusbeforeTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AnnualBonusbeforeTaxEE" />
+            <field name="category" ref="payitem_category_1" />
+            <field name="name">年终奖</field>
+            <field name="code">AnnualBonusbeforeTaxEE</field>
+            <field name="source">import</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">95</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- AnnualBonusTaxEE-->
+        <record id="demo_payitem_AnnualBonusTaxEE" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_AnnualBonusTaxEE" />
+            <field name="category" ref="payitem_category_7" />
+            <field name="name">员工承担年终奖税</field>
+            <field name="code">AnnualBonusTaxEE</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">func_annual_bonus_tax_domestic(AnnualBonusbeforeTaxEE,SalaryIncomebeforeTaxEE)</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">98</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    <!-- NETPAY-->
+        <record id="demo_payitem_NETPAY" model="hr.payroll.payitem">
+            <field name="meta_data" ref="meta_NETPAY" />
+            <field name="category" ref="payitem_category_10" />
+            <field name="name">实发工资</field>
+            <field name="code">NETPAY</field>
+            <field name="source">formula</field>
+            <field name="value_type">float</field>
+            <field name="scope">company</field>
+            <field name="amount_python_compute">result = reverse_after_tax_payment+after_tax_payment_adjust+pre_tax_payment_adjustment-tax_differ_adjust-tax_normal+normal_pre_tax_payment+reverse_after_tax_payment_adjust</field>
+            <field name="ref_payitem" ref=""/>
+            <field name="sequence">126</field>
+            <field name="group_id" ref="demo_group_data_id" />
+            <field name="active" eval="1" />
+            <field name="default_value">0.0</field>
+            <field name="fixed_value">0.0</field>
+            <field name="is_standard_payitem" eval="0" />
+        </record>
+
+    </data>
+</openerp>
